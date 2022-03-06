@@ -22,23 +22,22 @@ data:
     links: []
   bundledCode: "#line 1 \"math/number_theory/my_lcm.cpp\"\n/**\n * @brief LCM(\u6700\
     \u5C0F\u516C\u500D\u6570)\n * @docs docs/math/number_theory/my_lcm.md\n */\n\n\
-    #include <bits/stdc++.h>\n\n#line 1 \"math/number_theory/my_gcd.cpp\"\n/**\n *\
-    \ @brief GCD(\u6700\u5927\u516C\u7D04\u6570/\u30E6\u30FC\u30AF\u30EA\u30C3\u30C9\
-    \u306E\u4E92\u9664\u6CD5)\n * @docs docs/math/number_theory/my_gcd.md\n */\ntemplate\
-    \ <typename T>\nT my_gcd(T a, T b) {\n    if (a < b) return my_gcd(b, a);\n  \
-    \  T r;\n    while ((r = a % b)) {\n        a = b;\n        b = r;\n    }\n  \
-    \  return b;\n}\n#line 9 \"math/number_theory/my_lcm.cpp\"\n\ntemplate <typename\
-    \ T>\nT my_lcm(T a, T b) {\n    return a / my_gcd(a, b) * b;\n}\n"
+    #line 1 \"math/number_theory/my_gcd.cpp\"\n/**\n * @brief GCD(\u6700\u5927\u516C\
+    \u7D04\u6570/\u30E6\u30FC\u30AF\u30EA\u30C3\u30C9\u306E\u4E92\u9664\u6CD5)\n *\
+    \ @docs docs/math/number_theory/my_gcd.md\n */\ntemplate <typename T>\nT my_gcd(T\
+    \ a, T b) {\n    if (a < b) return my_gcd(b, a);\n    T r;\n    while ((r = a\
+    \ % b)) {\n        a = b;\n        b = r;\n    }\n    return b;\n}\n#line 7 \"\
+    math/number_theory/my_lcm.cpp\"\n\ntemplate <typename T>\nT my_lcm(T a, T b) {\n\
+    \    return a / my_gcd(a, b) * b;\n}\n"
   code: "/**\n * @brief LCM(\u6700\u5C0F\u516C\u500D\u6570)\n * @docs docs/math/number_theory/my_lcm.md\n\
-    \ */\n\n#include <bits/stdc++.h>\n\n#include \"../../math/number_theory/my_gcd.cpp\"\
-    \n\ntemplate <typename T>\nT my_lcm(T a, T b) {\n    return a / my_gcd(a, b) *\
-    \ b;\n}\n"
+    \ */\n\n#include \"../../math/number_theory/my_gcd.cpp\"\n\ntemplate <typename\
+    \ T>\nT my_lcm(T a, T b) {\n    return a / my_gcd(a, b) * b;\n}\n"
   dependsOn:
   - math/number_theory/my_gcd.cpp
   isVerificationFile: false
   path: math/number_theory/my_lcm.cpp
   requiredBy: []
-  timestamp: '2022-03-06 18:04:45+09:00'
+  timestamp: '2022-03-06 18:11:06+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - Tests/AizuOnlineJudge/0005.test.cpp
