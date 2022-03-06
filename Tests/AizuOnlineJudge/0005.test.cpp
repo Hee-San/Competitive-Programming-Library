@@ -15,4 +15,5 @@ int main() {
     while (cin >> a >> b) {
         cout << my_gcd(a, b) << " " << my_lcm(a, b) << endl;
     }
+    return 0;
 }
