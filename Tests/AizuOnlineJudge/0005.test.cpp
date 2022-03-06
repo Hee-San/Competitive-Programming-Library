@@ -1,4 +1,4 @@
-#define PROBLEM "https://onlinejudge.u-aizu.ac.jp/challenges/search/titles/0005"
+#define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=0005"
 /**
  * @brief 最大公約数と最小公倍数
  */
