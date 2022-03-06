@@ -1,0 +1,14 @@
+/**
+ * @brief GCD(最大公約数/ユークリッドの互除法)
+ * @docs docs/math/number_theory/my_gcd.md
+ */
+template <typename T>
+T my_gcd(T a, T b) {
+    if (a < b) return gcd_func(b, a);
+    T r;
+    while ((r = a % b)) {
+        a = b;
+        b = r;
+    }
+    return b;
+}
