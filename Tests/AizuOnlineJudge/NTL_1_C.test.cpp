@@ -22,5 +22,4 @@ int main() {
     }
 
     cout << lcm << endl;
-    return 0;
 }
