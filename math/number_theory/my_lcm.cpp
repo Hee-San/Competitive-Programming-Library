@@ -5,7 +5,9 @@
 
 #include <bits/stdc++.h>
 
+#include "../../math/number_theory/my_gcd.cpp"
+
 template <typename T>
 T my_lcm(T a, T b) {
-    return a / gcd(a, b) * b;
+    return a / my_gcd(a, b) * b;
 }
