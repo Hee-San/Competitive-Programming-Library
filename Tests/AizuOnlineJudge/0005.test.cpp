@@ -5,7 +5,6 @@
 
 #include <bits/stdc++.h>
 
-#include "../../math/number_theory/my_gcd.cpp"
 #include "../../math/number_theory/my_lcm.cpp"
 
 using namespace std;
