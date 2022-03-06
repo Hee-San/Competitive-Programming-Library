@@ -9,9 +9,6 @@ data:
   - icon: ':x:'
     path: Tests/AizuOnlineJudge/0005.test.cpp
     title: "\u6700\u5927\u516C\u7D04\u6570\u3068\u6700\u5C0F\u516C\u500D\u6570"
-  - icon: ':x:'
-    path: Tests/AizuOnlineJudge/0005.test.cpp
-    title: "\u6700\u5927\u516C\u7D04\u6570\u3068\u6700\u5C0F\u516C\u500D\u6570"
   - icon: ':heavy_check_mark:'
     path: Tests/AizuOnlineJudge/NTL_1_C.test.cpp
     title: "LCM(\u6700\u5C0F\u516C\u500D\u6570)"
@@ -41,7 +38,6 @@ data:
   timestamp: '2022-03-06 17:47:39+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - Tests/AizuOnlineJudge/0005.test.cpp
   - Tests/AizuOnlineJudge/0005.test.cpp
   - Tests/AizuOnlineJudge/NTL_1_C.test.cpp
 documentation_of: math/number_theory/my_gcd.cpp
