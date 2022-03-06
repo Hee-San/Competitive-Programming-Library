@@ -1,40 +1,34 @@
 ---
 data:
-  _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: math/number_theory/my_gcd.cpp
-    title: "GCD(\u6700\u5927\u516C\u7D04\u6570/\u30E6\u30FC\u30AF\u30EA\u30C3\u30C9\
-      \u306E\u4E92\u9664\u6CD5)"
-  _extendedRequiredBy: []
+  _extendedDependsOn: []
+  _extendedRequiredBy:
+  - icon: ':warning:'
+    path: Tests/AizuOnlineJudge/0005.cpp
+    title: "\u6700\u5927\u516C\u7D04\u6570\u3068\u6700\u5C0F\u516C\u500D\u6570"
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Tests/AizuOnlineJudge/NTL_1_C.test.cpp
     title: "LCM(\u6700\u5C0F\u516C\u500D\u6570)"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/math/number_theory/my_lcm.md
     document_title: "LCM(\u6700\u5C0F\u516C\u500D\u6570)"
     links: []
-  bundledCode: "#line 1 \"math/number_theory/my_gcd.cpp\"\n/**\n * @brief GCD(\u6700\
-    \u5927\u516C\u7D04\u6570/\u30E6\u30FC\u30AF\u30EA\u30C3\u30C9\u306E\u4E92\u9664\
-    \u6CD5)\n * @docs docs/math/number_theory/my_gcd.md\n */\ntemplate <typename T>\n\
-    T my_gcd(T a, T b) {\n    if (a < b) return my_gcd(b, a);\n    T r;\n    while\
-    \ ((r = a % b)) {\n        a = b;\n        b = r;\n    }\n    return b;\n}\n#line\
-    \ 2 \"math/number_theory/my_lcm.cpp\"\n/**\n * @brief LCM(\u6700\u5C0F\u516C\u500D\
-    \u6570)\n * @docs docs/math/number_theory/my_lcm.md\n */\n\ntemplate <typename\
-    \ T>\nT my_lcm(T a, T b) {\n    return a / my_gcd(a, b) * b;\n}\n"
-  code: "#include \"my_gcd.cpp\"\n/**\n * @brief LCM(\u6700\u5C0F\u516C\u500D\u6570\
-    )\n * @docs docs/math/number_theory/my_lcm.md\n */\n\ntemplate <typename T>\n\
-    T my_lcm(T a, T b) {\n    return a / my_gcd(a, b) * b;\n}\n"
-  dependsOn:
-  - math/number_theory/my_gcd.cpp
+  bundledCode: "#line 1 \"math/number_theory/my_lcm.cpp\"\n/**\n * @brief LCM(\u6700\
+    \u5C0F\u516C\u500D\u6570)\n * @docs docs/math/number_theory/my_lcm.md\n */\n\n\
+    template <typename T>\nT my_lcm(T a, T b) {\n    return a / gcd(a, b) * b;\n}\n"
+  code: "/**\n * @brief LCM(\u6700\u5C0F\u516C\u500D\u6570)\n * @docs docs/math/number_theory/my_lcm.md\n\
+    \ */\n\ntemplate <typename T>\nT my_lcm(T a, T b) {\n    return a / gcd(a, b)\
+    \ * b;\n}\n"
+  dependsOn: []
   isVerificationFile: false
   path: math/number_theory/my_lcm.cpp
-  requiredBy: []
-  timestamp: '2022-03-06 17:47:39+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  requiredBy:
+  - Tests/AizuOnlineJudge/0005.cpp
+  timestamp: '2022-03-06 17:55:14+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - Tests/AizuOnlineJudge/NTL_1_C.test.cpp
 documentation_of: math/number_theory/my_lcm.cpp
@@ -46,12 +40,11 @@ title: "LCM(\u6700\u5C0F\u516C\u500D\u6570)"
 ---
 ## 概要
 
-ライブラリチェッカーのテストのために作成。  
 2数の最小公倍数を求める。
 
 ## 使い方
 
-実際には`std::lcm` を使う。
+C++17では`std::lcm` を使う。
 
 ## 計算量
 
