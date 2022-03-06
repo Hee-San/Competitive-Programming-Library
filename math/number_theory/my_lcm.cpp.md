@@ -1,11 +1,11 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy:
-  - icon: ':warning:'
-    path: Tests/AizuOnlineJudge/0005.cpp
-    title: "\u6700\u5927\u516C\u7D04\u6570\u3068\u6700\u5C0F\u516C\u500D\u6570"
+  _extendedRequiredBy: []
   _extendedVerifiedWith:
+  - icon: ':x:'
+    path: Tests/AizuOnlineJudge/0005.test.cpp
+    title: "\u6700\u5927\u516C\u7D04\u6570\u3068\u6700\u5C0F\u516C\u500D\u6570"
   - icon: ':x:'
     path: Tests/AizuOnlineJudge/NTL_1_C.test.cpp
     title: "LCM(\u6700\u5C0F\u516C\u500D\u6570)"
@@ -18,18 +18,19 @@ data:
     links: []
   bundledCode: "#line 1 \"math/number_theory/my_lcm.cpp\"\n/**\n * @brief LCM(\u6700\
     \u5C0F\u516C\u500D\u6570)\n * @docs docs/math/number_theory/my_lcm.md\n */\n\n\
-    template <typename T>\nT my_lcm(T a, T b) {\n    return a / gcd(a, b) * b;\n}\n"
+    #include <bits/stdc++.h>\n\ntemplate <typename T>\nT my_lcm(T a, T b) {\n    return\
+    \ a / gcd(a, b) * b;\n}\n"
   code: "/**\n * @brief LCM(\u6700\u5C0F\u516C\u500D\u6570)\n * @docs docs/math/number_theory/my_lcm.md\n\
-    \ */\n\ntemplate <typename T>\nT my_lcm(T a, T b) {\n    return a / gcd(a, b)\
-    \ * b;\n}\n"
+    \ */\n\n#include <bits/stdc++.h>\n\ntemplate <typename T>\nT my_lcm(T a, T b)\
+    \ {\n    return a / gcd(a, b) * b;\n}\n"
   dependsOn: []
   isVerificationFile: false
   path: math/number_theory/my_lcm.cpp
-  requiredBy:
-  - Tests/AizuOnlineJudge/0005.cpp
-  timestamp: '2022-03-06 17:55:14+09:00'
+  requiredBy: []
+  timestamp: '2022-03-06 17:59:04+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
+  - Tests/AizuOnlineJudge/0005.test.cpp
   - Tests/AizuOnlineJudge/NTL_1_C.test.cpp
 documentation_of: math/number_theory/my_lcm.cpp
 layout: document
