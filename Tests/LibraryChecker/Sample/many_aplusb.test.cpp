@@ -1,7 +1,4 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/many_aplusb"
-/**
- * @brief many A+B
-*/
 
 #include <bits/stdc++.h>
 using namespace std;
