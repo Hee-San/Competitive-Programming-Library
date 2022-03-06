@@ -3,34 +3,24 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/4/ALDS1_4_B
-    links:
-    - https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/4/ALDS1_4_B
-  bundledCode: "#line 1 \"example.test.cpp\"\n#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/4/ALDS1_4_B\"\
-    \n#include <algorithm>\n#include <iostream>\n#include <vector>\n#define REP(i,\
-    \ n) for (int i = 0; (i) < (int)(n); ++ (i))\n#define ALL(x) std::begin(x), std::end(x)\n\
-    using namespace std;\n\nint main() {\n    int n; cin >> n;\n    vector<int> s(n);\n\
-    \    REP (i, n) {\n        cin >> s[i];\n    }\n    int q; cin >> q;\n    int\
-    \ cnt = 0;\n    while (q --) {\n        int t_i; cin >> t_i;\n        cnt += binary_search(ALL(s),\
-    \ t_i);\n    }\n    cout << cnt << endl;\n    return 0;\n}\n"
-  code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/4/ALDS1_4_B\"\
-    \n#include <algorithm>\n#include <iostream>\n#include <vector>\n#define REP(i,\
-    \ n) for (int i = 0; (i) < (int)(n); ++ (i))\n#define ALL(x) std::begin(x), std::end(x)\n\
-    using namespace std;\n\nint main() {\n    int n; cin >> n;\n    vector<int> s(n);\n\
-    \    REP (i, n) {\n        cin >> s[i];\n    }\n    int q; cin >> q;\n    int\
-    \ cnt = 0;\n    while (q --) {\n        int t_i; cin >> t_i;\n        cnt += binary_search(ALL(s),\
-    \ t_i);\n    }\n    cout << cnt << endl;\n    return 0;\n}\n"
+    links: []
+  bundledCode: "#line 1 \"example.test.cpp\"\n#include <bits/stdc++.h>\nusing namespace\
+    \ std;\ntypedef long long ll;\n\nint main() {\n    ll A, B;\n    cin >> A >> B;\n\
+    \    \n    ll ans = A + B;\n    cout << ans << endl;\n}\n"
+  code: "#include <bits/stdc++.h>\nusing namespace std;\ntypedef long long ll;\n\n\
+    int main() {\n    ll A, B;\n    cin >> A >> B;\n    \n    ll ans = A + B;\n  \
+    \  cout << ans << endl;\n}\n"
   dependsOn: []
   isVerificationFile: true
   path: example.test.cpp
   requiredBy: []
-  timestamp: '2022-03-05 20:10:39+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2022-03-06 16:47:46+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: example.test.cpp
 layout: document
