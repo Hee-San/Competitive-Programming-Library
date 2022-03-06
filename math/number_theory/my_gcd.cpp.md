@@ -2,19 +2,16 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/number_theory/my_lcm.cpp
     title: "LCM(\u6700\u5C0F\u516C\u500D\u6570)"
   _extendedVerifiedWith:
-  - icon: ':x:'
-    path: Tests/AizuOnlineJudge/0005.test.cpp
-    title: "\u6700\u5927\u516C\u7D04\u6570\u3068\u6700\u5C0F\u516C\u500D\u6570"
   - icon: ':heavy_check_mark:'
     path: Tests/AizuOnlineJudge/NTL_1_C.test.cpp
     title: "LCM(\u6700\u5C0F\u516C\u500D\u6570)"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/math/number_theory/my_gcd.md
     document_title: "GCD(\u6700\u5927\u516C\u7D04\u6570/\u30E6\u30FC\u30AF\u30EA\u30C3\
@@ -36,9 +33,8 @@ data:
   requiredBy:
   - math/number_theory/my_lcm.cpp
   timestamp: '2022-03-06 17:47:39+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - Tests/AizuOnlineJudge/0005.test.cpp
   - Tests/AizuOnlineJudge/NTL_1_C.test.cpp
 documentation_of: math/number_theory/my_gcd.cpp
 layout: document
