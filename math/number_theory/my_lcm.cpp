@@ -3,8 +3,6 @@
  * @docs docs/math/number_theory/my_lcm.md
  */
 
-#include <bits/stdc++.h>
-
 #include "../../math/number_theory/my_gcd.cpp"
 
 template <typename T>
