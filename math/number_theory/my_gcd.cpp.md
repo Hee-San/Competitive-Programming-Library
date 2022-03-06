@@ -44,3 +44,14 @@ redirect_from:
 title: "GCD(\u6700\u5927\u516C\u7D04\u6570/\u30E6\u30FC\u30AF\u30EA\u30C3\u30C9\u306E\
   \u4E92\u9664\u6CD5)"
 ---
+## 概要
+
+2数の最大公約数を求める。
+
+## 使い方
+
+実際には`std::gcd` を使う。
+
+## 計算量
+
+$O(log(min(a, b)))$

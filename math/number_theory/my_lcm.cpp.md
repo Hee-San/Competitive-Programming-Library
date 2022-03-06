@@ -44,3 +44,14 @@ redirect_from:
 - /library/math/number_theory/my_lcm.cpp.html
 title: "LCM(\u6700\u5C0F\u516C\u500D\u6570)"
 ---
+## 概要
+
+2数の最小公倍数を求める。
+
+## 使い方
+
+実際には`std::lcm` を使う。
+
+## 計算量
+
+$O(log(min(a, b)))$
