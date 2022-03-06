@@ -4,7 +4,7 @@
  */
 template <typename T>
 T my_gcd(T a, T b) {
-    if (a < b) return gcd_func(b, a);
+    if (a < b) return my_gcd(b, a);
     T r;
     while ((r = a % b)) {
         a = b;
