@@ -1,5 +1,5 @@
 /**
- * @brief Segment Tree(セグメント木)
+ * @brief Segment Tree(セグメント木, 一点を更新・区間の演算結果を取得)
  * @docs docs/structure/segment_tree/segment_tree.md
  */
 
@@ -35,6 +35,11 @@ struct SegmentTree {
             x = (x - 1) / 2;
             seg[x] = function(seg[2 * x + 1], seg[2 * x + 2]);
         }
+    }
+
+    T get(int x) {
+        x += width - 1;
+        return seg[x];
     }
 
     T get(int a, int b, int k = 0, int l = 0, int r = -1) {
