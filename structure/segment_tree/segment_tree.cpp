@@ -1,6 +1,6 @@
 /**
  * @brief Segment Tree(セグメント木)
- * @docs docs/structure/segment_tree.md
+ * @docs docs/structure/segment_tree/segment_tree.md
  */
 
 using namespace std;
