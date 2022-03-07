@@ -12,13 +12,13 @@ data:
   _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://onlinejudge.u-aizu.ac.jp/problems/DSL_2_A
+    PROBLEM: https://onlinejudge.u-aizu.ac.jp/problems/DSL_2_B
     document_title: "\u533A\u9593\u306E\u548C\u30FB\u4E00\u70B9\u52A0\u7B97 Range\
       \ Sum Query (RSQ)"
     links:
-    - https://onlinejudge.u-aizu.ac.jp/problems/DSL_2_A
+    - https://onlinejudge.u-aizu.ac.jp/problems/DSL_2_B
   bundledCode: "#line 1 \"Tests/AizuOnlineJudge/DSL_2_B.test.cpp\"\n#define PROBLEM\
-    \ \"https://onlinejudge.u-aizu.ac.jp/problems/DSL_2_A\"\n/**\n * @brief \u533A\
+    \ \"https://onlinejudge.u-aizu.ac.jp/problems/DSL_2_B\"\n/**\n * @brief \u533A\
     \u9593\u306E\u548C\u30FB\u4E00\u70B9\u52A0\u7B97 Range Sum Query (RSQ)\n */\n\n\
     #include <bits/stdc++.h>\n\n#line 1 \"structure/segment_tree/segment_tree.cpp\"\
     \n/**\n * @brief Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728, \u4E00\u70B9\
@@ -48,7 +48,7 @@ data:
     \ >> y;\n        if (com == 0) {\n            seg.update(x, seg.get(x) + y);\n\
     \        } else {\n            cout << seg.get(x, y + 1) << endl;\n        }\n\
     \    }\n}\n"
-  code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/problems/DSL_2_A\"\n/**\n\
+  code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/problems/DSL_2_B\"\n/**\n\
     \ * @brief \u533A\u9593\u306E\u548C\u30FB\u4E00\u70B9\u52A0\u7B97 Range Sum Query\
     \ (RSQ)\n */\n\n#include <bits/stdc++.h>\n\n#include \"../../structure/segment_tree/segment_tree.cpp\"\
     \n\nusing namespace std;\ntypedef long long ll;\ntypedef vector<ll> vi;\n\nint\
@@ -63,7 +63,7 @@ data:
   isVerificationFile: true
   path: Tests/AizuOnlineJudge/DSL_2_B.test.cpp
   requiredBy: []
-  timestamp: '2022-03-07 23:27:11+09:00'
+  timestamp: '2022-03-07 23:59:44+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: Tests/AizuOnlineJudge/DSL_2_B.test.cpp
