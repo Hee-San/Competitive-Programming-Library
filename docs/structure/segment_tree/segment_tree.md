@@ -31,6 +31,6 @@ ex.
 
 ## 計算量
 
--  `build` : O(n)
--  `update` : O(log(n))
--  `get` : O(log(n))
+-  `build` : $O(n)$
+-  `update` : $O(log(n))$
+-  `get` : $O(log(n))$
