@@ -5,7 +5,7 @@
 
 #include <bits/stdc++.h>
 
-#include "../../structure/segment_tree/segment_tree.cpp"
+#include "../../../structure/segment_tree/segment_tree.cpp"
 
 using namespace std;
 typedef long long ll;
