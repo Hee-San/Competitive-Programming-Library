@@ -87,11 +87,11 @@ title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
   - `f` : 区間に対する演算
   - `id` : 単位元
 
-  ex.  
-    - 区間和 : `SegmentTree<ll> seg(n, [](ll a, ll b) { return a + b; }, 0);`
-    - 区間max : `SegmentTree<ll> seg(n, [](ll a, ll b) { return max(a, b); }, );`
-    - 区間min : `SegmentTree<ll> seg(n, [](ll a, ll b) { return min(a, b); }, LLONG_MAX);`
-    - 区間xor : `SegmentTree<ll> seg(n, [](ll a, ll b) { return a ^ b; }, 0);`
+ex.  
+  - 区間和 : `SegmentTree<ll> seg(n, [](ll a, ll b) { return a + b; }, 0);`
+  - 区間max : `SegmentTree<ll> seg(n, [](ll a, ll b) { return max(a, b); }, );`
+  - 区間min : `SegmentTree<ll> seg(n, [](ll a, ll b) { return min(a, b); }, LLONG_MAX);`
+  - 区間xor : `SegmentTree<ll> seg(n, [](ll a, ll b) { return a ^ b; }, 0);`
 
 `seg.build(A)` : 配列Aをセグメント木に設定する。
 
