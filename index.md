@@ -10,9 +10,17 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/number_theory/my_lcm.cpp
       title: "LCM(\u6700\u5C0F\u516C\u500D\u6570)"
+  - name: structure/segment_tree
+    pages:
+    - icon: ':x:'
+      path: structure/segment_tree/segment_tree.cpp
+      title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
   verificationCategories:
   - name: Tests/AizuOnlineJudge
     pages:
+    - icon: ':x:'
+      path: Tests/AizuOnlineJudge/DSL_2_A.test.cpp
+      title: Range Minimum Query (RMQ)
     - icon: ':heavy_check_mark:'
       path: Tests/AizuOnlineJudge/NTL_1_C.test.cpp
       title: "LCM(\u6700\u5C0F\u516C\u500D\u6570)"
