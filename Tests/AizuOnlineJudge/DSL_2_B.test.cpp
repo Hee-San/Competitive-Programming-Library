@@ -22,8 +22,11 @@ int main() {
         ll com, x, y;
         cin >> com >> x >> y;
         if (com == 0) {
+            x--;
             seg.update(x, seg.get(x) + y);
         } else {
+            x--;
+            y--;
             cout << seg.get(x, y + 1) << endl;
         }
     }
