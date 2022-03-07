@@ -1,4 +1,4 @@
-#define PROBLEM "https://onlinejudge.u-aizu.ac.jp/problems/DSL_2_A"
+#define PROBLEM "https://onlinejudge.u-aizu.ac.jp/problems/DSL_2_B"
 /**
  * @brief 区間の和・一点加算 Range Sum Query (RSQ)
  */
