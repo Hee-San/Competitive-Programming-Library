@@ -7,16 +7,16 @@ data:
     path: Tests/AizuOnlineJudge/DSL_2_A.test.cpp
     title: "\u533A\u9593\u306E\u6700\u5C0F\u5024\u30FB\u4E00\u70B9\u66F4\u65B0 Range\
       \ Minimum Query (RMQ)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Tests/AizuOnlineJudge/DSL_2_B.test.cpp
     title: "\u533A\u9593\u306E\u548C\u30FB\u4E00\u70B9\u52A0\u7B97 Range Sum Query\
       \ (RSQ)"
   - icon: ':heavy_check_mark:'
     path: Tests/LibraryChecker/Data_Structure/staticrmq.test.cpp
     title: "\u533A\u9593\u306E\u6700\u5C0F\u5024"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/structure/segment_tree/segment_tree.md
     document_title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728, \u4E00\u70B9\
@@ -69,7 +69,7 @@ data:
   path: structure/segment_tree/segment_tree.cpp
   requiredBy: []
   timestamp: '2022-03-07 23:27:11+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - Tests/LibraryChecker/Data_Structure/staticrmq.test.cpp
   - Tests/AizuOnlineJudge/DSL_2_B.test.cpp
