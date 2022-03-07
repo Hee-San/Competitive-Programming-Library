@@ -6,9 +6,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: Tests/AizuOnlineJudge/DSL_2_A.test.cpp
     title: Range Minimum Query (RMQ)
-  _isVerificationFailed: false
+  - icon: ':x:'
+    path: Tests/LibraryChecker/Data_Structure/staticrmq.test.cpp
+    title: Static RMQ
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     _deprecated_at_docs: docs/structure/segment_tree.md
     document_title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
@@ -54,8 +57,9 @@ data:
   path: structure/segment_tree/segment_tree.cpp
   requiredBy: []
   timestamp: '2022-03-07 15:28:20+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
+  - Tests/LibraryChecker/Data_Structure/staticrmq.test.cpp
   - Tests/AizuOnlineJudge/DSL_2_A.test.cpp
 documentation_of: structure/segment_tree/segment_tree.cpp
 layout: document
