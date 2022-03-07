@@ -1,9 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: structure/segment_tree/segment_tree.cpp
-    title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
+    title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728, \u4E00\u70B9\u3092\u66F4\
+      \u65B0\u30FB\u533A\u9593\u306E\u6F14\u7B97\u7D50\u679C\u3092\u53D6\u5F97)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -19,7 +20,8 @@ data:
     \n#define PROBLEM \"https://judge.yosupo.jp/problem/staticrmq\"\n/**\n * @brief\
     \ \u533A\u9593\u306E\u6700\u5C0F\u5024\n */\n\n#include <bits/stdc++.h>\n\n#line\
     \ 1 \"structure/segment_tree/segment_tree.cpp\"\n/**\n * @brief Segment Tree(\u30BB\
-    \u30B0\u30E1\u30F3\u30C8\u6728)\n * @docs docs/structure/segment_tree/segment_tree.md\n\
+    \u30B0\u30E1\u30F3\u30C8\u6728, \u4E00\u70B9\u3092\u66F4\u65B0\u30FB\u533A\u9593\
+    \u306E\u6F14\u7B97\u7D50\u679C\u3092\u53D6\u5F97)\n * @docs docs/structure/segment_tree/segment_tree.md\n\
     \ */\n\nusing namespace std;\n\ntemplate <typename T>\nstruct SegmentTree {\n\
     \    typedef T (*F)(T, T);\n    int n, height, width;\n    vector<T> seg;\n  \
     \  F function;\n    T identity;\n\n    SegmentTree(int n, F function, T identity)\
@@ -31,7 +33,8 @@ data:
     \ - 2; i >= 0; i--) seg[i] = function(seg[2 * i + 1], seg[2 * i + 2]);\n    }\n\
     \n    void update(int x, T val) {\n        x += width - 1;\n        seg[x] = val;\n\
     \        while (x > 0) {\n            x = (x - 1) / 2;\n            seg[x] = function(seg[2\
-    \ * x + 1], seg[2 * x + 2]);\n        }\n    }\n\n    T get(int a, int b, int\
+    \ * x + 1], seg[2 * x + 2]);\n        }\n    }\n\n    T get(int x) {\n       \
+    \ x += width - 1;\n        return seg[x];\n    }\n\n    T get(int a, int b, int\
     \ k = 0, int l = 0, int r = -1) {\n        if (r < 0) r = width;\n        if (r\
     \ <= a || b <= l) return identity;\n        if (a <= l && r <= b) return seg[k];\n\
     \        T vl = get(a, b, 2 * k + 1, l, (l + r) / 2);\n        T vr = get(a, b,\
@@ -57,7 +60,7 @@ data:
   isVerificationFile: true
   path: Tests/LibraryChecker/Data_Structure/staticrmq.test.cpp
   requiredBy: []
-  timestamp: '2022-03-07 17:26:16+09:00'
+  timestamp: '2022-03-07 23:27:11+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Tests/LibraryChecker/Data_Structure/staticrmq.test.cpp

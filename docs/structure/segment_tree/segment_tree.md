@@ -28,11 +28,14 @@ ex.
 
 `seg.update(x, val)` : x番目の値をvalに更新する。
 
-`seg.get(l, r)` : 区間[l, r)についての演算結果を取得する
+`seg.get(x)` : x番目の値を取得する。
+
+`seg.get(l, r)` : 区間[l, r)についての演算結果を取得する。
 
 
 ## 計算量
 
--  `build` : $O(n)$
--  `update` : $O(log(n))$
--  `get` : $O(log(n))$
+-  `build(A)` : $O(n)$
+-  `update(x, val)` : $O(log(n))$
+-  `get(x)` : $O(1)$
+-  `get(l, r)` : $O(log(n))$
