@@ -6,12 +6,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: Tests/AizuOnlineJudge/DSL_2_A.test.cpp
     title: Range Minimum Query (RMQ)
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Tests/LibraryChecker/Data_Structure/staticrmq.test.cpp
     title: Static RMQ
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/structure/segment_tree.md
     document_title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
@@ -23,11 +23,11 @@ data:
     \  F function;\n    T identity;\n\n    SegmentTree(int n, F function, T identity)\
     \ : n(n), function(function), identity(identity) {\n        height = 1, width\
     \ = 1;\n        while (width < n) {\n            height++;\n            width\
-    \ *=2;\n        }\n        seg.assign(2 * width - 1, identity);\n    }\n\n   \
-    \ void build(vector<T> v) {\n        assert(n == (int)v.size());\n        for\
+    \ *= 2;\n        }\n        seg.assign(2 * width - 1, identity);\n    }\n\n  \
+    \  void build(vector<T> v) {\n        assert(n == (int)v.size());\n        for\
     \ (int i = 0; i < n; i++) seg[width + i - 1] = v[i];\n        for (int i = width\
-    \ - 2; i >= 0; i--) seg[i] = function(seg[2 * i], seg[2 * i + 1]);\n    }\n\n\
-    \    void update(int x, T val) {\n        x += width - 1;\n        seg[x] = val;\n\
+    \ - 2; i >= 0; i--) seg[i] = function(seg[2 * i + 1], seg[2 * i + 2]);\n    }\n\
+    \n    void update(int x, T val) {\n        x += width - 1;\n        seg[x] = val;\n\
     \        while (x > 0) {\n            x = (x - 1) / 2;\n            seg[x] = function(seg[2\
     \ * x + 1], seg[2 * x + 2]);\n        }\n    }\n\n    T get(int a, int b, int\
     \ k = 0, int l = 0, int r = -1) {\n        if (r < 0) r = width;\n        if (r\
@@ -40,10 +40,10 @@ data:
     \    vector<T> seg;\n    F function;\n    T identity;\n\n    SegmentTree(int n,\
     \ F function, T identity) : n(n), function(function), identity(identity) {\n \
     \       height = 1, width = 1;\n        while (width < n) {\n            height++;\n\
-    \            width *=2;\n        }\n        seg.assign(2 * width - 1, identity);\n\
+    \            width *= 2;\n        }\n        seg.assign(2 * width - 1, identity);\n\
     \    }\n\n    void build(vector<T> v) {\n        assert(n == (int)v.size());\n\
     \        for (int i = 0; i < n; i++) seg[width + i - 1] = v[i];\n        for (int\
-    \ i = width - 2; i >= 0; i--) seg[i] = function(seg[2 * i], seg[2 * i + 1]);\n\
+    \ i = width - 2; i >= 0; i--) seg[i] = function(seg[2 * i + 1], seg[2 * i + 2]);\n\
     \    }\n\n    void update(int x, T val) {\n        x += width - 1;\n        seg[x]\
     \ = val;\n        while (x > 0) {\n            x = (x - 1) / 2;\n            seg[x]\
     \ = function(seg[2 * x + 1], seg[2 * x + 2]);\n        }\n    }\n\n    T get(int\
@@ -56,8 +56,8 @@ data:
   isVerificationFile: false
   path: structure/segment_tree/segment_tree.cpp
   requiredBy: []
-  timestamp: '2022-03-07 15:28:20+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  timestamp: '2022-03-07 16:50:39+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - Tests/LibraryChecker/Data_Structure/staticrmq.test.cpp
   - Tests/AizuOnlineJudge/DSL_2_A.test.cpp

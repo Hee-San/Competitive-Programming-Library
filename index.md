@@ -12,7 +12,7 @@ data:
       title: "LCM(\u6700\u5C0F\u516C\u500D\u6570)"
   - name: structure/segment_tree
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: structure/segment_tree/segment_tree.cpp
       title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
   verificationCategories:
@@ -26,7 +26,7 @@ data:
       title: "LCM(\u6700\u5C0F\u516C\u500D\u6570)"
   - name: Tests/LibraryChecker/Data_Structure
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Tests/LibraryChecker/Data_Structure/staticrmq.test.cpp
       title: Static RMQ
   - name: Tests/LibraryChecker/Sample

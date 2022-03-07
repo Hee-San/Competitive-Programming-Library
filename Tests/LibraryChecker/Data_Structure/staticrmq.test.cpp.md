@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: structure/segment_tree/segment_tree.cpp
     title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/staticrmq
@@ -24,10 +24,10 @@ data:
     \    vector<T> seg;\n    F function;\n    T identity;\n\n    SegmentTree(int n,\
     \ F function, T identity) : n(n), function(function), identity(identity) {\n \
     \       height = 1, width = 1;\n        while (width < n) {\n            height++;\n\
-    \            width *=2;\n        }\n        seg.assign(2 * width - 1, identity);\n\
+    \            width *= 2;\n        }\n        seg.assign(2 * width - 1, identity);\n\
     \    }\n\n    void build(vector<T> v) {\n        assert(n == (int)v.size());\n\
     \        for (int i = 0; i < n; i++) seg[width + i - 1] = v[i];\n        for (int\
-    \ i = width - 2; i >= 0; i--) seg[i] = function(seg[2 * i], seg[2 * i + 1]);\n\
+    \ i = width - 2; i >= 0; i--) seg[i] = function(seg[2 * i + 1], seg[2 * i + 2]);\n\
     \    }\n\n    void update(int x, T val) {\n        x += width - 1;\n        seg[x]\
     \ = val;\n        while (x > 0) {\n            x = (x - 1) / 2;\n            seg[x]\
     \ = function(seg[2 * x + 1], seg[2 * x + 2]);\n        }\n    }\n\n    T get(int\
@@ -55,8 +55,8 @@ data:
   isVerificationFile: true
   path: Tests/LibraryChecker/Data_Structure/staticrmq.test.cpp
   requiredBy: []
-  timestamp: '2022-03-07 15:48:57+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-03-07 16:50:39+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Tests/LibraryChecker/Data_Structure/staticrmq.test.cpp
 layout: document
