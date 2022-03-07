@@ -1,6 +1,6 @@
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/problems/DSL_2_A"
 /**
- * @brief Range Minimum Query (RMQ)
+ * @brief 区間の最小値・一点更新 Range Minimum Query (RMQ)
  */
 
 #include <bits/stdc++.h>

@@ -1,6 +1,6 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/staticrmq"
 /**
- * @brief Static RMQ
+ * @brief 区間の最小値
  */
 
 #include <bits/stdc++.h>
