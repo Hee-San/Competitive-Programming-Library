@@ -3,9 +3,11 @@
  * @docs docs/structure/segment_tree.md
  */
 
+using namespace std;
+
 template <typename T>
 struct SegmentTree {
-    using F = function<T(T, T)>;
+    typedef T (*F)(T, T);
     int n, height, width;
     vector<T> seg;
     F function;
@@ -15,12 +17,9 @@ struct SegmentTree {
         height = 1, width = 1;
         while (width < n) {
             height++;
-            width << 1;
+            width *=2;
         }
         seg.assign(2 * width - 1, identity);
-    }
-    SegmentTree(vector<T> v, F function, T identity) : SegmentTree((int)v.size(), function, identity) {
-        build(v);
     }
 
     void build(vector<T> v) {

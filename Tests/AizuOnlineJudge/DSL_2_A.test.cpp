@@ -14,8 +14,9 @@ typedef vector<ll> vi;
 int main() {
     ll n, q;
     cin >> n >> q;
-    auto seg = SegmentTree<ll>(
-        vi(n, 1 << 31 - 1), [](ll a, ll b) { return min(a, b); }, LLONG_MAX);
+    SegmentTree<ll> seg = SegmentTree<ll>(
+        n, [](ll a, ll b) { return min(a, b); }, LLONG_MAX);
+    seg.build(vi(n, (1LL << 31) - 1));
 
     for (ll i = 0; i < q; i++) {
         ll com, x, y;
