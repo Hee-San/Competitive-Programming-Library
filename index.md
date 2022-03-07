@@ -20,7 +20,8 @@ data:
     pages:
     - icon: ':heavy_check_mark:'
       path: Tests/AizuOnlineJudge/DSL_2_A.test.cpp
-      title: Range Minimum Query (RMQ)
+      title: "\u533A\u9593\u306E\u6700\u5C0F\u5024\u30FB\u4E00\u70B9\u66F4\u65B0 Range\
+        \ Minimum Query (RMQ)"
     - icon: ':heavy_check_mark:'
       path: Tests/AizuOnlineJudge/NTL_1_C.test.cpp
       title: "LCM(\u6700\u5C0F\u516C\u500D\u6570)"
@@ -28,7 +29,7 @@ data:
     pages:
     - icon: ':heavy_check_mark:'
       path: Tests/LibraryChecker/Data_Structure/staticrmq.test.cpp
-      title: Static RMQ
+      title: "\u533A\u9593\u306E\u6700\u5C0F\u5024"
   - name: Tests/LibraryChecker/Sample
     pages:
     - icon: ':heavy_check_mark:'
