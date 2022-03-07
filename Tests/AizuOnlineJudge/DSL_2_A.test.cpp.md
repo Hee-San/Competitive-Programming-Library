@@ -37,28 +37,27 @@ data:
     \   T vr = get(a, b, 2 * k + 2, (l + r) / 2, r);\n        return function(vl,\
     \ vr);\n    }\n};\n#line 9 \"Tests/AizuOnlineJudge/DSL_2_A.test.cpp\"\n\nusing\
     \ namespace std;\ntypedef long long ll;\ntypedef vector<ll> vi;\n\nint main()\
-    \ {\n    ll n, q;\n    cin >> n >> q;\n    SegmentTree<ll> seg = SegmentTree<ll>(\n\
-    \        n, [](ll a, ll b) { return min(a, b); }, LLONG_MAX);\n    seg.build(vi(n,\
-    \ (1LL << 31) - 1));\n\n    for (ll i = 0; i < q; i++) {\n        ll com, x, y;\n\
-    \        cin >> com >> x >> y;\n        if (com == 0) {\n            seg.update(x,\
-    \ y);\n        } else {\n            cout << seg.get(x, y + 1) << endl;\n    \
-    \    }\n    }\n}\n"
-  code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/problems/DSL_2_A\"\n/**\n\
-    \ * @brief Range Minimum Query (RMQ)\n */\n\n#include <bits/stdc++.h>\n\n#include\
-    \ \"../../structure/segment_tree/segment_tree.cpp\"\n\nusing namespace std;\n\
-    typedef long long ll;\ntypedef vector<ll> vi;\n\nint main() {\n    ll n, q;\n\
-    \    cin >> n >> q;\n    SegmentTree<ll> seg = SegmentTree<ll>(\n        n, [](ll\
+    \ {\n    ll n, q;\n    cin >> n >> q;\n    SegmentTree<ll> seg(\n        n, [](ll\
     \ a, ll b) { return min(a, b); }, LLONG_MAX);\n    seg.build(vi(n, (1LL << 31)\
     \ - 1));\n\n    for (ll i = 0; i < q; i++) {\n        ll com, x, y;\n        cin\
     \ >> com >> x >> y;\n        if (com == 0) {\n            seg.update(x, y);\n\
     \        } else {\n            cout << seg.get(x, y + 1) << endl;\n        }\n\
     \    }\n}\n"
+  code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/problems/DSL_2_A\"\n/**\n\
+    \ * @brief Range Minimum Query (RMQ)\n */\n\n#include <bits/stdc++.h>\n\n#include\
+    \ \"../../structure/segment_tree/segment_tree.cpp\"\n\nusing namespace std;\n\
+    typedef long long ll;\ntypedef vector<ll> vi;\n\nint main() {\n    ll n, q;\n\
+    \    cin >> n >> q;\n    SegmentTree<ll> seg(\n        n, [](ll a, ll b) { return\
+    \ min(a, b); }, LLONG_MAX);\n    seg.build(vi(n, (1LL << 31) - 1));\n\n    for\
+    \ (ll i = 0; i < q; i++) {\n        ll com, x, y;\n        cin >> com >> x >>\
+    \ y;\n        if (com == 0) {\n            seg.update(x, y);\n        } else {\n\
+    \            cout << seg.get(x, y + 1) << endl;\n        }\n    }\n}\n"
   dependsOn:
   - structure/segment_tree/segment_tree.cpp
   isVerificationFile: true
   path: Tests/AizuOnlineJudge/DSL_2_A.test.cpp
   requiredBy: []
-  timestamp: '2022-03-07 15:28:20+09:00'
+  timestamp: '2022-03-07 15:34:42+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Tests/AizuOnlineJudge/DSL_2_A.test.cpp
