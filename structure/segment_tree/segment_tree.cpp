@@ -17,7 +17,7 @@ struct SegmentTree {
         height = 1, width = 1;
         while (width < n) {
             height++;
-            width *=2;
+            width *= 2;
         }
         seg.assign(2 * width - 1, identity);
     }
@@ -25,7 +25,7 @@ struct SegmentTree {
     void build(vector<T> v) {
         assert(n == (int)v.size());
         for (int i = 0; i < n; i++) seg[width + i - 1] = v[i];
-        for (int i = width - 2; i >= 0; i--) seg[i] = function(seg[2 * i], seg[2 * i + 1]);
+        for (int i = width - 2; i >= 0; i--) seg[i] = function(seg[2 * i + 1], seg[2 * i + 2]);
     }
 
     void update(int x, T val) {
