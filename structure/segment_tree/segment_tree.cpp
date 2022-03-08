@@ -26,9 +26,9 @@ struct SegmentTree {
     void update(int x, T val) {
         x += n;
         seg[x] = val;
-        while (x > 0) {
+        while (x > 1) {
             x = x / 2;
-            seg[x] = function(seg[2 * x], seg[2 * x]);
+            seg[x] = function(seg[2 * x], seg[2 * x + 1]);
         }
     }
 
