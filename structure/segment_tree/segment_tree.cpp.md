@@ -3,20 +3,20 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Tests/AizuOnlineJudge/DSL_2_A.test.cpp
     title: "\u533A\u9593\u306E\u6700\u5C0F\u5024\u30FB\u4E00\u70B9\u66F4\u65B0 Range\
       \ Minimum Query (RMQ)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Tests/AizuOnlineJudge/DSL_2_B.test.cpp
     title: "\u533A\u9593\u306E\u548C\u30FB\u4E00\u70B9\u52A0\u7B97 Range Sum Query\
       \ (RSQ)"
   - icon: ':heavy_check_mark:'
     path: Tests/LibraryChecker/Data_Structure/staticrmq.test.cpp
     title: "\u533A\u9593\u306E\u6700\u5C0F\u5024"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/structure/segment_tree/segment_tree.md
     document_title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728, \u4E00\u70B9\
@@ -34,12 +34,12 @@ data:
     \        assert(n == (int)v.size());\n        for (int i = 0; i < n; i++) seg[n\
     \ + i] = v[i];\n        for (int i = n - 1; i > 0; i--) seg[i] = function(seg[2\
     \ * i], seg[2 * i + 1]);\n    }\n\n    void update(int x, T val) {\n        x\
-    \ += n;\n        seg[x] = val;\n        while (x > 0) {\n            x = x / 2;\n\
-    \            seg[x] = function(seg[2 * x], seg[2 * x]);\n        }\n    }\n\n\
-    \    T get(int x) {\n        x += n;\n        return seg[x];\n    }\n\n    T get(int\
-    \ l, int r) {\n        T ans = identity;\n        for (l += n, r += n; l < r;\
-    \ l /= 2, r /= 2) {\n            if (l % 2) ans = function(ans, seg[l++]);\n \
-    \           if (r % 2) ans = function(seg[--r], ans);\n        }\n        return\
+    \ += n;\n        seg[x] = val;\n        while (x > 1) {\n            x = x / 2;\n\
+    \            seg[x] = function(seg[2 * x], seg[2 * x + 1]);\n        }\n    }\n\
+    \n    T get(int x) {\n        x += n;\n        return seg[x];\n    }\n\n    T\
+    \ get(int l, int r) {\n        T ans = identity;\n        for (l += n, r += n;\
+    \ l < r; l /= 2, r /= 2) {\n            if (l % 2) ans = function(ans, seg[l++]);\n\
+    \            if (r % 2) ans = function(seg[--r], ans);\n        }\n        return\
     \ ans;\n    }\n};\n"
   code: "/**\n * @brief Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728, \u4E00\u70B9\
     \u3092\u66F4\u65B0\u30FB\u533A\u9593\u306E\u6F14\u7B97\u7D50\u679C\u3092\u53D6\
@@ -51,19 +51,19 @@ data:
     \        assert(n == (int)v.size());\n        for (int i = 0; i < n; i++) seg[n\
     \ + i] = v[i];\n        for (int i = n - 1; i > 0; i--) seg[i] = function(seg[2\
     \ * i], seg[2 * i + 1]);\n    }\n\n    void update(int x, T val) {\n        x\
-    \ += n;\n        seg[x] = val;\n        while (x > 0) {\n            x = x / 2;\n\
-    \            seg[x] = function(seg[2 * x], seg[2 * x]);\n        }\n    }\n\n\
-    \    T get(int x) {\n        x += n;\n        return seg[x];\n    }\n\n    T get(int\
-    \ l, int r) {\n        T ans = identity;\n        for (l += n, r += n; l < r;\
-    \ l /= 2, r /= 2) {\n            if (l % 2) ans = function(ans, seg[l++]);\n \
-    \           if (r % 2) ans = function(seg[--r], ans);\n        }\n        return\
+    \ += n;\n        seg[x] = val;\n        while (x > 1) {\n            x = x / 2;\n\
+    \            seg[x] = function(seg[2 * x], seg[2 * x + 1]);\n        }\n    }\n\
+    \n    T get(int x) {\n        x += n;\n        return seg[x];\n    }\n\n    T\
+    \ get(int l, int r) {\n        T ans = identity;\n        for (l += n, r += n;\
+    \ l < r; l /= 2, r /= 2) {\n            if (l % 2) ans = function(ans, seg[l++]);\n\
+    \            if (r % 2) ans = function(seg[--r], ans);\n        }\n        return\
     \ ans;\n    }\n};"
   dependsOn: []
   isVerificationFile: false
   path: structure/segment_tree/segment_tree.cpp
   requiredBy: []
-  timestamp: '2022-03-08 19:46:51+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  timestamp: '2022-03-08 21:40:04+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - Tests/LibraryChecker/Data_Structure/staticrmq.test.cpp
   - Tests/AizuOnlineJudge/DSL_2_B.test.cpp
