@@ -1,6 +1,8 @@
 {
+"Tests/AizuOnlineJudge/DSL_2_A.test.cpp": "2022-03-08 21:40:04 +0900",
+"Tests/AizuOnlineJudge/DSL_2_B.test.cpp": "2022-03-08 21:40:04 +0900",
 "Tests/AizuOnlineJudge/NTL_1_C.test.cpp": "2022-03-06 18:21:42 +0900",
-"Tests/LibraryChecker/Data_Structure/staticrmq.test.cpp": "2022-03-08 19:46:51 +0900",
+"Tests/LibraryChecker/Data_Structure/staticrmq.test.cpp": "2022-03-08 21:40:04 +0900",
 "Tests/LibraryChecker/Sample/aplusb.test.cpp": "2022-03-06 17:04:02 +0900",
 "Tests/LibraryChecker/Sample/many_aplusb.test.cpp": "2022-03-06 17:04:02 +0900"
 }
