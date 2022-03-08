@@ -85,7 +85,8 @@ title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728, \u4E00\u70B9\u3092\u6
 
 ### References
 - セグメント木とは: [プログラミングコンテストでのデータ構造](https://www.slideshare.net/iwiwi/ss-3578491)
-- 実装について: [セグメント木をソラで書きたいあなたに](https://tsutaj.hatenablog.com/entry/2017/03/29/204841)
+- 基本的な実装: [セグメント木をソラで書きたいあなたに](https://tsutaj.hatenablog.com/entry/2017/03/29/204841)
+- 非再帰・1-indexed: [非再帰セグ木サイコー！ 一番すきなセグ木です](https://hcpc-hokudai.github.io/archive/structure_segtree_001.pdf)
 - 蟻本 p.153
 - かつっぱさんの動画: [木マスター養成講座](https://www.youtube.com/watch?v=LjhVy1ZJTMc&list=PL3Hpv03CoZ24p5a6qT0LsFKEhiDWxf_B_&index=3)
 
