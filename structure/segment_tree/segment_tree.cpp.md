@@ -11,12 +11,16 @@ data:
     path: Tests/AizuOnlineJudge/DSL_2_B.test.cpp
     title: "\u533A\u9593\u306E\u548C\u30FB\u4E00\u70B9\u52A0\u7B97 Range Sum Query\
       \ (RSQ)"
+  - icon: ':x:'
+    path: Tests/AtCoder/arc008_4.test.cpp
+    title: "\u975E\u53EF\u63DB\u30BB\u30B0\u30E1\u30F3\u30C8\u6728\u3001\u5EA7\u6A19\
+      \u5727\u7E2E"
   - icon: ':heavy_check_mark:'
     path: Tests/LibraryChecker/Data_Structure/staticrmq.test.cpp
     title: "\u533A\u9593\u306E\u6700\u5C0F\u5024"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     _deprecated_at_docs: docs/structure/segment_tree/segment_tree.md
     document_title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728, \u4E00\u70B9\
@@ -63,10 +67,11 @@ data:
   path: structure/segment_tree/segment_tree.cpp
   requiredBy: []
   timestamp: '2022-03-11 00:32:20+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - Tests/AizuOnlineJudge/DSL_2_A.test.cpp
   - Tests/AizuOnlineJudge/DSL_2_B.test.cpp
+  - Tests/AtCoder/arc008_4.test.cpp
   - Tests/LibraryChecker/Data_Structure/staticrmq.test.cpp
 documentation_of: structure/segment_tree/segment_tree.cpp
 layout: document
