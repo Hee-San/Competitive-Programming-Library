@@ -37,8 +37,7 @@ struct SegmentTree {
         return seg[x];
     }
 
-    T get(int l, int r) {
-        T left = identity, right = identity;
+    T get(int l, int r, T left = identity, T right = identity) {
         for (l += n, r += n; l < r; l /= 2, r /= 2) {
             if (l % 2) ans = function(left, seg[l++]);
             if (r % 2) ans = function(seg[--r], right);
