@@ -3,20 +3,20 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Tests/AizuOnlineJudge/DSL_2_A.test.cpp
     title: "\u533A\u9593\u306E\u6700\u5C0F\u5024\u30FB\u4E00\u70B9\u66F4\u65B0 Range\
       \ Minimum Query (RMQ)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Tests/AizuOnlineJudge/DSL_2_B.test.cpp
     title: "\u533A\u9593\u306E\u548C\u30FB\u4E00\u70B9\u52A0\u7B97 Range Sum Query\
       \ (RSQ)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: Tests/LibraryChecker/Data_Structure/staticrmq.test.cpp
     title: "\u533A\u9593\u306E\u6700\u5C0F\u5024"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/structure/segment_tree/segment_tree.md
     document_title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728, \u4E00\u70B9\
@@ -37,10 +37,10 @@ data:
     \ += n;\n        seg[x] = val;\n        while (x > 1) {\n            x = x / 2;\n\
     \            seg[x] = function(seg[2 * x], seg[2 * x + 1]);\n        }\n    }\n\
     \n    T get(int x) {\n        x += n;\n        return seg[x];\n    }\n\n    T\
-    \ get(int l, int r) {\n        T ans = identity;\n        for (l += n, r += n;\
-    \ l < r; l /= 2, r /= 2) {\n            if (l % 2) ans = function(ans, seg[l++]);\n\
-    \            if (r % 2) ans = function(seg[--r], ans);\n        }\n        return\
-    \ ans;\n    }\n};\n"
+    \ get(int l, int r) {\n        T left = identity, right = identity;\n        for\
+    \ (l += n, r += n; l < r; l /= 2, r /= 2) {\n            if (l % 2) ans = function(left,\
+    \ seg[l++]);\n            if (r % 2) ans = function(seg[--r], right);\n      \
+    \  }\n        return function(left, right);\n    }\n};\n"
   code: "/**\n * @brief Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728, \u4E00\u70B9\
     \u3092\u66F4\u65B0\u30FB\u533A\u9593\u306E\u6F14\u7B97\u7D50\u679C\u3092\u53D6\
     \u5F97)\n * @docs docs/structure/segment_tree/segment_tree.md\n */\n\nusing namespace\
@@ -54,20 +54,20 @@ data:
     \ += n;\n        seg[x] = val;\n        while (x > 1) {\n            x = x / 2;\n\
     \            seg[x] = function(seg[2 * x], seg[2 * x + 1]);\n        }\n    }\n\
     \n    T get(int x) {\n        x += n;\n        return seg[x];\n    }\n\n    T\
-    \ get(int l, int r) {\n        T ans = identity;\n        for (l += n, r += n;\
-    \ l < r; l /= 2, r /= 2) {\n            if (l % 2) ans = function(ans, seg[l++]);\n\
-    \            if (r % 2) ans = function(seg[--r], ans);\n        }\n        return\
-    \ ans;\n    }\n};"
+    \ get(int l, int r) {\n        T left = identity, right = identity;\n        for\
+    \ (l += n, r += n; l < r; l /= 2, r /= 2) {\n            if (l % 2) ans = function(left,\
+    \ seg[l++]);\n            if (r % 2) ans = function(seg[--r], right);\n      \
+    \  }\n        return function(left, right);\n    }\n};"
   dependsOn: []
   isVerificationFile: false
   path: structure/segment_tree/segment_tree.cpp
   requiredBy: []
-  timestamp: '2022-03-08 21:40:04+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2022-03-11 00:20:06+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
-  - Tests/LibraryChecker/Data_Structure/staticrmq.test.cpp
-  - Tests/AizuOnlineJudge/DSL_2_B.test.cpp
   - Tests/AizuOnlineJudge/DSL_2_A.test.cpp
+  - Tests/AizuOnlineJudge/DSL_2_B.test.cpp
+  - Tests/LibraryChecker/Data_Structure/staticrmq.test.cpp
 documentation_of: structure/segment_tree/segment_tree.cpp
 layout: document
 redirect_from:

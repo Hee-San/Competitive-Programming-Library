@@ -1,15 +1,15 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: structure/segment_tree/segment_tree.cpp
     title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728, \u4E00\u70B9\u3092\u66F4\
       \u65B0\u30FB\u533A\u9593\u306E\u6F14\u7B97\u7D50\u679C\u3092\u53D6\u5F97)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/staticrmq
@@ -32,10 +32,11 @@ data:
     \ x, T val) {\n        x += n;\n        seg[x] = val;\n        while (x > 1) {\n\
     \            x = x / 2;\n            seg[x] = function(seg[2 * x], seg[2 * x +\
     \ 1]);\n        }\n    }\n\n    T get(int x) {\n        x += n;\n        return\
-    \ seg[x];\n    }\n\n    T get(int l, int r) {\n        T ans = identity;\n   \
-    \     for (l += n, r += n; l < r; l /= 2, r /= 2) {\n            if (l % 2) ans\
-    \ = function(ans, seg[l++]);\n            if (r % 2) ans = function(seg[--r],\
-    \ ans);\n        }\n        return ans;\n    }\n};\n#line 9 \"Tests/LibraryChecker/Data_Structure/staticrmq.test.cpp\"\
+    \ seg[x];\n    }\n\n    T get(int l, int r) {\n        T left = identity, right\
+    \ = identity;\n        for (l += n, r += n; l < r; l /= 2, r /= 2) {\n       \
+    \     if (l % 2) ans = function(left, seg[l++]);\n            if (r % 2) ans =\
+    \ function(seg[--r], right);\n        }\n        return function(left, right);\n\
+    \    }\n};\n#line 9 \"Tests/LibraryChecker/Data_Structure/staticrmq.test.cpp\"\
     \n\nusing namespace std;\ntypedef long long ll;\ntypedef vector<ll> vi;\n\nint\
     \ main() {\n    ll N, Q;\n    cin >> N >> Q;\n\n    vi A(N);\n    for (ll i =\
     \ 0; i < N; i++) {\n        cin >> A[i];\n    }\n\n    SegmentTree<ll> seg(\n\
@@ -56,8 +57,8 @@ data:
   isVerificationFile: true
   path: Tests/LibraryChecker/Data_Structure/staticrmq.test.cpp
   requiredBy: []
-  timestamp: '2022-03-08 21:40:04+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2022-03-11 00:20:06+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: Tests/LibraryChecker/Data_Structure/staticrmq.test.cpp
 layout: document

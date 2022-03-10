@@ -12,7 +12,7 @@ data:
       title: "LCM(\u6700\u5C0F\u516C\u500D\u6570)"
   - name: structure/segment_tree
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: structure/segment_tree/segment_tree.cpp
       title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728, \u4E00\u70B9\u3092\
         \u66F4\u65B0\u30FB\u533A\u9593\u306E\u6F14\u7B97\u7D50\u679C\u3092\u53D6\u5F97\
@@ -20,11 +20,11 @@ data:
   verificationCategories:
   - name: Tests/AizuOnlineJudge
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Tests/AizuOnlineJudge/DSL_2_A.test.cpp
       title: "\u533A\u9593\u306E\u6700\u5C0F\u5024\u30FB\u4E00\u70B9\u66F4\u65B0 Range\
         \ Minimum Query (RMQ)"
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Tests/AizuOnlineJudge/DSL_2_B.test.cpp
       title: "\u533A\u9593\u306E\u548C\u30FB\u4E00\u70B9\u52A0\u7B97 Range Sum Query\
         \ (RSQ)"
@@ -33,7 +33,7 @@ data:
       title: "LCM(\u6700\u5C0F\u516C\u500D\u6570)"
   - name: Tests/LibraryChecker/Data_Structure
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Tests/LibraryChecker/Data_Structure/staticrmq.test.cpp
       title: "\u533A\u9593\u306E\u6700\u5C0F\u5024"
   - name: Tests/LibraryChecker/Sample
