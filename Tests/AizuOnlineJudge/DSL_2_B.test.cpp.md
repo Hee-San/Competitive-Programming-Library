@@ -34,8 +34,8 @@ data:
     \ += n;\n        seg[x] = val;\n        while (x > 1) {\n            x = x / 2;\n\
     \            seg[x] = function(seg[2 * x], seg[2 * x + 1]);\n        }\n    }\n\
     \n    T get(int x) {\n        x += n;\n        return seg[x];\n    }\n\n    T\
-    \ get(int l, int r) {\n        T left = identity, right = identity;\n        for\
-    \ (l += n, r += n; l < r; l /= 2, r /= 2) {\n            if (l % 2) ans = function(left,\
+    \ get(int l, int r, T left = identity, T right = identity) {\n        for (l +=\
+    \ n, r += n; l < r; l /= 2, r /= 2) {\n            if (l % 2) ans = function(left,\
     \ seg[l++]);\n            if (r % 2) ans = function(seg[--r], right);\n      \
     \  }\n        return function(left, right);\n    }\n};\n#line 9 \"Tests/AizuOnlineJudge/DSL_2_B.test.cpp\"\
     \n\nusing namespace std;\ntypedef long long ll;\ntypedef vector<ll> vi;\n\nint\
@@ -60,7 +60,7 @@ data:
   isVerificationFile: true
   path: Tests/AizuOnlineJudge/DSL_2_B.test.cpp
   requiredBy: []
-  timestamp: '2022-03-11 00:20:06+09:00'
+  timestamp: '2022-03-11 00:22:50+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: Tests/AizuOnlineJudge/DSL_2_B.test.cpp

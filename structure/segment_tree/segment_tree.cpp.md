@@ -37,8 +37,8 @@ data:
     \ += n;\n        seg[x] = val;\n        while (x > 1) {\n            x = x / 2;\n\
     \            seg[x] = function(seg[2 * x], seg[2 * x + 1]);\n        }\n    }\n\
     \n    T get(int x) {\n        x += n;\n        return seg[x];\n    }\n\n    T\
-    \ get(int l, int r) {\n        T left = identity, right = identity;\n        for\
-    \ (l += n, r += n; l < r; l /= 2, r /= 2) {\n            if (l % 2) ans = function(left,\
+    \ get(int l, int r, T left = identity, T right = identity) {\n        for (l +=\
+    \ n, r += n; l < r; l /= 2, r /= 2) {\n            if (l % 2) ans = function(left,\
     \ seg[l++]);\n            if (r % 2) ans = function(seg[--r], right);\n      \
     \  }\n        return function(left, right);\n    }\n};\n"
   code: "/**\n * @brief Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728, \u4E00\u70B9\
@@ -54,15 +54,15 @@ data:
     \ += n;\n        seg[x] = val;\n        while (x > 1) {\n            x = x / 2;\n\
     \            seg[x] = function(seg[2 * x], seg[2 * x + 1]);\n        }\n    }\n\
     \n    T get(int x) {\n        x += n;\n        return seg[x];\n    }\n\n    T\
-    \ get(int l, int r) {\n        T left = identity, right = identity;\n        for\
-    \ (l += n, r += n; l < r; l /= 2, r /= 2) {\n            if (l % 2) ans = function(left,\
+    \ get(int l, int r, T left = identity, T right = identity) {\n        for (l +=\
+    \ n, r += n; l < r; l /= 2, r /= 2) {\n            if (l % 2) ans = function(left,\
     \ seg[l++]);\n            if (r % 2) ans = function(seg[--r], right);\n      \
     \  }\n        return function(left, right);\n    }\n};"
   dependsOn: []
   isVerificationFile: false
   path: structure/segment_tree/segment_tree.cpp
   requiredBy: []
-  timestamp: '2022-03-11 00:20:06+09:00'
+  timestamp: '2022-03-11 00:22:50+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - Tests/AizuOnlineJudge/DSL_2_A.test.cpp
