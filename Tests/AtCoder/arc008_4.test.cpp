@@ -52,7 +52,6 @@ int main() {
         ans_max = max(ans_max, val);
     }
 
-    // cout double
     cout << fixed << setprecision(10);
     cout << ans_min << endl;
     cout << ans_max << endl;
