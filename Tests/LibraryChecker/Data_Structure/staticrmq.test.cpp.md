@@ -1,15 +1,15 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: structure/segment_tree/segment_tree.cpp
     title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728, \u4E00\u70B9\u3092\u66F4\
       \u65B0\u30FB\u533A\u9593\u306E\u6F14\u7B97\u7D50\u679C\u3092\u53D6\u5F97)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/staticrmq
@@ -32,17 +32,17 @@ data:
     \ x, T val) {\n        x += n;\n        seg[x] = val;\n        while (x > 1) {\n\
     \            x = x / 2;\n            seg[x] = function(seg[2 * x], seg[2 * x +\
     \ 1]);\n        }\n    }\n\n    T get(int x) {\n        x += n;\n        return\
-    \ seg[x];\n    }\n\n    T get(int l, int r, T left = identity, T right = identity)\
-    \ {\n        for (l += n, r += n; l < r; l /= 2, r /= 2) {\n            if (l\
-    \ % 2) ans = function(left, seg[l++]);\n            if (r % 2) ans = function(seg[--r],\
-    \ right);\n        }\n        return function(left, right);\n    }\n};\n#line\
-    \ 9 \"Tests/LibraryChecker/Data_Structure/staticrmq.test.cpp\"\n\nusing namespace\
-    \ std;\ntypedef long long ll;\ntypedef vector<ll> vi;\n\nint main() {\n    ll\
-    \ N, Q;\n    cin >> N >> Q;\n\n    vi A(N);\n    for (ll i = 0; i < N; i++) {\n\
-    \        cin >> A[i];\n    }\n\n    SegmentTree<ll> seg(\n        N, [](ll a,\
-    \ ll b) { return min(a, b); }, LLONG_MAX);\n    seg.build(A);\n\n    for (ll i\
-    \ = 0; i < Q; i++) {\n        ll l, r;\n        cin >> l >> r;\n        cout <<\
-    \ seg.get(l, r) << endl;\n    }\n}\n"
+    \ seg[x];\n    }\n\n    T get(int l, int r) {\n        T left = identity;\n  \
+    \      T right = identity;\n        for (l += n, r += n; l < r; l /= 2, r /= 2)\
+    \ {\n            if (l % 2) left = function(left, seg[l++]);\n            if (r\
+    \ % 2) right = function(seg[--r], right);\n        }\n        return function(left,\
+    \ right);\n    }\n};\n#line 9 \"Tests/LibraryChecker/Data_Structure/staticrmq.test.cpp\"\
+    \n\nusing namespace std;\ntypedef long long ll;\ntypedef vector<ll> vi;\n\nint\
+    \ main() {\n    ll N, Q;\n    cin >> N >> Q;\n\n    vi A(N);\n    for (ll i =\
+    \ 0; i < N; i++) {\n        cin >> A[i];\n    }\n\n    SegmentTree<ll> seg(\n\
+    \        N, [](ll a, ll b) { return min(a, b); }, LLONG_MAX);\n    seg.build(A);\n\
+    \n    for (ll i = 0; i < Q; i++) {\n        ll l, r;\n        cin >> l >> r;\n\
+    \        cout << seg.get(l, r) << endl;\n    }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/staticrmq\"\n/**\n * @brief\
     \ \u533A\u9593\u306E\u6700\u5C0F\u5024\n */\n\n#include <bits/stdc++.h>\n\n#include\
     \ \"../../../structure/segment_tree/segment_tree.cpp\"\n\nusing namespace std;\n\
@@ -57,8 +57,8 @@ data:
   isVerificationFile: true
   path: Tests/LibraryChecker/Data_Structure/staticrmq.test.cpp
   requiredBy: []
-  timestamp: '2022-03-11 00:22:50+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-03-11 00:32:20+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Tests/LibraryChecker/Data_Structure/staticrmq.test.cpp
 layout: document

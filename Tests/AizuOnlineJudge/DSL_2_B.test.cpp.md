@@ -1,15 +1,15 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: structure/segment_tree/segment_tree.cpp
     title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728, \u4E00\u70B9\u3092\u66F4\
       \u65B0\u30FB\u533A\u9593\u306E\u6F14\u7B97\u7D50\u679C\u3092\u53D6\u5F97)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://onlinejudge.u-aizu.ac.jp/problems/DSL_2_B
@@ -34,17 +34,18 @@ data:
     \ += n;\n        seg[x] = val;\n        while (x > 1) {\n            x = x / 2;\n\
     \            seg[x] = function(seg[2 * x], seg[2 * x + 1]);\n        }\n    }\n\
     \n    T get(int x) {\n        x += n;\n        return seg[x];\n    }\n\n    T\
-    \ get(int l, int r, T left = identity, T right = identity) {\n        for (l +=\
-    \ n, r += n; l < r; l /= 2, r /= 2) {\n            if (l % 2) ans = function(left,\
-    \ seg[l++]);\n            if (r % 2) ans = function(seg[--r], right);\n      \
-    \  }\n        return function(left, right);\n    }\n};\n#line 9 \"Tests/AizuOnlineJudge/DSL_2_B.test.cpp\"\
-    \n\nusing namespace std;\ntypedef long long ll;\ntypedef vector<ll> vi;\n\nint\
-    \ main() {\n    ll n, q;\n    cin >> n >> q;\n    SegmentTree<ll> seg(\n     \
-    \   n, [](ll a, ll b) { return a + b; }, 0);\n    seg.build(vi(n, 0));\n\n   \
-    \ for (ll i = 0; i < q; i++) {\n        ll com, x, y;\n        cin >> com >> x\
-    \ >> y;\n        if (com == 0) {\n            x--;\n            seg.update(x,\
-    \ seg.get(x) + y);\n        } else {\n            x--;\n            y--;\n   \
-    \         cout << seg.get(x, y + 1) << endl;\n        }\n    }\n}\n"
+    \ get(int l, int r) {\n        T left = identity;\n        T right = identity;\n\
+    \        for (l += n, r += n; l < r; l /= 2, r /= 2) {\n            if (l % 2)\
+    \ left = function(left, seg[l++]);\n            if (r % 2) right = function(seg[--r],\
+    \ right);\n        }\n        return function(left, right);\n    }\n};\n#line\
+    \ 9 \"Tests/AizuOnlineJudge/DSL_2_B.test.cpp\"\n\nusing namespace std;\ntypedef\
+    \ long long ll;\ntypedef vector<ll> vi;\n\nint main() {\n    ll n, q;\n    cin\
+    \ >> n >> q;\n    SegmentTree<ll> seg(\n        n, [](ll a, ll b) { return a +\
+    \ b; }, 0);\n    seg.build(vi(n, 0));\n\n    for (ll i = 0; i < q; i++) {\n  \
+    \      ll com, x, y;\n        cin >> com >> x >> y;\n        if (com == 0) {\n\
+    \            x--;\n            seg.update(x, seg.get(x) + y);\n        } else\
+    \ {\n            x--;\n            y--;\n            cout << seg.get(x, y + 1)\
+    \ << endl;\n        }\n    }\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/problems/DSL_2_B\"\n/**\n\
     \ * @brief \u533A\u9593\u306E\u548C\u30FB\u4E00\u70B9\u52A0\u7B97 Range Sum Query\
     \ (RSQ)\n */\n\n#include <bits/stdc++.h>\n\n#include \"../../structure/segment_tree/segment_tree.cpp\"\
@@ -60,8 +61,8 @@ data:
   isVerificationFile: true
   path: Tests/AizuOnlineJudge/DSL_2_B.test.cpp
   requiredBy: []
-  timestamp: '2022-03-11 00:22:50+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-03-11 00:32:20+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Tests/AizuOnlineJudge/DSL_2_B.test.cpp
 layout: document
