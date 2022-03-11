@@ -12,7 +12,7 @@ data:
       title: "LCM(\u6700\u5C0F\u516C\u500D\u6570)"
   - name: structure/segment_tree
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: structure/segment_tree/segment_tree.cpp
       title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728, \u4E00\u70B9\u3092\
         \u66F4\u65B0\u30FB\u533A\u9593\u306E\u6F14\u7B97\u7D50\u679C\u3092\u53D6\u5F97\
@@ -31,14 +31,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: Tests/AizuOnlineJudge/NTL_1_C.test.cpp
       title: "LCM(\u6700\u5C0F\u516C\u500D\u6570)"
-  - name: Tests/AtCoder
-    pages:
-    - icon: ':x:'
-      path: Tests/AtCoder/arc008_4.test.cpp
-      title: "\u975E\u53EF\u63DB\u30BB\u30B0\u30E1\u30F3\u30C8\u6728\u3001\u5EA7\u6A19\
-        \u5727\u7E2E"
   - name: Tests/LibraryChecker/Data_Structure
     pages:
+    - icon: ':heavy_check_mark:'
+      path: Tests/LibraryChecker/Data_Structure/point_set_range_composite.test.cpp
+      title: "\u975E\u53EF\u63DB\u30BB\u30B0\u30E1\u30F3\u30C8\u6728"
     - icon: ':heavy_check_mark:'
       path: Tests/LibraryChecker/Data_Structure/staticrmq.test.cpp
       title: "\u533A\u9593\u306E\u6700\u5C0F\u5024"
