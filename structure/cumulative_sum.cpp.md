@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy:
-  - icon: ':warning:'
-    path: Tests/LibraryChecker/Data_Structure/static_range_sum.cpp
+  _extendedRequiredBy: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: Tests/LibraryChecker/Data_Structure/static_range_sum.test.cpp
     title: "\u533A\u9593\u548C"
-  _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/structure/cumulative_sum.md
     document_title: "Cumulative Sum(\u7D2F\u7A4D\u548C)"
@@ -29,11 +29,11 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: structure/cumulative_sum.cpp
-  requiredBy:
-  - Tests/LibraryChecker/Data_Structure/static_range_sum.cpp
+  requiredBy: []
   timestamp: '2022-03-19 12:27:26+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - Tests/LibraryChecker/Data_Structure/static_range_sum.test.cpp
 documentation_of: structure/cumulative_sum.cpp
 layout: document
 redirect_from:

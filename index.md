@@ -1,11 +1,6 @@
 ---
 data:
   libraryCategories:
-  - name: Tests/LibraryChecker/Data_Structure
-    pages:
-    - icon: ':warning:'
-      path: Tests/LibraryChecker/Data_Structure/static_range_sum.cpp
-      title: "\u533A\u9593\u548C"
   - name: math/number_theory
     pages:
     - icon: ':heavy_check_mark:'
@@ -17,7 +12,7 @@ data:
       title: "LCM(\u6700\u5C0F\u516C\u500D\u6570)"
   - name: structure
     pages:
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: structure/cumulative_sum.cpp
       title: "Cumulative Sum(\u7D2F\u7A4D\u548C)"
   - name: structure/segment_tree
@@ -46,6 +41,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: Tests/LibraryChecker/Data_Structure/point_set_range_composite.test.cpp
       title: "\u975E\u53EF\u63DB\u30BB\u30B0\u30E1\u30F3\u30C8\u6728"
+    - icon: ':heavy_check_mark:'
+      path: Tests/LibraryChecker/Data_Structure/static_range_sum.test.cpp
+      title: "\u533A\u9593\u548C"
     - icon: ':heavy_check_mark:'
       path: Tests/LibraryChecker/Data_Structure/staticrmq.test.cpp
       title: "\u533A\u9593\u306E\u6700\u5C0F\u5024"
