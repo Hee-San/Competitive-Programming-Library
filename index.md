@@ -1,6 +1,11 @@
 ---
 data:
   libraryCategories:
+  - name: Tests/LibraryChecker/Data_Structure
+    pages:
+    - icon: ':warning:'
+      path: Tests/LibraryChecker/Data_Structure/static_range_sum.cpp
+      title: "\u533A\u9593\u548C"
   - name: math/number_theory
     pages:
     - icon: ':heavy_check_mark:'
@@ -10,6 +15,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/number_theory/my_lcm.cpp
       title: "LCM(\u6700\u5C0F\u516C\u500D\u6570)"
+  - name: structure
+    pages:
+    - icon: ':warning:'
+      path: structure/cumulative_sum.cpp
+      title: "Cumulative Sum(\u7D2F\u7A4D\u548C)"
   - name: structure/segment_tree
     pages:
     - icon: ':heavy_check_mark:'
