@@ -26,13 +26,14 @@ data:
     \ size() { return edges.size(); }\n\n    void add_edge(int from, int to, T cost\
     \ = 1) {\n        edges[from].emplace_back(from, to, cost);\n        edges[to].emplace_back(to,\
     \ from, cost);\n    }\n\n    void add_directed_edge(int from, int to, T cost =\
-    \ 1) {\n        edges[from].emplace_back(from, to, cost);\n    }\n};\n#line 7\
-    \ \"graph/bfs.cpp\"\n\ntemplate <typename T>\nstruct BFS {\n    vector<T> dist;\n\
-    \    vector<int> prev;\n\n    BFS(Graph<T> g, int start) {\n        // \u91CD\u307F\
-    \u306A\u3057\u30B0\u30E9\u30D5\u304B\u30C1\u30A7\u30C3\u30AF\n        for (auto&\
-    \ e : g.edges) {\n            if (e.cost != 1) {\n                throw runtime_error(\"\
-    Not unweighted graph\");\n            }\n        }\n\n        dist.resize(g.size(),\
-    \ -1);\n        prev.resize(g.size(), -1);\n\n        queue<int> q;\n        q.push(start);\n\
+    \ 1) {\n        edges[from].emplace_back(from, to, cost);\n    }\n\n    bool is_waighted()\
+    \ {\n        for (auto& edge : edges) {\n            for (auto& e : edge) {\n\
+    \                if (e.cost != 1) return true;\n            }\n        }\n   \
+    \     return false;\n    }\n};\n#line 7 \"graph/bfs.cpp\"\n\ntemplate <typename\
+    \ T>\nstruct BFS {\n    vector<T> dist;\n    vector<int> prev;\n\n    BFS(Graph<T>\
+    \ g, int start) {\n        if (!g.is_waighted()) {\n            throw runtime_error(\"\
+    Not unweighted graph\");\n        }\n\n        dist.resize(g.size(), -1);\n  \
+    \      prev.resize(g.size(), -1);\n\n        queue<int> q;\n        q.push(start);\n\
     \        dist[start] = 0;\n        while (!q.empty()) {\n            int from\
     \ = q.front();\n            q.pop();\n            for (Edge<T> edge : g.edges[from])\
     \ {\n                if (dist[edge.to] == -1) {\n                    dist[edge.to]\
@@ -45,10 +46,8 @@ data:
   code: "/**\n * @brief BFS (\u5E45\u512A\u5148\u63A2\u7D22)\n * @docs docs/graph/bfs.md\n\
     \ */\n\n#include \"../structure/graph.cpp\"\n\ntemplate <typename T>\nstruct BFS\
     \ {\n    vector<T> dist;\n    vector<int> prev;\n\n    BFS(Graph<T> g, int start)\
-    \ {\n        // \u91CD\u307F\u306A\u3057\u30B0\u30E9\u30D5\u304B\u30C1\u30A7\u30C3\
-    \u30AF\n        for (auto& e : g.edges) {\n            if (e.cost != 1) {\n  \
-    \              throw runtime_error(\"Not unweighted graph\");\n            }\n\
-    \        }\n\n        dist.resize(g.size(), -1);\n        prev.resize(g.size(),\
+    \ {\n        if (!g.is_waighted()) {\n            throw runtime_error(\"Not unweighted\
+    \ graph\");\n        }\n\n        dist.resize(g.size(), -1);\n        prev.resize(g.size(),\
     \ -1);\n\n        queue<int> q;\n        q.push(start);\n        dist[start] =\
     \ 0;\n        while (!q.empty()) {\n            int from = q.front();\n      \
     \      q.pop();\n            for (Edge<T> edge : g.edges[from]) {\n          \
@@ -63,7 +62,7 @@ data:
   isVerificationFile: false
   path: graph/bfs.cpp
   requiredBy: []
-  timestamp: '2022-03-27 16:44:34+09:00'
+  timestamp: '2022-03-27 23:02:29+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - Tests/AizuOnlineJudge/ALDS1_11_C.test.cpp

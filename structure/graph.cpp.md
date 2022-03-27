@@ -25,7 +25,9 @@ data:
     \n    void add_edge(int from, int to, T cost = 1) {\n        edges[from].emplace_back(from,\
     \ to, cost);\n        edges[to].emplace_back(to, from, cost);\n    }\n\n    void\
     \ add_directed_edge(int from, int to, T cost = 1) {\n        edges[from].emplace_back(from,\
-    \ to, cost);\n    }\n};\n"
+    \ to, cost);\n    }\n\n    bool is_waighted() {\n        for (auto& edge : edges)\
+    \ {\n            for (auto& e : edge) {\n                if (e.cost != 1) return\
+    \ true;\n            }\n        }\n        return false;\n    }\n};\n"
   code: "#pragma once\n\n/**\n * @brief \u30B0\u30E9\u30D5\n * @docs docs/structure/graph.md\n\
     \ */\n\nusing namespace std;\n\ntemplate <typename T>\nstruct Edge {\n    int\
     \ from, to;\n    T cost;\n\n    Edge(int from, int to, T cost = 1) : from(from),\
@@ -34,13 +36,16 @@ data:
     \ size_t size() { return edges.size(); }\n\n    void add_edge(int from, int to,\
     \ T cost = 1) {\n        edges[from].emplace_back(from, to, cost);\n        edges[to].emplace_back(to,\
     \ from, cost);\n    }\n\n    void add_directed_edge(int from, int to, T cost =\
-    \ 1) {\n        edges[from].emplace_back(from, to, cost);\n    }\n};\n"
+    \ 1) {\n        edges[from].emplace_back(from, to, cost);\n    }\n\n    bool is_waighted()\
+    \ {\n        for (auto& edge : edges) {\n            for (auto& e : edge) {\n\
+    \                if (e.cost != 1) return true;\n            }\n        }\n   \
+    \     return false;\n    }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: structure/graph.cpp
   requiredBy:
   - graph/bfs.cpp
-  timestamp: '2022-03-27 16:44:34+09:00'
+  timestamp: '2022-03-27 23:02:29+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - Tests/AizuOnlineJudge/ALDS1_11_C.test.cpp
