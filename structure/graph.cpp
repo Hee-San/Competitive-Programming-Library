@@ -24,7 +24,7 @@ struct Graph {
 
     size_t size() { return edges.size(); }
 
-    void add_edge(int from, int to, T cost = 1) {
+    void add_undirected_edge(int from, int to, T cost = 1) {
         edges[from].emplace_back(from, to, cost);
         edges[to].emplace_back(to, from, cost);
     }

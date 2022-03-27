@@ -23,13 +23,13 @@ int main() {
         for (ll j = 0; j < k; j++) {
             ll v;
             cin >> v;
-            g.add_edge(i, --v);
+            g.add_directed_edge(i, --v);
         }
     }
 
     BFS<ll> bfs(g, 0);
 
     for (ll i = 0; i < n; i++) {
-        cout << i + 1 << " " << bfs.dist[i] << " " << bfs.prev[i] << endl;
+        cout << i + 1 << " " << bfs.dist[i] << endl;
     }
 }
