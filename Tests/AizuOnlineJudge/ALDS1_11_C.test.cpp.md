@@ -35,7 +35,7 @@ data:
     \ {\n            for (auto& e : edge) {\n                if (e.cost != 1) return\
     \ true;\n            }\n        }\n        return false;\n    }\n};\n#line 7 \"\
     graph/bfs.cpp\"\n\ntemplate <typename T>\nstruct BFS {\n    vector<T> dist;\n\
-    \    vector<int> prev;\n\n    BFS(Graph<T> g, int start) {\n        if (!g.is_waighted())\
+    \    vector<int> prev;\n\n    BFS(Graph<T> g, int start) {\n        if (g.is_waighted())\
     \ {\n            throw runtime_error(\"Not unweighted graph\");\n        }\n\n\
     \        dist.resize(g.size(), -1);\n        prev.resize(g.size(), -1);\n\n  \
     \      queue<int> q;\n        q.push(start);\n        dist[start] = 0;\n     \
@@ -68,7 +68,7 @@ data:
   isVerificationFile: true
   path: Tests/AizuOnlineJudge/ALDS1_11_C.test.cpp
   requiredBy: []
-  timestamp: '2022-03-27 23:02:29+09:00'
+  timestamp: '2022-03-27 23:05:19+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: Tests/AizuOnlineJudge/ALDS1_11_C.test.cpp

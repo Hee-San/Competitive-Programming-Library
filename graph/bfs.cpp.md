@@ -31,7 +31,7 @@ data:
     \                if (e.cost != 1) return true;\n            }\n        }\n   \
     \     return false;\n    }\n};\n#line 7 \"graph/bfs.cpp\"\n\ntemplate <typename\
     \ T>\nstruct BFS {\n    vector<T> dist;\n    vector<int> prev;\n\n    BFS(Graph<T>\
-    \ g, int start) {\n        if (!g.is_waighted()) {\n            throw runtime_error(\"\
+    \ g, int start) {\n        if (g.is_waighted()) {\n            throw runtime_error(\"\
     Not unweighted graph\");\n        }\n\n        dist.resize(g.size(), -1);\n  \
     \      prev.resize(g.size(), -1);\n\n        queue<int> q;\n        q.push(start);\n\
     \        dist[start] = 0;\n        while (!q.empty()) {\n            int from\
@@ -46,7 +46,7 @@ data:
   code: "/**\n * @brief BFS (\u5E45\u512A\u5148\u63A2\u7D22)\n * @docs docs/graph/bfs.md\n\
     \ */\n\n#include \"../structure/graph.cpp\"\n\ntemplate <typename T>\nstruct BFS\
     \ {\n    vector<T> dist;\n    vector<int> prev;\n\n    BFS(Graph<T> g, int start)\
-    \ {\n        if (!g.is_waighted()) {\n            throw runtime_error(\"Not unweighted\
+    \ {\n        if (g.is_waighted()) {\n            throw runtime_error(\"Not unweighted\
     \ graph\");\n        }\n\n        dist.resize(g.size(), -1);\n        prev.resize(g.size(),\
     \ -1);\n\n        queue<int> q;\n        q.push(start);\n        dist[start] =\
     \ 0;\n        while (!q.empty()) {\n            int from = q.front();\n      \
@@ -62,7 +62,7 @@ data:
   isVerificationFile: false
   path: graph/bfs.cpp
   requiredBy: []
-  timestamp: '2022-03-27 23:02:29+09:00'
+  timestamp: '2022-03-27 23:05:19+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - Tests/AizuOnlineJudge/ALDS1_11_C.test.cpp
