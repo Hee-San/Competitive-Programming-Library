@@ -11,11 +11,8 @@ struct BFS {
     vector<int> prev;
 
     BFS(Graph<T> g, int start) {
-        // 重みなしグラフかチェック
-        for (auto& e : g.edges) {
-            if (e.cost != 1) {
-                throw runtime_error("Not unweighted graph");
-            }
+        if (!g.is_waighted()) {
+            throw runtime_error("Not unweighted graph");
         }
 
         dist.resize(g.size(), -1);

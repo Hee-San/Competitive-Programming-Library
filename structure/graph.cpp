@@ -32,4 +32,13 @@ struct Graph {
     void add_directed_edge(int from, int to, T cost = 1) {
         edges[from].emplace_back(from, to, cost);
     }
+
+    bool is_waighted() {
+        for (auto& edge : edges) {
+            for (auto& e : edge) {
+                if (e.cost != 1) return true;
+            }
+        }
+        return false;
+    }
 };
