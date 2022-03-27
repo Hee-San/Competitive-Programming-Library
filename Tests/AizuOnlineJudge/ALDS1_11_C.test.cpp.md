@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/bfs.cpp
     title: "BFS (\u5E45\u512A\u5148\u63A2\u7D22)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: structure/graph.cpp
     title: "\u30B0\u30E9\u30D5"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://onlinejudge.u-aizu.ac.jp/problems/ALDS1_11_C
@@ -28,7 +28,7 @@ data:
     \ to, T cost = 1) : from(from), to(to), cost(cost) {}\n};\n\ntemplate <typename\
     \ T>\nstruct Graph {\n    vector<vector<Edge<T> > > edges;\n\n    Graph() = default;\n\
     \    Graph(int n) : edges(n) {}\n\n    size_t size() { return edges.size(); }\n\
-    \n    void add_edge(int from, int to, T cost = 1) {\n        edges[from].emplace_back(from,\
+    \n    void add_undirected_edge(int from, int to, T cost = 1) {\n        edges[from].emplace_back(from,\
     \ to, cost);\n        edges[to].emplace_back(to, from, cost);\n    }\n\n    void\
     \ add_directed_edge(int from, int to, T cost = 1) {\n        edges[from].emplace_back(from,\
     \ to, cost);\n    }\n\n    bool is_waighted() {\n        for (auto& edge : edges)\
@@ -50,28 +50,26 @@ data:
     \n\nusing namespace std;\ntypedef long long ll;\ntypedef vector<ll> vi;\n\nint\
     \ main() {\n    ll n;\n    cin >> n;\n\n    Graph<ll> g(n);\n    for (ll i = 0;\
     \ i < n; i++) {\n        ll u, k;\n        cin >> u >> k;\n        for (ll j =\
-    \ 0; j < k; j++) {\n            ll v;\n            cin >> v;\n            g.add_edge(i,\
+    \ 0; j < k; j++) {\n            ll v;\n            cin >> v;\n            g.add_directed_edge(i,\
     \ --v);\n        }\n    }\n\n    BFS<ll> bfs(g, 0);\n\n    for (ll i = 0; i <\
-    \ n; i++) {\n        cout << i + 1 << \" \" << bfs.dist[i] << \" \" << bfs.prev[i]\
-    \ << endl;\n    }\n}\n"
+    \ n; i++) {\n        cout << i + 1 << \" \" << bfs.dist[i] << endl;\n    }\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/problems/ALDS1_11_C\"\n\
     /**\n * @brief \u5E45\u512A\u5148\u63A2\u7D22\n */\n\n#include <bits/stdc++.h>\n\
     \n#include \"../../graph/bfs.cpp\"\n#include \"../../structure/graph.cpp\"\n\n\
     using namespace std;\ntypedef long long ll;\ntypedef vector<ll> vi;\n\nint main()\
     \ {\n    ll n;\n    cin >> n;\n\n    Graph<ll> g(n);\n    for (ll i = 0; i < n;\
     \ i++) {\n        ll u, k;\n        cin >> u >> k;\n        for (ll j = 0; j <\
-    \ k; j++) {\n            ll v;\n            cin >> v;\n            g.add_edge(i,\
+    \ k; j++) {\n            ll v;\n            cin >> v;\n            g.add_directed_edge(i,\
     \ --v);\n        }\n    }\n\n    BFS<ll> bfs(g, 0);\n\n    for (ll i = 0; i <\
-    \ n; i++) {\n        cout << i + 1 << \" \" << bfs.dist[i] << \" \" << bfs.prev[i]\
-    \ << endl;\n    }\n}\n"
+    \ n; i++) {\n        cout << i + 1 << \" \" << bfs.dist[i] << endl;\n    }\n}\n"
   dependsOn:
   - graph/bfs.cpp
   - structure/graph.cpp
   isVerificationFile: true
   path: Tests/AizuOnlineJudge/ALDS1_11_C.test.cpp
   requiredBy: []
-  timestamp: '2022-03-27 23:11:59+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-03-27 23:14:15+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Tests/AizuOnlineJudge/ALDS1_11_C.test.cpp
 layout: document

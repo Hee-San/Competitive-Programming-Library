@@ -3,7 +3,7 @@ data:
   libraryCategories:
   - name: graph
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: graph/bfs.cpp
       title: "BFS (\u5E45\u512A\u5148\u63A2\u7D22)"
   - name: math/number_theory
@@ -20,7 +20,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: structure/cumulative_sum.cpp
       title: "Cumulative Sum(\u7D2F\u7A4D\u548C)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: structure/graph.cpp
       title: "\u30B0\u30E9\u30D5"
   - name: structure/segment_tree
@@ -33,7 +33,7 @@ data:
   verificationCategories:
   - name: Tests/AizuOnlineJudge
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Tests/AizuOnlineJudge/ALDS1_11_C.test.cpp
       title: "\u5E45\u512A\u5148\u63A2\u7D22"
     - icon: ':heavy_check_mark:'
