@@ -52,7 +52,8 @@ data:
     \ i < n; i++) {\n        ll u, k;\n        cin >> u >> k;\n        for (ll j =\
     \ 0; j < k; j++) {\n            ll v;\n            cin >> v;\n            g.add_edge(i,\
     \ --v);\n        }\n    }\n\n    BFS<ll> bfs(g, 0);\n\n    for (ll i = 0; i <\
-    \ n; i++) {\n        cout << i + 1 << \" \" << bfs.dist[i] << endl;\n    }\n}\n"
+    \ n; i++) {\n        cout << i + 1 << \" \" << bfs.dist[i] << \" \" << bfs.prev[i]\
+    \ << endl;\n    }\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/problems/ALDS1_11_C\"\n\
     /**\n * @brief \u5E45\u512A\u5148\u63A2\u7D22\n */\n\n#include <bits/stdc++.h>\n\
     \n#include \"../../graph/bfs.cpp\"\n#include \"../../structure/graph.cpp\"\n\n\
@@ -61,14 +62,15 @@ data:
     \ i++) {\n        ll u, k;\n        cin >> u >> k;\n        for (ll j = 0; j <\
     \ k; j++) {\n            ll v;\n            cin >> v;\n            g.add_edge(i,\
     \ --v);\n        }\n    }\n\n    BFS<ll> bfs(g, 0);\n\n    for (ll i = 0; i <\
-    \ n; i++) {\n        cout << i + 1 << \" \" << bfs.dist[i] << endl;\n    }\n}\n"
+    \ n; i++) {\n        cout << i + 1 << \" \" << bfs.dist[i] << \" \" << bfs.prev[i]\
+    \ << endl;\n    }\n}\n"
   dependsOn:
   - graph/bfs.cpp
   - structure/graph.cpp
   isVerificationFile: true
   path: Tests/AizuOnlineJudge/ALDS1_11_C.test.cpp
   requiredBy: []
-  timestamp: '2022-03-27 23:05:19+09:00'
+  timestamp: '2022-03-27 23:11:59+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: Tests/AizuOnlineJudge/ALDS1_11_C.test.cpp
