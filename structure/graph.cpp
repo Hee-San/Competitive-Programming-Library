@@ -1,3 +1,5 @@
+#pragma once
+
 /**
  * @brief グラフ
  * @docs docs/structure/graph.md
