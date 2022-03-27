@@ -1,6 +1,11 @@
 ---
 data:
   libraryCategories:
+  - name: graph
+    pages:
+    - icon: ':x:'
+      path: graph/bfs.cpp
+      title: "BFS (\u5E45\u512A\u5148\u63A2\u7D22)"
   - name: math/number_theory
     pages:
     - icon: ':heavy_check_mark:'
@@ -15,6 +20,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: structure/cumulative_sum.cpp
       title: "Cumulative Sum(\u7D2F\u7A4D\u548C)"
+    - icon: ':x:'
+      path: structure/graph.cpp
+      title: "\u30B0\u30E9\u30D5"
   - name: structure/segment_tree
     pages:
     - icon: ':heavy_check_mark:'
@@ -25,6 +33,9 @@ data:
   verificationCategories:
   - name: Tests/AizuOnlineJudge
     pages:
+    - icon: ':x:'
+      path: Tests/AizuOnlineJudge/ALDS1_11_C.test.cpp
+      title: "\u5E45\u512A\u5148\u63A2\u7D22"
     - icon: ':heavy_check_mark:'
       path: Tests/AizuOnlineJudge/DSL_2_A.test.cpp
       title: "\u533A\u9593\u306E\u6700\u5C0F\u5024\u30FB\u4E00\u70B9\u66F4\u65B0 Range\
@@ -47,6 +58,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: Tests/LibraryChecker/Data_Structure/staticrmq.test.cpp
       title: "\u533A\u9593\u306E\u6700\u5C0F\u5024"
+  - name: Tests/LibraryChecker/Graph
+    pages:
+    - icon: ':x:'
+      path: Tests/LibraryChecker/Graph/shortest_path .test.cpp
+      title: "\u6700\u77ED\u7D4C\u8DEF"
   - name: Tests/LibraryChecker/Sample
     pages:
     - icon: ':heavy_check_mark:'
