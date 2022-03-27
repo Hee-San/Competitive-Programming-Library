@@ -11,7 +11,7 @@ struct BFS {
     vector<int> prev;
 
     BFS(Graph<T> g, int start) {
-        if (!g.is_waighted()) {
+        if (g.is_waighted()) {
             throw runtime_error("Not unweighted graph");
         }
 
