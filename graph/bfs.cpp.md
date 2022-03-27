@@ -17,7 +17,7 @@ data:
     document_title: "BFS (\u5E45\u512A\u5148\u63A2\u7D22)"
     links: []
   bundledCode: "#line 1 \"graph/bfs.cpp\"\n/**\n * @brief BFS (\u5E45\u512A\u5148\u63A2\
-    \u7D22)\n * @docs docs/graph/bfs.md\n */\n\n#line 1 \"structure/graph.cpp\"\n\
+    \u7D22)\n * @docs docs/graph/bfs.md\n */\n\n#line 2 \"structure/graph.cpp\"\n\n\
     /**\n * @brief \u30B0\u30E9\u30D5\n * @docs docs/structure/graph.md\n */\n\nusing\
     \ namespace std;\n\ntemplate <typename T>\nstruct Edge {\n    int from, to;\n\
     \    T cosst;\n\n    Edge(int from, int to, T cosst = 1) : from(from), to(to),\
@@ -63,7 +63,7 @@ data:
   isVerificationFile: false
   path: graph/bfs.cpp
   requiredBy: []
-  timestamp: '2022-03-27 16:34:11+09:00'
+  timestamp: '2022-03-27 16:41:48+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - Tests/AizuOnlineJudge/ALDS1_11_C.test.cpp

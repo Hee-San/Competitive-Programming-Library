@@ -7,9 +7,6 @@ data:
   - icon: ':x:'
     path: structure/graph.cpp
     title: "\u30B0\u30E9\u30D5"
-  - icon: ':x:'
-    path: structure/graph.cpp
-    title: "\u30B0\u30E9\u30D5"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: true
@@ -25,8 +22,8 @@ data:
     \ \"https://onlinejudge.u-aizu.ac.jp/problems/ALDS1_11_C\"\n/**\n * @brief \u5E45\
     \u512A\u5148\u63A2\u7D22\n */\n\n#include <bits/stdc++.h>\n\n#line 1 \"graph/bfs.cpp\"\
     \n/**\n * @brief BFS (\u5E45\u512A\u5148\u63A2\u7D22)\n * @docs docs/graph/bfs.md\n\
-    \ */\n\n#line 1 \"structure/graph.cpp\"\n/**\n * @brief \u30B0\u30E9\u30D5\n *\
-    \ @docs docs/structure/graph.md\n */\n\nusing namespace std;\n\ntemplate <typename\
+    \ */\n\n#line 2 \"structure/graph.cpp\"\n\n/**\n * @brief \u30B0\u30E9\u30D5\n\
+    \ * @docs docs/structure/graph.md\n */\n\nusing namespace std;\n\ntemplate <typename\
     \ T>\nstruct Edge {\n    int from, to;\n    T cosst;\n\n    Edge(int from, int\
     \ to, T cosst = 1) : from(from), to(to), cosst(cosst) {}\n};\n\ntemplate <typename\
     \ T>\nstruct Graph {\n    vector<vector<Edge<T> > > edges;\n\n    Graph() = default;\n\
@@ -48,23 +45,13 @@ data:
     \                }\n            }\n        }\n    }\n\n    vector<int> path(int\
     \ to) {\n        vector<int> path;\n        while (to != -1) {\n            path.push_back(to);\n\
     \            to = prev[to];\n        }\n        reverse(path.begin(), path.end());\n\
-    \        return path;\n    }\n};\n#line 1 \"structure/graph.cpp\"\n/**\n * @brief\
-    \ \u30B0\u30E9\u30D5\n * @docs docs/structure/graph.md\n */\n\nusing namespace\
-    \ std;\n\ntemplate <typename T>\nstruct Edge {\n    int from, to;\n    T cosst;\n\
-    \n    Edge(int from, int to, T cosst = 1) : from(from), to(to), cosst(cosst) {}\n\
-    };\n\ntemplate <typename T>\nstruct Graph {\n    vector<vector<Edge<T> > > edges;\n\
-    \n    Graph() = default;\n    Graph(int n) : edges(n) {}\n\n    size_t size()\
-    \ { return edges.size(); }\n\n    void add_edge(int from, int to, T cosst = 1)\
-    \ {\n        edges[from].emplace_back(from, to, cosst);\n        edges[to].emplace_back(to,\
-    \ from, cosst);\n    }\n\n    void add_directed_edge(int from, int to, T cosst\
-    \ = 1) {\n        edges[from].emplace_back(from, to, cosst);\n    }\n};\n#line\
-    \ 10 \"Tests/AizuOnlineJudge/ALDS1_11_C.test.cpp\"\n\nusing namespace std;\ntypedef\
-    \ long long ll;\ntypedef vector<ll> vi;\n\nint main() {\n    ll n;\n    cin >>\
-    \ n;\n\n    Graph<ll> g(n);\n    for (ll i = 0; i < n; i++) {\n        ll u, k;\n\
-    \        cin >> u >> k;\n        for (ll j = 0; j < k; j++) {\n            ll\
-    \ v;\n            cin >> v;\n            g.add_edge(i, --v);\n        }\n    }\n\
-    \n    BFS<ll> bfs(g, 0);\n\n    for (ll i = 0; i < n; i++) {\n        cout <<\
-    \ i + 1 << \" \" << bfs.dist[i] << endl;\n    }\n}\n"
+    \        return path;\n    }\n};\n#line 10 \"Tests/AizuOnlineJudge/ALDS1_11_C.test.cpp\"\
+    \n\nusing namespace std;\ntypedef long long ll;\ntypedef vector<ll> vi;\n\nint\
+    \ main() {\n    ll n;\n    cin >> n;\n\n    Graph<ll> g(n);\n    for (ll i = 0;\
+    \ i < n; i++) {\n        ll u, k;\n        cin >> u >> k;\n        for (ll j =\
+    \ 0; j < k; j++) {\n            ll v;\n            cin >> v;\n            g.add_edge(i,\
+    \ --v);\n        }\n    }\n\n    BFS<ll> bfs(g, 0);\n\n    for (ll i = 0; i <\
+    \ n; i++) {\n        cout << i + 1 << \" \" << bfs.dist[i] << endl;\n    }\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/problems/ALDS1_11_C\"\n\
     /**\n * @brief \u5E45\u512A\u5148\u63A2\u7D22\n */\n\n#include <bits/stdc++.h>\n\
     \n#include \"../../graph/bfs.cpp\"\n#include \"../../structure/graph.cpp\"\n\n\
@@ -77,11 +64,10 @@ data:
   dependsOn:
   - graph/bfs.cpp
   - structure/graph.cpp
-  - structure/graph.cpp
   isVerificationFile: true
   path: Tests/AizuOnlineJudge/ALDS1_11_C.test.cpp
   requiredBy: []
-  timestamp: '2022-03-27 16:34:11+09:00'
+  timestamp: '2022-03-27 16:41:48+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: Tests/AizuOnlineJudge/ALDS1_11_C.test.cpp
