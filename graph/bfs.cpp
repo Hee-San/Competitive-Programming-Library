@@ -13,7 +13,7 @@ struct BFS {
     BFS(Graph<T> g, int start) {
         // 重みなしグラフかチェック
         for (auto& e : g.edges) {
-            if (e.size() != 1) {
+            if (e.cost != 1) {
                 throw runtime_error("Not unweighted graph");
             }
         }

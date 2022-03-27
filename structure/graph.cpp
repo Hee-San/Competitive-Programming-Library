@@ -10,9 +10,9 @@ using namespace std;
 template <typename T>
 struct Edge {
     int from, to;
-    T cosst;
+    T cost;
 
-    Edge(int from, int to, T cosst = 1) : from(from), to(to), cosst(cosst) {}
+    Edge(int from, int to, T cost = 1) : from(from), to(to), cost(cost) {}
 };
 
 template <typename T>
@@ -24,12 +24,12 @@ struct Graph {
 
     size_t size() { return edges.size(); }
 
-    void add_edge(int from, int to, T cosst = 1) {
-        edges[from].emplace_back(from, to, cosst);
-        edges[to].emplace_back(to, from, cosst);
+    void add_edge(int from, int to, T cost = 1) {
+        edges[from].emplace_back(from, to, cost);
+        edges[to].emplace_back(to, from, cost);
     }
 
-    void add_directed_edge(int from, int to, T cosst = 1) {
-        edges[from].emplace_back(from, to, cosst);
+    void add_directed_edge(int from, int to, T cost = 1) {
+        edges[from].emplace_back(from, to, cost);
     }
 };
