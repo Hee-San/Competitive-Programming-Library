@@ -15,12 +15,12 @@ struct Edge {
 
 template <typename T>
 struct Graph {
-    vector<vector<Edge> > edges;
+    vector<vector<Edge<T> > > edges;
 
     Graph() = default;
     Graph(int n) : edges(n) {}
 
-    size_t size() const { return edges.size(); }
+    size_t size() { return edges.size(); }
 
     void add_edge(int from, int to, T cosst = 1) {
         edges[from].emplace_back(from, to, cosst);
