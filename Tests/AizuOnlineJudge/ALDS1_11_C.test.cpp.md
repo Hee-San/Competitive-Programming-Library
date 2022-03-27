@@ -24,17 +24,17 @@ data:
     \n/**\n * @brief BFS (\u5E45\u512A\u5148\u63A2\u7D22)\n * @docs docs/graph/bfs.md\n\
     \ */\n\n#line 2 \"structure/graph.cpp\"\n\n/**\n * @brief \u30B0\u30E9\u30D5\n\
     \ * @docs docs/structure/graph.md\n */\n\nusing namespace std;\n\ntemplate <typename\
-    \ T>\nstruct Edge {\n    int from, to;\n    T cosst;\n\n    Edge(int from, int\
-    \ to, T cosst = 1) : from(from), to(to), cosst(cosst) {}\n};\n\ntemplate <typename\
+    \ T>\nstruct Edge {\n    int from, to;\n    T cost;\n\n    Edge(int from, int\
+    \ to, T cost = 1) : from(from), to(to), cost(cost) {}\n};\n\ntemplate <typename\
     \ T>\nstruct Graph {\n    vector<vector<Edge<T> > > edges;\n\n    Graph() = default;\n\
     \    Graph(int n) : edges(n) {}\n\n    size_t size() { return edges.size(); }\n\
-    \n    void add_edge(int from, int to, T cosst = 1) {\n        edges[from].emplace_back(from,\
-    \ to, cosst);\n        edges[to].emplace_back(to, from, cosst);\n    }\n\n   \
-    \ void add_directed_edge(int from, int to, T cosst = 1) {\n        edges[from].emplace_back(from,\
-    \ to, cosst);\n    }\n};\n#line 7 \"graph/bfs.cpp\"\n\ntemplate <typename T>\n\
+    \n    void add_edge(int from, int to, T cost = 1) {\n        edges[from].emplace_back(from,\
+    \ to, cost);\n        edges[to].emplace_back(to, from, cost);\n    }\n\n    void\
+    \ add_directed_edge(int from, int to, T cost = 1) {\n        edges[from].emplace_back(from,\
+    \ to, cost);\n    }\n};\n#line 7 \"graph/bfs.cpp\"\n\ntemplate <typename T>\n\
     struct BFS {\n    vector<T> dist;\n    vector<int> prev;\n\n    BFS(Graph<T> g,\
     \ int start) {\n        // \u91CD\u307F\u306A\u3057\u30B0\u30E9\u30D5\u304B\u30C1\
-    \u30A7\u30C3\u30AF\n        for (auto& e : g.edges) {\n            if (e.size()\
+    \u30A7\u30C3\u30AF\n        for (auto& e : g.edges) {\n            if (e.cost\
     \ != 1) {\n                throw runtime_error(\"Not unweighted graph\");\n  \
     \          }\n        }\n\n        dist.resize(g.size(), -1);\n        prev.resize(g.size(),\
     \ -1);\n\n        queue<int> q;\n        q.push(start);\n        dist[start] =\
@@ -67,7 +67,7 @@ data:
   isVerificationFile: true
   path: Tests/AizuOnlineJudge/ALDS1_11_C.test.cpp
   requiredBy: []
-  timestamp: '2022-03-27 16:41:48+09:00'
+  timestamp: '2022-03-27 16:44:34+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: Tests/AizuOnlineJudge/ALDS1_11_C.test.cpp
