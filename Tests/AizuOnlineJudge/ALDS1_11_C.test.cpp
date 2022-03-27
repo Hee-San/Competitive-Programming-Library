@@ -30,6 +30,6 @@ int main() {
     BFS<ll> bfs(g, 0);
 
     for (ll i = 0; i < n; i++) {
-        cout << i + 1 << " " << bfs.dist[i] << endl;
+        cout << i + 1 << " " << bfs.dist[i] << " " << bfs.prev[i] << endl;
     }
 }
