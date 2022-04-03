@@ -43,7 +43,7 @@ struct ZeroOneBFS {
         }
     }
 
-    ZeroOneBFS(Graph<T> g, int start): ZeroOneBFS<T>(g, {start}) {}
+    ZeroOneBFS(Graph<T> g, int start): ZeroOneBFS<T>(g, vector<int>({start})) {}
 
     vector<int> path(int to) {
         vector<int> path;
