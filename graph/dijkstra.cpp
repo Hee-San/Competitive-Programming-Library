@@ -1,35 +1,35 @@
 /**
- * @brief BFS (幅優先探索)
- * @docs docs/graph/bfs.md
+ * @brief ダイクストラ法
+ * @docs docs/graph/dijkstra.md
  */
 
 #include "../structure/graph.cpp"
 
 template <typename T>
-struct BFS {
+struct Dijkstra {
     vector<T> dist;
     vector<int> prev;
 
-    BFS(Graph<T> g, int start) {
-        // O(V+E)
+    Dijkstra(Graph<T> g, int start) {
+        // O(E+VlogV)
 
         for (auto edge : edges)
             for (auto e : edge)
-                if (e.cost != 1)
-                    throw runtime_error("Not un-weighted graph");
+                if (e.cost < 0)
+                    throw runtime_error("Not non-negative weights");
 
         dist.resize(g.size(), -1);
         prev.resize(g.size(), -1);
 
-        queue<int> q;  // FIFO
+        priority_queue<int> q;  // 優先度付きキュー, ペアリングヒープ
         q.push(start);
         dist[start] = 0;
         while (!q.empty()) {
-            int from = q.front();
+            int from = q.top();
             q.pop();
             for (Edge<T> edge : g.edges[from]) {
                 if (dist[edge.to] == -1) {
-                    dist[edge.to] = dist[from] + 1;
+                    dist[edge.to] = dist[from] + edge.cost;
                     prev[edge.to] = from;
                     q.push(edge.to);
                 }

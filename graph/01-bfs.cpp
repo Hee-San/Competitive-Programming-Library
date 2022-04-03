@@ -6,32 +6,36 @@
 #include "../structure/graph.cpp"
 
 template <typename T>
-struct BFS {
+struct ZeroOneBFS {
     vector<T> dist;
     vector<int> prev;
 
-    BFS(Graph<T> g, int start) {
+    ZeroOneBFS(Graph<T> g, int start) {
         // O(V+E)
 
         for (auto edge : edges)
             for (auto e : edge)
-                if (e.cost != 1)
-                    throw runtime_error("Not un-weighted graph");
+                if (e.cost != 0 && e.cost != 1)
+                    throw runtime_error("Not 01-weighted graph");
 
         dist.resize(g.size(), -1);
         prev.resize(g.size(), -1);
 
-        queue<int> q;  // FIFO
-        q.push(start);
+        deque<int> q;  // 両端キュー
+        q.push_font(start);
         dist[start] = 0;
         while (!q.empty()) {
             int from = q.front();
-            q.pop();
+            q.pop_front();
             for (Edge<T> edge : g.edges[from]) {
                 if (dist[edge.to] == -1) {
-                    dist[edge.to] = dist[from] + 1;
+                    dist[edge.to] = dist[from] + edge.cost;
                     prev[edge.to] = from;
-                    q.push(edge.to);
+
+                    if (edge.cost == 0)
+                        q.push_front(edge.to);
+                    else
+                        q.push_back(edge.to);
                 }
             }
         }
