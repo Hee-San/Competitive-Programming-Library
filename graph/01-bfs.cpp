@@ -1,6 +1,6 @@
 /**
- * @brief BFS (幅優先探索)
- * @docs docs/graph/bfs.md
+ * @brief 01-BFS
+ * @docs docs/graph/01-bfs.md
  */
 
 #include "../structure/graph.cpp"
