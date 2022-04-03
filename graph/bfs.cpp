@@ -39,10 +39,7 @@ struct BFS {
         }
     }
 
-    BFS(Graph<T> g, int start) {
-        vector<int> starts = {start};
-        BFS(g, starts);
-    }
+    BFS(Graph<T> g, int start): BFS(g, {start}) {}
 
     vector<int> path(int to) {
         vector<int> path;
