@@ -13,7 +13,7 @@ struct Dijkstra {
     Dijkstra(Graph<T> g, int start) {
         // O(E+VlogV)
 
-        for (auto edge : edges)
+        for (auto edge : g.edges)
             for (auto e : edge)
                 if (e.cost < 0)
                     throw runtime_error("Not non-negative weights");

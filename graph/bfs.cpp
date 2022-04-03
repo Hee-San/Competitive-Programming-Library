@@ -13,7 +13,7 @@ struct BFS {
     BFS(Graph<T> g, int start) {
         // O(V+E)
 
-        for (auto edge : edges)
+        for (auto edge : g.edges)
             for (auto e : edge)
                 if (e.cost != 1)
                     throw runtime_error("Not un-weighted graph");

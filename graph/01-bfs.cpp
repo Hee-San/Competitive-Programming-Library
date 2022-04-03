@@ -13,7 +13,7 @@ struct ZeroOneBFS {
     ZeroOneBFS(Graph<T> g, int start) {
         // O(V+E)
 
-        for (auto edge : edges)
+        for (auto edge : g.edges)
             for (auto e : edge)
                 if (e.cost != 0 && e.cost != 1)
                     throw runtime_error("Not 01-weighted graph");
