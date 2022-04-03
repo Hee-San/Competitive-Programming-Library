@@ -10,7 +10,7 @@ struct Dijkstra {
     vector<T> dist;
     vector<int> prev;
 
-    Dijkstra(Graph<T> g, int start) {
+    Dijkstra(Graph<T> g, vector<int> starts) {
         // O(E+VlogV)
 
         for (auto edge : g.edges)
@@ -22,8 +22,10 @@ struct Dijkstra {
         prev.resize(g.size(), -1);
 
         priority_queue<int> q;  // 優先度付きキュー, ペアリングヒープ
-        q.push(start);
-        dist[start] = 0;
+        for (int start : starts) {
+            q.push(start);
+            dist[start] = 0;
+        }
         while (!q.empty()) {
             int from = q.top();
             q.pop();
@@ -35,6 +37,11 @@ struct Dijkstra {
                 }
             }
         }
+    }
+
+    Dijkstra(Graph<T> g, int start) {
+        vector<int> starts = {start};
+        Dijkstra(g, starts);
     }
 
     vector<int> path(int to) {

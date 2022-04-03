@@ -10,7 +10,7 @@ struct BFS {
     vector<T> dist;
     vector<int> prev;
 
-    BFS(Graph<T> g, int start) {
+    BFS(Graph<T> g, vector<int> starts) {
         // O(V+E)
 
         for (auto edge : g.edges)
@@ -22,8 +22,10 @@ struct BFS {
         prev.resize(g.size(), -1);
 
         queue<int> q;  // FIFO
-        q.push(start);
-        dist[start] = 0;
+        for (int start : starts) {
+            q.push(start);
+            dist[start] = 0;
+        }
         while (!q.empty()) {
             int from = q.front();
             q.pop();
@@ -35,6 +37,11 @@ struct BFS {
                 }
             }
         }
+    }
+
+    BFS(Graph<T> g, int start) {
+        vector<int> starts = {start};
+        BFS(g, starts);
     }
 
     vector<int> path(int to) {

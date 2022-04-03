@@ -10,7 +10,7 @@ struct ZeroOneBFS {
     vector<T> dist;
     vector<int> prev;
 
-    ZeroOneBFS(Graph<T> g, int start) {
+    ZeroOneBFS(Graph<T> g, vector<int> starts) {
         // O(V+E)
 
         for (auto edge : g.edges)
@@ -22,8 +22,10 @@ struct ZeroOneBFS {
         prev.resize(g.size(), -1);
 
         deque<int> q;  // 両端キュー
-        q.push_font(start);
-        dist[start] = 0;
+        for (int start : starts) {
+            q.push_back(start);
+            dist[start] = 0;
+        }
         while (!q.empty()) {
             int from = q.front();
             q.pop_front();
@@ -39,6 +41,11 @@ struct ZeroOneBFS {
                 }
             }
         }
+    }
+
+    ZeroOneBFS(Graph<T> g, int start) {
+        vector<int> starts = {start};
+        ZeroOneBFS(g, starts);
     }
 
     vector<int> path(int to) {
