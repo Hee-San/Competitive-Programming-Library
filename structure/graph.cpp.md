@@ -4,7 +4,7 @@ data:
   _extendedRequiredBy:
   - icon: ':warning:'
     path: graph/01-bfs.cpp
-    title: "BFS (\u5E45\u512A\u5148\u63A2\u7D22)"
+    title: 01-BFS
   - icon: ':heavy_check_mark:'
     path: graph/bfs.cpp
     title: "BFS (\u5E45\u512A\u5148\u63A2\u7D22)"
