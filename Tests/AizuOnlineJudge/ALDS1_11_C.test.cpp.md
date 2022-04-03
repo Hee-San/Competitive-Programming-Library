@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/bfs.cpp
     title: "BFS (\u5E45\u512A\u5148\u63A2\u7D22)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: structure/graph.cpp
     title: "\u30B0\u30E9\u30D5"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://onlinejudge.u-aizu.ac.jp/problems/ALDS1_11_C
@@ -33,9 +33,9 @@ data:
     \ add_directed_edge(int from, int to, T cost = 1) {\n        edges[from].emplace_back(from,\
     \ to, cost);\n    }\n};\n#line 7 \"graph/bfs.cpp\"\n\ntemplate <typename T>\n\
     struct BFS {\n    vector<T> dist;\n    vector<int> prev;\n\n    BFS(Graph<T> g,\
-    \ int start) {\n        // O(V+E)\n\n        for (auto edge : edges)\n       \
-    \     for (auto e : edge)\n                if (e.cost != 1)\n                \
-    \    throw runtime_error(\"Not un-weighted graph\");\n\n        dist.resize(g.size(),\
+    \ int start) {\n        // O(V+E)\n\n        for (auto edge : g.edges)\n     \
+    \       for (auto e : edge)\n                if (e.cost != 1)\n              \
+    \      throw runtime_error(\"Not un-weighted graph\");\n\n        dist.resize(g.size(),\
     \ -1);\n        prev.resize(g.size(), -1);\n\n        queue<int> q;  // FIFO\n\
     \        q.push(start);\n        dist[start] = 0;\n        while (!q.empty())\
     \ {\n            int from = q.front();\n            q.pop();\n            for\
@@ -67,8 +67,8 @@ data:
   isVerificationFile: true
   path: Tests/AizuOnlineJudge/ALDS1_11_C.test.cpp
   requiredBy: []
-  timestamp: '2022-04-03 09:48:54+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-04-03 09:53:01+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Tests/AizuOnlineJudge/ALDS1_11_C.test.cpp
 layout: document
