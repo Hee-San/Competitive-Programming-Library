@@ -39,7 +39,7 @@ struct Dijkstra {
         }
     }
 
-    Dijkstra(Graph<T> g, int start) : Dijkstra(g, {start}) {}
+    Dijkstra(Graph<T> g, int start) : Dijkstra<T>(g, {start}) {}
 
     vector<int> path(int to) {
         vector<int> path;
