@@ -3,9 +3,15 @@ data:
   libraryCategories:
   - name: graph
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':warning:'
+      path: graph/01-bfs.cpp
+      title: "BFS (\u5E45\u512A\u5148\u63A2\u7D22)"
+    - icon: ':x:'
       path: graph/bfs.cpp
       title: "BFS (\u5E45\u512A\u5148\u63A2\u7D22)"
+    - icon: ':warning:'
+      path: graph/dijkstra.cpp
+      title: "\u30C0\u30A4\u30AF\u30B9\u30C8\u30E9\u6CD5"
   - name: math/number_theory
     pages:
     - icon: ':heavy_check_mark:'
@@ -20,7 +26,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: structure/cumulative_sum.cpp
       title: "Cumulative Sum(\u7D2F\u7A4D\u548C)"
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: structure/graph.cpp
       title: "\u30B0\u30E9\u30D5"
   - name: structure/segment_tree
@@ -33,7 +39,7 @@ data:
   verificationCategories:
   - name: Tests/AizuOnlineJudge
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Tests/AizuOnlineJudge/ALDS1_11_C.test.cpp
       title: "\u5E45\u512A\u5148\u63A2\u7D22"
     - icon: ':heavy_check_mark:'

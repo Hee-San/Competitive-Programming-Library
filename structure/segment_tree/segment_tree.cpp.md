@@ -68,10 +68,10 @@ data:
   timestamp: '2022-03-11 00:32:20+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - Tests/LibraryChecker/Data_Structure/point_set_range_composite.test.cpp
-  - Tests/LibraryChecker/Data_Structure/staticrmq.test.cpp
   - Tests/AizuOnlineJudge/DSL_2_B.test.cpp
   - Tests/AizuOnlineJudge/DSL_2_A.test.cpp
+  - Tests/LibraryChecker/Data_Structure/staticrmq.test.cpp
+  - Tests/LibraryChecker/Data_Structure/point_set_range_composite.test.cpp
 documentation_of: structure/segment_tree/segment_tree.cpp
 layout: document
 redirect_from:

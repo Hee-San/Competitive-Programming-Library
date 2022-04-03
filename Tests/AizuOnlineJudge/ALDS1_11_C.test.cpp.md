@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: graph/bfs.cpp
     title: "BFS (\u5E45\u512A\u5148\u63A2\u7D22)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: structure/graph.cpp
     title: "\u30B0\u30E9\u30D5"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://onlinejudge.u-aizu.ac.jp/problems/ALDS1_11_C
@@ -31,21 +31,20 @@ data:
     \n    void add_undirected_edge(int from, int to, T cost = 1) {\n        edges[from].emplace_back(from,\
     \ to, cost);\n        edges[to].emplace_back(to, from, cost);\n    }\n\n    void\
     \ add_directed_edge(int from, int to, T cost = 1) {\n        edges[from].emplace_back(from,\
-    \ to, cost);\n    }\n\n    bool is_waighted() {\n        for (auto& edge : edges)\
-    \ {\n            for (auto& e : edge) {\n                if (e.cost != 1) return\
-    \ true;\n            }\n        }\n        return false;\n    }\n};\n#line 7 \"\
-    graph/bfs.cpp\"\n\ntemplate <typename T>\nstruct BFS {\n    vector<T> dist;\n\
-    \    vector<int> prev;\n\n    BFS(Graph<T> g, int start) {\n        if (g.is_waighted())\
-    \ {\n            throw runtime_error(\"Not unweighted graph\");\n        }\n\n\
-    \        dist.resize(g.size(), -1);\n        prev.resize(g.size(), -1);\n\n  \
-    \      queue<int> q;\n        q.push(start);\n        dist[start] = 0;\n     \
-    \   while (!q.empty()) {\n            int from = q.front();\n            q.pop();\n\
-    \            for (Edge<T> edge : g.edges[from]) {\n                if (dist[edge.to]\
-    \ == -1) {\n                    dist[edge.to] = dist[from] + 1;\n            \
-    \        prev[edge.to] = from;\n                    q.push(edge.to);\n       \
-    \         }\n            }\n        }\n    }\n\n    vector<int> path(int to) {\n\
-    \        vector<int> path;\n        while (to != -1) {\n            path.push_back(to);\n\
-    \            to = prev[to];\n        }\n        reverse(path.begin(), path.end());\n\
+    \ to, cost);\n    }\n};\n#line 7 \"graph/bfs.cpp\"\n\ntemplate <typename T>\n\
+    struct BFS {\n    vector<T> dist;\n    vector<int> prev;\n\n    BFS(Graph<T> g,\
+    \ int start) {\n        // O(V+E)\n\n        for (auto edge : edges)\n       \
+    \     for (auto e : edge)\n                if (e.cost != 1)\n                \
+    \    throw runtime_error(\"Not un-weighted graph\");\n\n        dist.resize(g.size(),\
+    \ -1);\n        prev.resize(g.size(), -1);\n\n        queue<int> q;  // FIFO\n\
+    \        q.push(start);\n        dist[start] = 0;\n        while (!q.empty())\
+    \ {\n            int from = q.front();\n            q.pop();\n            for\
+    \ (Edge<T> edge : g.edges[from]) {\n                if (dist[edge.to] == -1) {\n\
+    \                    dist[edge.to] = dist[from] + 1;\n                    prev[edge.to]\
+    \ = from;\n                    q.push(edge.to);\n                }\n         \
+    \   }\n        }\n    }\n\n    vector<int> path(int to) {\n        vector<int>\
+    \ path;\n        while (to != -1) {\n            path.push_back(to);\n       \
+    \     to = prev[to];\n        }\n        reverse(path.begin(), path.end());\n\
     \        return path;\n    }\n};\n#line 10 \"Tests/AizuOnlineJudge/ALDS1_11_C.test.cpp\"\
     \n\nusing namespace std;\ntypedef long long ll;\ntypedef vector<ll> vi;\n\nint\
     \ main() {\n    ll n;\n    cin >> n;\n\n    Graph<ll> g(n);\n    for (ll i = 0;\
@@ -68,8 +67,8 @@ data:
   isVerificationFile: true
   path: Tests/AizuOnlineJudge/ALDS1_11_C.test.cpp
   requiredBy: []
-  timestamp: '2022-03-27 23:14:15+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2022-04-03 09:48:54+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: Tests/AizuOnlineJudge/ALDS1_11_C.test.cpp
 layout: document
