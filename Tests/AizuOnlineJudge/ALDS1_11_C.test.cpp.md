@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/bfs.cpp
     title: "BFS (\u5E45\u512A\u5148\u63A2\u7D22)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: structure/graph.cpp
     title: "\u30B0\u30E9\u30D5"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://onlinejudge.u-aizu.ac.jp/problems/ALDS1_11_C
@@ -43,9 +43,9 @@ data:
     \            if (dist[edge.to] == -1) {\n                    dist[edge.to] = dist[from]\
     \ + 1;\n                    prev[edge.to] = from;\n                    q.push(edge.to);\n\
     \                }\n            }\n        }\n    }\n\n    BFS(Graph<T> g, int\
-    \ start): BFS<T>(g, {start}) {}\n\n    vector<int> path(int to) {\n        vector<int>\
-    \ path;\n        while (to != -1) {\n            path.push_back(to);\n       \
-    \     to = prev[to];\n        }\n        reverse(path.begin(), path.end());\n\
+    \ start) : BFS<T>(g, vector<int>({start})) {}\n\n    vector<int> path(int to)\
+    \ {\n        vector<int> path;\n        while (to != -1) {\n            path.push_back(to);\n\
+    \            to = prev[to];\n        }\n        reverse(path.begin(), path.end());\n\
     \        return path;\n    }\n};\n#line 10 \"Tests/AizuOnlineJudge/ALDS1_11_C.test.cpp\"\
     \n\nusing namespace std;\ntypedef long long ll;\ntypedef vector<ll> vi;\n\nint\
     \ main() {\n    ll n;\n    cin >> n;\n\n    Graph<ll> g(n);\n    for (ll i = 0;\
@@ -68,8 +68,8 @@ data:
   isVerificationFile: true
   path: Tests/AizuOnlineJudge/ALDS1_11_C.test.cpp
   requiredBy: []
-  timestamp: '2022-04-03 10:08:49+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-04-03 10:17:21+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Tests/AizuOnlineJudge/ALDS1_11_C.test.cpp
 layout: document

@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: structure/graph.cpp
     title: "\u30B0\u30E9\u30D5"
   _extendedRequiredBy: []
@@ -38,8 +38,8 @@ data:
     \                 if (edge.cost == 0)\n                        q.push_front(edge.to);\n\
     \                    else\n                        q.push_back(edge.to);\n   \
     \             }\n            }\n        }\n    }\n\n    ZeroOneBFS(Graph<T> g,\
-    \ int start): ZeroOneBFS<T>(g, {start}) {}\n\n    vector<int> path(int to) {\n\
-    \        vector<int> path;\n        while (to != -1) {\n            path.push_back(to);\n\
+    \ int start): ZeroOneBFS<T>(g, vector<int>({start})) {}\n\n    vector<int> path(int\
+    \ to) {\n        vector<int> path;\n        while (to != -1) {\n            path.push_back(to);\n\
     \            to = prev[to];\n        }\n        reverse(path.begin(), path.end());\n\
     \        return path;\n    }\n};\n"
   code: "/**\n * @brief 01-BFS\n * @docs docs/graph/01-bfs.md\n */\n\n#include \"\
@@ -57,16 +57,16 @@ data:
     \ = from;\n\n                    if (edge.cost == 0)\n                       \
     \ q.push_front(edge.to);\n                    else\n                        q.push_back(edge.to);\n\
     \                }\n            }\n        }\n    }\n\n    ZeroOneBFS(Graph<T>\
-    \ g, int start): ZeroOneBFS<T>(g, {start}) {}\n\n    vector<int> path(int to)\
-    \ {\n        vector<int> path;\n        while (to != -1) {\n            path.push_back(to);\n\
-    \            to = prev[to];\n        }\n        reverse(path.begin(), path.end());\n\
-    \        return path;\n    }\n};\n"
+    \ g, int start): ZeroOneBFS<T>(g, vector<int>({start})) {}\n\n    vector<int>\
+    \ path(int to) {\n        vector<int> path;\n        while (to != -1) {\n    \
+    \        path.push_back(to);\n            to = prev[to];\n        }\n        reverse(path.begin(),\
+    \ path.end());\n        return path;\n    }\n};\n"
   dependsOn:
   - structure/graph.cpp
   isVerificationFile: false
   path: graph/01-bfs.cpp
   requiredBy: []
-  timestamp: '2022-04-03 10:08:49+09:00'
+  timestamp: '2022-04-03 10:17:21+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: graph/01-bfs.cpp

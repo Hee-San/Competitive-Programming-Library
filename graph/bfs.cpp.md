@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: structure/graph.cpp
     title: "\u30B0\u30E9\u30D5"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Tests/AizuOnlineJudge/ALDS1_11_C.test.cpp
     title: "\u5E45\u512A\u5148\u63A2\u7D22"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/graph/bfs.md
     document_title: "BFS (\u5E45\u512A\u5148\u63A2\u7D22)"
@@ -39,9 +39,9 @@ data:
     \            if (dist[edge.to] == -1) {\n                    dist[edge.to] = dist[from]\
     \ + 1;\n                    prev[edge.to] = from;\n                    q.push(edge.to);\n\
     \                }\n            }\n        }\n    }\n\n    BFS(Graph<T> g, int\
-    \ start): BFS<T>(g, {start}) {}\n\n    vector<int> path(int to) {\n        vector<int>\
-    \ path;\n        while (to != -1) {\n            path.push_back(to);\n       \
-    \     to = prev[to];\n        }\n        reverse(path.begin(), path.end());\n\
+    \ start) : BFS<T>(g, vector<int>({start})) {}\n\n    vector<int> path(int to)\
+    \ {\n        vector<int> path;\n        while (to != -1) {\n            path.push_back(to);\n\
+    \            to = prev[to];\n        }\n        reverse(path.begin(), path.end());\n\
     \        return path;\n    }\n};\n"
   code: "/**\n * @brief BFS (\u5E45\u512A\u5148\u63A2\u7D22)\n * @docs docs/graph/bfs.md\n\
     \ */\n\n#include \"../structure/graph.cpp\"\n\ntemplate <typename T>\nstruct BFS\
@@ -56,17 +56,17 @@ data:
     \            if (dist[edge.to] == -1) {\n                    dist[edge.to] = dist[from]\
     \ + 1;\n                    prev[edge.to] = from;\n                    q.push(edge.to);\n\
     \                }\n            }\n        }\n    }\n\n    BFS(Graph<T> g, int\
-    \ start): BFS<T>(g, {start}) {}\n\n    vector<int> path(int to) {\n        vector<int>\
-    \ path;\n        while (to != -1) {\n            path.push_back(to);\n       \
-    \     to = prev[to];\n        }\n        reverse(path.begin(), path.end());\n\
+    \ start) : BFS<T>(g, vector<int>({start})) {}\n\n    vector<int> path(int to)\
+    \ {\n        vector<int> path;\n        while (to != -1) {\n            path.push_back(to);\n\
+    \            to = prev[to];\n        }\n        reverse(path.begin(), path.end());\n\
     \        return path;\n    }\n};\n"
   dependsOn:
   - structure/graph.cpp
   isVerificationFile: false
   path: graph/bfs.cpp
   requiredBy: []
-  timestamp: '2022-04-03 10:08:49+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2022-04-03 10:17:21+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - Tests/AizuOnlineJudge/ALDS1_11_C.test.cpp
 documentation_of: graph/bfs.cpp
