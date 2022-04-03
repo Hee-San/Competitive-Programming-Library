@@ -39,11 +39,10 @@ data:
     \            if (dist[edge.to] == -1) {\n                    dist[edge.to] = dist[from]\
     \ + 1;\n                    prev[edge.to] = from;\n                    q.push(edge.to);\n\
     \                }\n            }\n        }\n    }\n\n    BFS(Graph<T> g, int\
-    \ start) {\n        vector<int> starts = {start};\n        BFS(g, starts);\n \
-    \   }\n\n    vector<int> path(int to) {\n        vector<int> path;\n        while\
-    \ (to != -1) {\n            path.push_back(to);\n            to = prev[to];\n\
-    \        }\n        reverse(path.begin(), path.end());\n        return path;\n\
-    \    }\n};\n"
+    \ start): BFS(g, {start}) {}\n\n    vector<int> path(int to) {\n        vector<int>\
+    \ path;\n        while (to != -1) {\n            path.push_back(to);\n       \
+    \     to = prev[to];\n        }\n        reverse(path.begin(), path.end());\n\
+    \        return path;\n    }\n};\n"
   code: "/**\n * @brief BFS (\u5E45\u512A\u5148\u63A2\u7D22)\n * @docs docs/graph/bfs.md\n\
     \ */\n\n#include \"../structure/graph.cpp\"\n\ntemplate <typename T>\nstruct BFS\
     \ {\n    vector<T> dist;\n    vector<int> prev;\n\n    BFS(Graph<T> g, vector<int>\
@@ -57,17 +56,16 @@ data:
     \            if (dist[edge.to] == -1) {\n                    dist[edge.to] = dist[from]\
     \ + 1;\n                    prev[edge.to] = from;\n                    q.push(edge.to);\n\
     \                }\n            }\n        }\n    }\n\n    BFS(Graph<T> g, int\
-    \ start) {\n        vector<int> starts = {start};\n        BFS(g, starts);\n \
-    \   }\n\n    vector<int> path(int to) {\n        vector<int> path;\n        while\
-    \ (to != -1) {\n            path.push_back(to);\n            to = prev[to];\n\
-    \        }\n        reverse(path.begin(), path.end());\n        return path;\n\
-    \    }\n};\n"
+    \ start): BFS(g, {start}) {}\n\n    vector<int> path(int to) {\n        vector<int>\
+    \ path;\n        while (to != -1) {\n            path.push_back(to);\n       \
+    \     to = prev[to];\n        }\n        reverse(path.begin(), path.end());\n\
+    \        return path;\n    }\n};\n"
   dependsOn:
   - structure/graph.cpp
   isVerificationFile: false
   path: graph/bfs.cpp
   requiredBy: []
-  timestamp: '2022-04-03 10:00:30+09:00'
+  timestamp: '2022-04-03 10:04:11+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - Tests/AizuOnlineJudge/ALDS1_11_C.test.cpp

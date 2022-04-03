@@ -37,11 +37,11 @@ data:
     \ : g.edges[from]) {\n                if (dist[edge.to] == -1) {\n           \
     \         dist[edge.to] = dist[from] + edge.cost;\n                    prev[edge.to]\
     \ = from;\n                    q.push(edge.to);\n                }\n         \
-    \   }\n        }\n    }\n\n    Dijkstra(Graph<T> g, int start) {\n        vector<int>\
-    \ starts = {start};\n        Dijkstra(g, starts);\n    }\n\n    vector<int> path(int\
-    \ to) {\n        vector<int> path;\n        while (to != -1) {\n            path.push_back(to);\n\
-    \            to = prev[to];\n        }\n        reverse(path.begin(), path.end());\n\
-    \        return path;\n    }\n};\n"
+    \   }\n        }\n    }\n\n    Dijkstra(Graph<T> g, int start) : Dijkstra(g, {start})\
+    \ {}\n\n    vector<int> path(int to) {\n        vector<int> path;\n        while\
+    \ (to != -1) {\n            path.push_back(to);\n            to = prev[to];\n\
+    \        }\n        reverse(path.begin(), path.end());\n        return path;\n\
+    \    }\n};\n"
   code: "/**\n * @brief \u30C0\u30A4\u30AF\u30B9\u30C8\u30E9\u6CD5\n * @docs docs/graph/dijkstra.md\n\
     \ */\n\n#include \"../structure/graph.cpp\"\n\ntemplate <typename T>\nstruct Dijkstra\
     \ {\n    vector<T> dist;\n    vector<int> prev;\n\n    Dijkstra(Graph<T> g, vector<int>\
@@ -56,17 +56,17 @@ data:
     \ : g.edges[from]) {\n                if (dist[edge.to] == -1) {\n           \
     \         dist[edge.to] = dist[from] + edge.cost;\n                    prev[edge.to]\
     \ = from;\n                    q.push(edge.to);\n                }\n         \
-    \   }\n        }\n    }\n\n    Dijkstra(Graph<T> g, int start) {\n        vector<int>\
-    \ starts = {start};\n        Dijkstra(g, starts);\n    }\n\n    vector<int> path(int\
-    \ to) {\n        vector<int> path;\n        while (to != -1) {\n            path.push_back(to);\n\
-    \            to = prev[to];\n        }\n        reverse(path.begin(), path.end());\n\
-    \        return path;\n    }\n};\n"
+    \   }\n        }\n    }\n\n    Dijkstra(Graph<T> g, int start) : Dijkstra(g, {start})\
+    \ {}\n\n    vector<int> path(int to) {\n        vector<int> path;\n        while\
+    \ (to != -1) {\n            path.push_back(to);\n            to = prev[to];\n\
+    \        }\n        reverse(path.begin(), path.end());\n        return path;\n\
+    \    }\n};\n"
   dependsOn:
   - structure/graph.cpp
   isVerificationFile: false
   path: graph/dijkstra.cpp
   requiredBy: []
-  timestamp: '2022-04-03 10:00:30+09:00'
+  timestamp: '2022-04-03 10:04:11+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: graph/dijkstra.cpp

@@ -43,15 +43,14 @@ data:
     \            if (dist[edge.to] == -1) {\n                    dist[edge.to] = dist[from]\
     \ + 1;\n                    prev[edge.to] = from;\n                    q.push(edge.to);\n\
     \                }\n            }\n        }\n    }\n\n    BFS(Graph<T> g, int\
-    \ start) {\n        vector<int> starts = {start};\n        BFS(g, starts);\n \
-    \   }\n\n    vector<int> path(int to) {\n        vector<int> path;\n        while\
-    \ (to != -1) {\n            path.push_back(to);\n            to = prev[to];\n\
-    \        }\n        reverse(path.begin(), path.end());\n        return path;\n\
-    \    }\n};\n#line 10 \"Tests/AizuOnlineJudge/ALDS1_11_C.test.cpp\"\n\nusing namespace\
-    \ std;\ntypedef long long ll;\ntypedef vector<ll> vi;\n\nint main() {\n    ll\
-    \ n;\n    cin >> n;\n\n    Graph<ll> g(n);\n    for (ll i = 0; i < n; i++) {\n\
-    \        ll u, k;\n        cin >> u >> k;\n        for (ll j = 0; j < k; j++)\
-    \ {\n            ll v;\n            cin >> v;\n            g.add_directed_edge(i,\
+    \ start): BFS(g, {start}) {}\n\n    vector<int> path(int to) {\n        vector<int>\
+    \ path;\n        while (to != -1) {\n            path.push_back(to);\n       \
+    \     to = prev[to];\n        }\n        reverse(path.begin(), path.end());\n\
+    \        return path;\n    }\n};\n#line 10 \"Tests/AizuOnlineJudge/ALDS1_11_C.test.cpp\"\
+    \n\nusing namespace std;\ntypedef long long ll;\ntypedef vector<ll> vi;\n\nint\
+    \ main() {\n    ll n;\n    cin >> n;\n\n    Graph<ll> g(n);\n    for (ll i = 0;\
+    \ i < n; i++) {\n        ll u, k;\n        cin >> u >> k;\n        for (ll j =\
+    \ 0; j < k; j++) {\n            ll v;\n            cin >> v;\n            g.add_directed_edge(i,\
     \ --v);\n        }\n    }\n\n    BFS<ll> bfs(g, 0);\n\n    for (ll i = 0; i <\
     \ n; i++) {\n        cout << i + 1 << \" \" << bfs.dist[i] << endl;\n    }\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/problems/ALDS1_11_C\"\n\
@@ -69,7 +68,7 @@ data:
   isVerificationFile: true
   path: Tests/AizuOnlineJudge/ALDS1_11_C.test.cpp
   requiredBy: []
-  timestamp: '2022-04-03 10:00:30+09:00'
+  timestamp: '2022-04-03 10:04:11+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: Tests/AizuOnlineJudge/ALDS1_11_C.test.cpp
