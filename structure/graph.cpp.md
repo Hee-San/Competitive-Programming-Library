@@ -8,16 +8,19 @@ data:
   - icon: ':heavy_check_mark:'
     path: graph/bfs.cpp
     title: "BFS (\u5E45\u512A\u5148\u63A2\u7D22)"
-  - icon: ':warning:'
+  - icon: ':x:'
     path: graph/dijkstra.cpp
     title: "\u30C0\u30A4\u30AF\u30B9\u30C8\u30E9\u6CD5"
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: Tests/AizuOnlineJudge/ALDS1_11_C.test.cpp
     title: "\u5E45\u512A\u5148\u63A2\u7D22"
-  _isVerificationFailed: false
+  - icon: ':x:'
+    path: Tests/LibraryChecker/Graph/shortest_path.test.cpp
+    title: "\u91CD\u307F\u4ED8\u304D\u3001\u6700\u77ED\u7D4C\u8DEF\u554F\u984C"
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     _deprecated_at_docs: docs/structure/graph.md
     document_title: "\u30B0\u30E9\u30D5"
@@ -50,9 +53,10 @@ data:
   - graph/01-bfs.cpp
   - graph/bfs.cpp
   timestamp: '2022-04-03 09:48:54+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - Tests/AizuOnlineJudge/ALDS1_11_C.test.cpp
+  - Tests/LibraryChecker/Graph/shortest_path.test.cpp
 documentation_of: structure/graph.cpp
 layout: document
 redirect_from:
