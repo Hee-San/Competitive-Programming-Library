@@ -55,10 +55,9 @@ data:
     \ g(N);\n    for (ll i = 0; i < M; i++) {\n        ll a, b, c;\n        cin >>\
     \ a >> b >> c;\n        g.add_undirected_edge(a, b, c);\n    }\n\n    Dijkstra<ll>\
     \ dijkstra(g, s);\n    ll dist = dijkstra.dist[t];\n    vi path = dijkstra.path(t);\n\
-    \n    if (dist > 0) {\n        cout << dist << ' ' << path.size() - 1 << endl;\n\
-    \        for (ll i = 0; i < path.size() - 1; i++) {\n            cout << path[i]\
-    \ << ' ' << path[i + 1] << endl;\n        }\n    } else {\n        cout << -1\
-    \ << endl;\n    }\n}\n"
+    \n    cout << dist << ' ' << path.size() - 1 << endl;\n    for (ll i = 0; i <\
+    \ path.size() - 1; i++) {\n        cout << path[i] << ' ' << path[i + 1] << endl;\n\
+    \    }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/shortest_path\"\n/**\n\
     \ * @brief \u91CD\u307F\u4ED8\u304D\u3001\u6700\u77ED\u7D4C\u8DEF\u554F\u984C\n\
     \ */\n\n#include <bits/stdc++.h>\n\n#include \"../../../graph/dijkstra.cpp\"\n\
@@ -67,17 +66,16 @@ data:
     \ >> N >> M >> s >> t;\n\n    Graph<ll> g(N);\n    for (ll i = 0; i < M; i++)\
     \ {\n        ll a, b, c;\n        cin >> a >> b >> c;\n        g.add_undirected_edge(a,\
     \ b, c);\n    }\n\n    Dijkstra<ll> dijkstra(g, s);\n    ll dist = dijkstra.dist[t];\n\
-    \    vi path = dijkstra.path(t);\n\n    if (dist > 0) {\n        cout << dist\
-    \ << ' ' << path.size() - 1 << endl;\n        for (ll i = 0; i < path.size() -\
-    \ 1; i++) {\n            cout << path[i] << ' ' << path[i + 1] << endl;\n    \
-    \    }\n    } else {\n        cout << -1 << endl;\n    }\n}\n"
+    \    vi path = dijkstra.path(t);\n\n    cout << dist << ' ' << path.size() - 1\
+    \ << endl;\n    for (ll i = 0; i < path.size() - 1; i++) {\n        cout << path[i]\
+    \ << ' ' << path[i + 1] << endl;\n    }\n}\n"
   dependsOn:
   - graph/dijkstra.cpp
   - structure/graph.cpp
   isVerificationFile: true
   path: Tests/LibraryChecker/Graph/shortest_path.test.cpp
   requiredBy: []
-  timestamp: '2022-04-09 20:54:54+09:00'
+  timestamp: '2022-04-09 20:58:13+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: Tests/LibraryChecker/Graph/shortest_path.test.cpp
