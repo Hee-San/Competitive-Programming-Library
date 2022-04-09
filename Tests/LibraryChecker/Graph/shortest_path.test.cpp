@@ -10,7 +10,7 @@
 
 using namespace std;
 typedef long long ll;
-typedef vector<ll> vi;
+typedef vector<int> vi;
 
 int main() {
     ll N, M, s, t;
