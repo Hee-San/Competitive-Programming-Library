@@ -64,6 +64,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: Tests/LibraryChecker/Data_Structure/staticrmq.test.cpp
       title: "\u533A\u9593\u306E\u6700\u5C0F\u5024"
+  - name: Tests/LibraryChecker/Graph
+    pages:
+    - icon: ':x:'
+      path: Tests/LibraryChecker/Graph/shortest_path.test.cpp
+      title: Tests/LibraryChecker/Graph/shortest_path.test.cpp
   - name: Tests/LibraryChecker/Sample
     pages:
     - icon: ':heavy_check_mark:'
