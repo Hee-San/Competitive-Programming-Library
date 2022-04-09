@@ -5,8 +5,8 @@
 
 #include <bits/stdc++.h>
 
-#include "../../graph/dijkstra.cpp"
-#include "../../structure/graph.cpp"
+#include "../../../graph/dijkstra.cpp"
+#include "../../../structure/graph.cpp"
 
 using namespace std;
 typedef long long ll;
