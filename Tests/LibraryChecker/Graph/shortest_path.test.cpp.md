@@ -53,7 +53,7 @@ data:
     \n\nusing namespace std;\ntypedef long long ll;\ntypedef vector<int> vi;\n\nint\
     \ main() {\n    ll N, M, s, t;\n    cin >> N >> M >> s >> t;\n\n    Graph<ll>\
     \ g(N);\n    for (ll i = 0; i < M; i++) {\n        ll a, b, c;\n        cin >>\
-    \ a >> b >> c;\n        g.add_directed_edge(a, b, c);\n    }\n\n    Dijkstra<ll>\
+    \ a >> b >> c;\n        g.add_undirected_edge(a, b, c);\n    }\n\n    Dijkstra<ll>\
     \ dijkstra(g, s);\n    ll dist = dijkstra.dist[t];\n    vi path = dijkstra.path(t);\n\
     \n    if (dist > 0) {\n        cout << dist << ' ' << path.size() - 1 << endl;\n\
     \        for (ll i = 0; i < path.size() - 1; i++) {\n            cout << path[i]\
@@ -65,7 +65,7 @@ data:
     #include \"../../../structure/graph.cpp\"\n\nusing namespace std;\ntypedef long\
     \ long ll;\ntypedef vector<int> vi;\n\nint main() {\n    ll N, M, s, t;\n    cin\
     \ >> N >> M >> s >> t;\n\n    Graph<ll> g(N);\n    for (ll i = 0; i < M; i++)\
-    \ {\n        ll a, b, c;\n        cin >> a >> b >> c;\n        g.add_directed_edge(a,\
+    \ {\n        ll a, b, c;\n        cin >> a >> b >> c;\n        g.add_undirected_edge(a,\
     \ b, c);\n    }\n\n    Dijkstra<ll> dijkstra(g, s);\n    ll dist = dijkstra.dist[t];\n\
     \    vi path = dijkstra.path(t);\n\n    if (dist > 0) {\n        cout << dist\
     \ << ' ' << path.size() - 1 << endl;\n        for (ll i = 0; i < path.size() -\
@@ -77,7 +77,7 @@ data:
   isVerificationFile: true
   path: Tests/LibraryChecker/Graph/shortest_path.test.cpp
   requiredBy: []
-  timestamp: '2022-04-09 18:33:48+09:00'
+  timestamp: '2022-04-09 20:54:54+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: Tests/LibraryChecker/Graph/shortest_path.test.cpp
