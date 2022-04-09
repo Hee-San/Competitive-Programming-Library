@@ -50,7 +50,7 @@ data:
     \ path;\n        while (to != -1) {\n            path.push_back(to);\n       \
     \     to = prev[to];\n        }\n        reverse(path.begin(), path.end());\n\
     \        return path;\n    }\n};\n#line 10 \"Tests/LibraryChecker/Graph/shortest_path.test.cpp\"\
-    \n\nusing namespace std;\ntypedef long long ll;\ntypedef vector<ll> vi;\n\nint\
+    \n\nusing namespace std;\ntypedef long long ll;\ntypedef vector<int> vi;\n\nint\
     \ main() {\n    ll N, M, s, t;\n    cin >> N >> M >> s >> t;\n\n    Graph<ll>\
     \ g(N);\n    for (ll i = 0; i < M; i++) {\n        ll a, b, c;\n        cin >>\
     \ a >> b >> c;\n        g.add_directed_edge(a, b, c);\n    }\n\n    Dijkstra<ll>\
@@ -62,7 +62,7 @@ data:
     \ * @brief \u91CD\u307F\u4ED8\u304D\u3001\u6700\u77ED\u7D4C\u8DEF\u554F\u984C\n\
     \ */\n\n#include <bits/stdc++.h>\n\n#include \"../../../graph/dijkstra.cpp\"\n\
     #include \"../../../structure/graph.cpp\"\n\nusing namespace std;\ntypedef long\
-    \ long ll;\ntypedef vector<ll> vi;\n\nint main() {\n    ll N, M, s, t;\n    cin\
+    \ long ll;\ntypedef vector<int> vi;\n\nint main() {\n    ll N, M, s, t;\n    cin\
     \ >> N >> M >> s >> t;\n\n    Graph<ll> g(N);\n    for (ll i = 0; i < M; i++)\
     \ {\n        ll a, b, c;\n        cin >> a >> b >> c;\n        g.add_directed_edge(a,\
     \ b, c);\n    }\n\n    Dijkstra<ll> dijkstra(g, s);\n    ll dist = dijkstra.dist[t];\n\
@@ -75,7 +75,7 @@ data:
   isVerificationFile: true
   path: Tests/LibraryChecker/Graph/shortest_path.test.cpp
   requiredBy: []
-  timestamp: '2022-04-09 18:24:37+09:00'
+  timestamp: '2022-04-09 18:27:40+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: Tests/LibraryChecker/Graph/shortest_path.test.cpp
