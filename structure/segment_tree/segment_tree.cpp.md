@@ -60,18 +60,18 @@ data:
     \ get(int l, int r) {\n        T left = identity;\n        T right = identity;\n\
     \        for (l += n, r += n; l < r; l /= 2, r /= 2) {\n            if (l % 2)\
     \ left = function(left, seg[l++]);\n            if (r % 2) right = function(seg[--r],\
-    \ right);\n        }\n        return function(left, right);\n    }\n};"
+    \ right);\n        }\n        return function(left, right);\n    }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: structure/segment_tree/segment_tree.cpp
   requiredBy: []
-  timestamp: '2022-03-11 00:32:20+09:00'
+  timestamp: '2022-11-19 22:10:56+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - Tests/AizuOnlineJudge/DSL_2_B.test.cpp
-  - Tests/AizuOnlineJudge/DSL_2_A.test.cpp
   - Tests/LibraryChecker/Data_Structure/point_set_range_composite.test.cpp
   - Tests/LibraryChecker/Data_Structure/staticrmq.test.cpp
+  - Tests/AizuOnlineJudge/DSL_2_A.test.cpp
+  - Tests/AizuOnlineJudge/DSL_2_B.test.cpp
 documentation_of: structure/segment_tree/segment_tree.cpp
 layout: document
 redirect_from:

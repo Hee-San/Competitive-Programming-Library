@@ -70,7 +70,7 @@ data:
   isVerificationFile: true
   path: Tests/LibraryChecker/Data_Structure/point_set_range_composite.test.cpp
   requiredBy: []
-  timestamp: '2022-03-11 14:35:49+09:00'
+  timestamp: '2022-11-19 22:10:56+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Tests/LibraryChecker/Data_Structure/point_set_range_composite.test.cpp

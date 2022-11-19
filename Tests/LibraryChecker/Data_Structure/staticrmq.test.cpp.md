@@ -57,7 +57,7 @@ data:
   isVerificationFile: true
   path: Tests/LibraryChecker/Data_Structure/staticrmq.test.cpp
   requiredBy: []
-  timestamp: '2022-03-11 00:32:20+09:00'
+  timestamp: '2022-11-19 22:10:56+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Tests/LibraryChecker/Data_Structure/staticrmq.test.cpp
