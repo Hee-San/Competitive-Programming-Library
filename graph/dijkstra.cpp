@@ -10,7 +10,7 @@ struct Dijkstra {
     vector<T> dist;
     vector<int> prev;
 
-    Dijkstra(Graph<T> g, vector<int> starts) {
+    Dijkstra(Graph<T> g, int start) {
         // O(E+VlogV)
 
         validateNonNegativeWeights(g);
@@ -21,19 +21,22 @@ struct Dijkstra {
         // 優先度付きキュー, ペアリングヒープ
         priority_queue<pair<int, int> > q;
 
-        for (int start : starts) {
-            q.push(make_pair(0, start));
-            dist[start] = 0;
-        }
+        q.push({0, start});
+        dist[start] = 0;
+
         while (!q.empty()) {
             int cost = q.top().first;
             int from = q.top().second;
             q.pop();
+
+            // 既に探索済みなら飛ばす
+            if (dist[from] < cost) continue;
+
             for (Edge<T> edge : g.edges[from]) {
                 if (dist[edge.to] == -1) {
                     dist[edge.to] = cost + edge.cost;
                     prev[edge.to] = from;
-                    q.push(make_pair(dist[edge.to], edge.to));
+                    q.push({dist[edge.to], edge.to});
                 }
             }
         }
