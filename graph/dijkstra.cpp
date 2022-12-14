@@ -19,13 +19,13 @@ struct Dijkstra {
         prev.resize(g.size(), -1);
 
         // 優先度付きキュー, ペアリングヒープ
-        priority_queue<pair<int, int> > q;
+        priority_queue<pair<T, int> > q;
 
         q.push({0, start});
         dist[start] = 0;
 
         while (!q.empty()) {
-            int cost = q.top().first;
+            T cost = q.top().first;
             int from = q.top().second;
             q.pop();
 
