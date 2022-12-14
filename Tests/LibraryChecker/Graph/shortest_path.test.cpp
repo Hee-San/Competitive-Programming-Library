@@ -27,6 +27,11 @@ int main() {
     ll dist = dijkstra.dist[t];
     vi path = dijkstra.path(t);
 
+    if (dist == -1) {
+        cout << dist << endl;
+        return;
+    }
+
     cout << dist << ' ' << path.size() - 1 << endl;
     for (ll i = 0; i < path.size() - 1; i++) {
         cout << path[i] << ' ' << path[i + 1] << endl;
