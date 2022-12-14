@@ -27,7 +27,7 @@ struct Dijkstra {
         }
         while (!q.empty()) {
             int cost = q.top().first;
-            int from = pq.top().second;
+            int from = q.top().second;
             q.pop();
             for (Edge<T> edge : g.edges[from]) {
                 if (dist[edge.to] == -1) {
