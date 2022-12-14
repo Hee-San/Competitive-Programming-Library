@@ -37,18 +37,18 @@ data:
     \ starts) {\n        // O(E+VlogV)\n\n        validateNonNegativeWeights(g);\n\
     \n        dist.resize(g.size(), -1);\n        prev.resize(g.size(), -1);\n\n \
     \       // \u512A\u5148\u5EA6\u4ED8\u304D\u30AD\u30E5\u30FC, \u30DA\u30A2\u30EA\
-    \u30F3\u30B0\u30D2\u30FC\u30D7\n        auto compare = [](int a, int b) {\n  \
-    \          return dist[a] < dist[b];\n        };\n        priority_queue<int,\
-    \ vector<int>, decltype(compare)> q{compare};\n\n        for (int start : starts)\
-    \ {\n            q.push(start);\n            dist[start] = 0;\n        }\n   \
-    \     while (!q.empty()) {\n            int from = q.top();\n            q.pop();\n\
-    \            for (Edge<T> edge : g.edges[from]) {\n                if (dist[edge.to]\
-    \ == -1) {\n                    dist[edge.to] = dist[from] + edge.cost;\n    \
-    \                prev[edge.to] = from;\n                    q.push(edge.to);\n\
-    \                }\n            }\n        }\n    }\n\n    Dijkstra(Graph<T> g,\
-    \ int start) : Dijkstra<T>(g, vector<int>({start})) {}\n\n    vector<int> path(int\
-    \ to) {\n        vector<int> path;\n        while (to != -1) {\n            path.push_back(to);\n\
-    \            to = prev[to];\n        }\n        reverse(path.begin(), path.end());\n\
+    \u30F3\u30B0\u30D2\u30FC\u30D7\n        priority_queue<pair<int, int> > q;\n\n\
+    \        for (int start : starts) {\n            q.push(make_pair(0, start));\n\
+    \            dist[start] = 0;\n        }\n        while (!q.empty()) {\n     \
+    \       int cost = q.top().first;\n            int from = pq.top().second;\n \
+    \           q.pop();\n            for (Edge<T> edge : g.edges[from]) {\n     \
+    \           if (dist[edge.to] == -1) {\n                    dist[edge.to] = cost\
+    \ + edge.cost;\n                    prev[edge.to] = from;\n                  \
+    \  q.push(make_pair(dist[edge.to], edge.to));\n                }\n           \
+    \ }\n        }\n    }\n\n    Dijkstra(Graph<T> g, int start) : Dijkstra<T>(g,\
+    \ vector<int>({start})) {}\n\n    vector<int> path(int to) {\n        vector<int>\
+    \ path;\n        while (to != -1) {\n            path.push_back(to);\n       \
+    \     to = prev[to];\n        }\n        reverse(path.begin(), path.end());\n\
     \        return path;\n    }\n\n    void validateNonNegativeWeights(Graph<T> g)\
     \ {\n        for (auto edge : g.edges)\n            for (auto e : edge)\n    \
     \            if (e.cost < 0)\n                    throw runtime_error(\"Not non-negative\
@@ -78,7 +78,7 @@ data:
   isVerificationFile: true
   path: Tests/LibraryChecker/Graph/shortest_path.test.cpp
   requiredBy: []
-  timestamp: '2022-12-14 23:43:34+09:00'
+  timestamp: '2022-12-15 00:00:12+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: Tests/LibraryChecker/Graph/shortest_path.test.cpp
