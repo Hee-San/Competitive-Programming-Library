@@ -19,7 +19,7 @@ struct Dijkstra {
         prev.resize(g.size(), -1);
 
         // 優先度付きキュー, ペアリングヒープ
-        priority_queue<pair<T, int>, greater<pair<T, int> > > q;
+        priority_queue<pair<T, int>, vector<pair<T, int> >, greater<pair<T, int> > > q;
 
         q.push({0, start});
         dist[start] = 0;

@@ -19,6 +19,7 @@
     "vector": "cpp",
     "*.tcc": "cpp",
     "array": "cpp",
-    "tuple": "cpp"
+    "tuple": "cpp",
+    "compare": "cpp"
   }
 }
