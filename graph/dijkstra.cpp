@@ -13,15 +13,17 @@ struct Dijkstra {
     Dijkstra(Graph<T> g, vector<int> starts) {
         // O(E+VlogV)
 
-        for (auto edge : g.edges)
-            for (auto e : edge)
-                if (e.cost < 0)
-                    throw runtime_error("Not non-negative weights");
+        validateNonNegativeWeights(g);
 
         dist.resize(g.size(), -1);
         prev.resize(g.size(), -1);
 
-        priority_queue<int> q;  // 優先度付きキュー, ペアリングヒープ
+        // 優先度付きキュー, ペアリングヒープ
+        auto compare = [](int a, int b) {
+            return dist[a] < dist[b];
+        };
+        priority_queue<int, vector<int>, decltype(compare)> q{compare};
+
         for (int start : starts) {
             q.push(start);
             dist[start] = 0;
@@ -49,5 +51,12 @@ struct Dijkstra {
         }
         reverse(path.begin(), path.end());
         return path;
+    }
+
+    void validateNonNegativeWeights(Graph<T> g) {
+        for (auto edge : g.edges)
+            for (auto e : edge)
+                if (e.cost < 0)
+                    throw runtime_error("Not non-negative weights");
     }
 };
