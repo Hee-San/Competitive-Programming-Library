@@ -18,6 +18,7 @@
     "system_error": "cpp",
     "vector": "cpp",
     "*.tcc": "cpp",
-    "array": "cpp"
+    "array": "cpp",
+    "tuple": "cpp"
   }
 }

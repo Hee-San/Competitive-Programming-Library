@@ -19,7 +19,7 @@ struct Dijkstra {
         prev.resize(g.size(), -1);
 
         // 優先度付きキュー, ペアリングヒープ
-        priority_queue<pair<T, int> > q;
+        priority_queue<pair<T, int>, greater<pair<T, int> > > q;
 
         q.push({0, start});
         dist[start] = 0;
@@ -33,10 +33,11 @@ struct Dijkstra {
             if (dist[from] < cost) continue;
 
             for (Edge<T> edge : g.edges[from]) {
-                if (dist[edge.to] == -1) {
-                    dist[edge.to] = cost + edge.cost;
+                new_cost = cost + edge.cost;
+                if (dist[edge.to] > new_cost || dist[edge.to] == -1) {
+                    dist[edge.to] = new_cost;
                     prev[edge.to] = from;
-                    q.push({dist[edge.to], edge.to});
+                    q.push({new_cost, edge.to});
                 }
             }
         }
