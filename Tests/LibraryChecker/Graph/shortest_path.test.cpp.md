@@ -37,14 +37,14 @@ data:
     \ start) {\n        // O(E+VlogV)\n\n        validateNonNegativeWeights(g);\n\n\
     \        dist.resize(g.size(), -1);\n        prev.resize(g.size(), -1);\n\n  \
     \      // \u512A\u5148\u5EA6\u4ED8\u304D\u30AD\u30E5\u30FC, \u30DA\u30A2\u30EA\
-    \u30F3\u30B0\u30D2\u30FC\u30D7\n        priority_queue<pair<T, int>, greater<pair<T,\
-    \ int> > > q;\n\n        q.push({0, start});\n        dist[start] = 0;\n\n   \
-    \     while (!q.empty()) {\n            T cost = q.top().first;\n            int\
-    \ from = q.top().second;\n            q.pop();\n\n            // \u65E2\u306B\u63A2\
-    \u7D22\u6E08\u307F\u306A\u3089\u98DB\u3070\u3059\n            if (dist[from] <\
-    \ cost) continue;\n\n            for (Edge<T> edge : g.edges[from]) {\n      \
-    \          T new_cost = cost + edge.cost;\n                if (dist[edge.to] >\
-    \ new_cost || dist[edge.to] == -1) {\n                    dist[edge.to] = new_cost;\n\
+    \u30F3\u30B0\u30D2\u30FC\u30D7\n        priority_queue<pair<T, int>, vector<pair<T,\
+    \ int> >, greater<pair<T, int> > > q;\n\n        q.push({0, start});\n       \
+    \ dist[start] = 0;\n\n        while (!q.empty()) {\n            T cost = q.top().first;\n\
+    \            int from = q.top().second;\n            q.pop();\n\n            //\
+    \ \u65E2\u306B\u63A2\u7D22\u6E08\u307F\u306A\u3089\u98DB\u3070\u3059\n       \
+    \     if (dist[from] < cost) continue;\n\n            for (Edge<T> edge : g.edges[from])\
+    \ {\n                T new_cost = cost + edge.cost;\n                if (dist[edge.to]\
+    \ > new_cost || dist[edge.to] == -1) {\n                    dist[edge.to] = new_cost;\n\
     \                    prev[edge.to] = from;\n                    q.push({new_cost,\
     \ edge.to});\n                }\n            }\n        }\n    }\n\n    vector<int>\
     \ path(int to) {\n        vector<int> path;\n        while (to != -1) {\n    \
@@ -58,6 +58,7 @@ data:
     \ g(N);\n    for (ll i = 0; i < M; i++) {\n        ll a, b, c;\n        cin >>\
     \ a >> b >> c;\n        g.add_directed_edge(a, b, c);\n    }\n\n    Dijkstra<ll>\
     \ dijkstra(g, s);\n    ll dist = dijkstra.dist[t];\n    vi path = dijkstra.path(t);\n\
+    \n    if (dist == -1) {\n        cout << dist << endl;\n        return;\n    }\n\
     \n    cout << dist << ' ' << path.size() - 1 << endl;\n    for (ll i = 0; i <\
     \ path.size() - 1; i++) {\n        cout << path[i] << ' ' << path[i + 1] << endl;\n\
     \    }\n}\n"
@@ -69,16 +70,17 @@ data:
     \ >> N >> M >> s >> t;\n\n    Graph<ll> g(N);\n    for (ll i = 0; i < M; i++)\
     \ {\n        ll a, b, c;\n        cin >> a >> b >> c;\n        g.add_directed_edge(a,\
     \ b, c);\n    }\n\n    Dijkstra<ll> dijkstra(g, s);\n    ll dist = dijkstra.dist[t];\n\
-    \    vi path = dijkstra.path(t);\n\n    cout << dist << ' ' << path.size() - 1\
-    \ << endl;\n    for (ll i = 0; i < path.size() - 1; i++) {\n        cout << path[i]\
-    \ << ' ' << path[i + 1] << endl;\n    }\n}\n"
+    \    vi path = dijkstra.path(t);\n\n    if (dist == -1) {\n        cout << dist\
+    \ << endl;\n        return;\n    }\n\n    cout << dist << ' ' << path.size() -\
+    \ 1 << endl;\n    for (ll i = 0; i < path.size() - 1; i++) {\n        cout <<\
+    \ path[i] << ' ' << path[i + 1] << endl;\n    }\n}\n"
   dependsOn:
   - graph/dijkstra.cpp
   - structure/graph.cpp
   isVerificationFile: true
   path: Tests/LibraryChecker/Graph/shortest_path.test.cpp
   requiredBy: []
-  timestamp: '2022-12-15 00:39:32+09:00'
+  timestamp: '2022-12-15 00:51:03+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: Tests/LibraryChecker/Graph/shortest_path.test.cpp

@@ -32,14 +32,14 @@ data:
     \ start) {\n        // O(E+VlogV)\n\n        validateNonNegativeWeights(g);\n\n\
     \        dist.resize(g.size(), -1);\n        prev.resize(g.size(), -1);\n\n  \
     \      // \u512A\u5148\u5EA6\u4ED8\u304D\u30AD\u30E5\u30FC, \u30DA\u30A2\u30EA\
-    \u30F3\u30B0\u30D2\u30FC\u30D7\n        priority_queue<pair<T, int>, greater<pair<T,\
-    \ int> > > q;\n\n        q.push({0, start});\n        dist[start] = 0;\n\n   \
-    \     while (!q.empty()) {\n            T cost = q.top().first;\n            int\
-    \ from = q.top().second;\n            q.pop();\n\n            // \u65E2\u306B\u63A2\
-    \u7D22\u6E08\u307F\u306A\u3089\u98DB\u3070\u3059\n            if (dist[from] <\
-    \ cost) continue;\n\n            for (Edge<T> edge : g.edges[from]) {\n      \
-    \          T new_cost = cost + edge.cost;\n                if (dist[edge.to] >\
-    \ new_cost || dist[edge.to] == -1) {\n                    dist[edge.to] = new_cost;\n\
+    \u30F3\u30B0\u30D2\u30FC\u30D7\n        priority_queue<pair<T, int>, vector<pair<T,\
+    \ int> >, greater<pair<T, int> > > q;\n\n        q.push({0, start});\n       \
+    \ dist[start] = 0;\n\n        while (!q.empty()) {\n            T cost = q.top().first;\n\
+    \            int from = q.top().second;\n            q.pop();\n\n            //\
+    \ \u65E2\u306B\u63A2\u7D22\u6E08\u307F\u306A\u3089\u98DB\u3070\u3059\n       \
+    \     if (dist[from] < cost) continue;\n\n            for (Edge<T> edge : g.edges[from])\
+    \ {\n                T new_cost = cost + edge.cost;\n                if (dist[edge.to]\
+    \ > new_cost || dist[edge.to] == -1) {\n                    dist[edge.to] = new_cost;\n\
     \                    prev[edge.to] = from;\n                    q.push({new_cost,\
     \ edge.to});\n                }\n            }\n        }\n    }\n\n    vector<int>\
     \ path(int to) {\n        vector<int> path;\n        while (to != -1) {\n    \
@@ -54,14 +54,14 @@ data:
     \ start) {\n        // O(E+VlogV)\n\n        validateNonNegativeWeights(g);\n\n\
     \        dist.resize(g.size(), -1);\n        prev.resize(g.size(), -1);\n\n  \
     \      // \u512A\u5148\u5EA6\u4ED8\u304D\u30AD\u30E5\u30FC, \u30DA\u30A2\u30EA\
-    \u30F3\u30B0\u30D2\u30FC\u30D7\n        priority_queue<pair<T, int>, greater<pair<T,\
-    \ int> > > q;\n\n        q.push({0, start});\n        dist[start] = 0;\n\n   \
-    \     while (!q.empty()) {\n            T cost = q.top().first;\n            int\
-    \ from = q.top().second;\n            q.pop();\n\n            // \u65E2\u306B\u63A2\
-    \u7D22\u6E08\u307F\u306A\u3089\u98DB\u3070\u3059\n            if (dist[from] <\
-    \ cost) continue;\n\n            for (Edge<T> edge : g.edges[from]) {\n      \
-    \          T new_cost = cost + edge.cost;\n                if (dist[edge.to] >\
-    \ new_cost || dist[edge.to] == -1) {\n                    dist[edge.to] = new_cost;\n\
+    \u30F3\u30B0\u30D2\u30FC\u30D7\n        priority_queue<pair<T, int>, vector<pair<T,\
+    \ int> >, greater<pair<T, int> > > q;\n\n        q.push({0, start});\n       \
+    \ dist[start] = 0;\n\n        while (!q.empty()) {\n            T cost = q.top().first;\n\
+    \            int from = q.top().second;\n            q.pop();\n\n            //\
+    \ \u65E2\u306B\u63A2\u7D22\u6E08\u307F\u306A\u3089\u98DB\u3070\u3059\n       \
+    \     if (dist[from] < cost) continue;\n\n            for (Edge<T> edge : g.edges[from])\
+    \ {\n                T new_cost = cost + edge.cost;\n                if (dist[edge.to]\
+    \ > new_cost || dist[edge.to] == -1) {\n                    dist[edge.to] = new_cost;\n\
     \                    prev[edge.to] = from;\n                    q.push({new_cost,\
     \ edge.to});\n                }\n            }\n        }\n    }\n\n    vector<int>\
     \ path(int to) {\n        vector<int> path;\n        while (to != -1) {\n    \
@@ -75,7 +75,7 @@ data:
   isVerificationFile: false
   path: graph/dijkstra.cpp
   requiredBy: []
-  timestamp: '2022-12-15 00:39:32+09:00'
+  timestamp: '2022-12-15 00:47:53+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - Tests/LibraryChecker/Graph/shortest_path.test.cpp
