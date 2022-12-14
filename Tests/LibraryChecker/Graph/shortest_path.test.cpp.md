@@ -34,22 +34,25 @@ data:
     \ from, int to, T cost = 1) {\n        edges[from].emplace_back(from, to, cost);\n\
     \    }\n};\n#line 7 \"graph/dijkstra.cpp\"\n\ntemplate <typename T>\nstruct Dijkstra\
     \ {\n    vector<T> dist;\n    vector<int> prev;\n\n    Dijkstra(Graph<T> g, vector<int>\
-    \ starts) {\n        // O(E+VlogV)\n\n        for (auto edge : g.edges)\n    \
-    \        for (auto e : edge)\n                if (e.cost < 0)\n              \
-    \      throw runtime_error(\"Not non-negative weights\");\n\n        dist.resize(g.size(),\
-    \ -1);\n        prev.resize(g.size(), -1);\n\n        priority_queue<int> q; \
-    \ // \u512A\u5148\u5EA6\u4ED8\u304D\u30AD\u30E5\u30FC, \u30DA\u30A2\u30EA\u30F3\
-    \u30B0\u30D2\u30FC\u30D7\n        for (int start : starts) {\n            q.push(start);\n\
-    \            dist[start] = 0;\n        }\n        while (!q.empty()) {\n     \
-    \       int from = q.top();\n            q.pop();\n            for (Edge<T> edge\
-    \ : g.edges[from]) {\n                if (dist[edge.to] == -1) {\n           \
-    \         dist[edge.to] = dist[from] + edge.cost;\n                    prev[edge.to]\
-    \ = from;\n                    q.push(edge.to);\n                }\n         \
-    \   }\n        }\n    }\n\n    Dijkstra(Graph<T> g, int start) : Dijkstra<T>(g,\
-    \ vector<int>({start})) {}\n\n    vector<int> path(int to) {\n        vector<int>\
-    \ path;\n        while (to != -1) {\n            path.push_back(to);\n       \
-    \     to = prev[to];\n        }\n        reverse(path.begin(), path.end());\n\
-    \        return path;\n    }\n};\n#line 10 \"Tests/LibraryChecker/Graph/shortest_path.test.cpp\"\
+    \ starts) {\n        // O(E+VlogV)\n\n        validateNonNegativeWeights(g);\n\
+    \n        dist.resize(g.size(), -1);\n        prev.resize(g.size(), -1);\n\n \
+    \       // \u512A\u5148\u5EA6\u4ED8\u304D\u30AD\u30E5\u30FC, \u30DA\u30A2\u30EA\
+    \u30F3\u30B0\u30D2\u30FC\u30D7\n        auto compare = [](int a, int b) {\n  \
+    \          return dist[a] < dist[b];\n        };\n        priority_queue<int,\
+    \ vector<int>, decltype(compare)> q{compare};\n\n        for (int start : starts)\
+    \ {\n            q.push(start);\n            dist[start] = 0;\n        }\n   \
+    \     while (!q.empty()) {\n            int from = q.top();\n            q.pop();\n\
+    \            for (Edge<T> edge : g.edges[from]) {\n                if (dist[edge.to]\
+    \ == -1) {\n                    dist[edge.to] = dist[from] + edge.cost;\n    \
+    \                prev[edge.to] = from;\n                    q.push(edge.to);\n\
+    \                }\n            }\n        }\n    }\n\n    Dijkstra(Graph<T> g,\
+    \ int start) : Dijkstra<T>(g, vector<int>({start})) {}\n\n    vector<int> path(int\
+    \ to) {\n        vector<int> path;\n        while (to != -1) {\n            path.push_back(to);\n\
+    \            to = prev[to];\n        }\n        reverse(path.begin(), path.end());\n\
+    \        return path;\n    }\n\n    void validateNonNegativeWeights(Graph<T> g)\
+    \ {\n        for (auto edge : g.edges)\n            for (auto e : edge)\n    \
+    \            if (e.cost < 0)\n                    throw runtime_error(\"Not non-negative\
+    \ weights\");\n    }\n};\n#line 10 \"Tests/LibraryChecker/Graph/shortest_path.test.cpp\"\
     \n\nusing namespace std;\ntypedef long long ll;\ntypedef vector<int> vi;\n\nint\
     \ main() {\n    ll N, M, s, t;\n    cin >> N >> M >> s >> t;\n\n    Graph<ll>\
     \ g(N);\n    for (ll i = 0; i < M; i++) {\n        ll a, b, c;\n        cin >>\
@@ -75,7 +78,7 @@ data:
   isVerificationFile: true
   path: Tests/LibraryChecker/Graph/shortest_path.test.cpp
   requiredBy: []
-  timestamp: '2022-04-09 18:27:40+09:00'
+  timestamp: '2022-12-14 23:43:34+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: Tests/LibraryChecker/Graph/shortest_path.test.cpp
