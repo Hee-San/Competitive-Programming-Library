@@ -19,23 +19,21 @@ struct Dijkstra {
         prev.resize(g.size(), -1);
 
         // 優先度付きキュー, ペアリングヒープ
-        auto compare = [](int a, int b) {
-            return dist[a] < dist[b];
-        };
-        priority_queue<int, vector<int>, decltype(compare)> q{compare};
+        priority_queue<pair<int, int> > q;
 
         for (int start : starts) {
-            q.push(start);
+            q.push(make_pair(0, start));
             dist[start] = 0;
         }
         while (!q.empty()) {
-            int from = q.top();
+            int cost = q.top().first;
+            int from = pq.top().second;
             q.pop();
             for (Edge<T> edge : g.edges[from]) {
                 if (dist[edge.to] == -1) {
-                    dist[edge.to] = dist[from] + edge.cost;
+                    dist[edge.to] = cost + edge.cost;
                     prev[edge.to] = from;
-                    q.push(edge.to);
+                    q.push(make_pair(dist[edge.to], edge.to));
                 }
             }
         }
