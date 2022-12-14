@@ -33,7 +33,7 @@ struct Dijkstra {
             if (dist[from] < cost) continue;
 
             for (Edge<T> edge : g.edges[from]) {
-                new_cost = cost + edge.cost;
+                T new_cost = cost + edge.cost;
                 if (dist[edge.to] > new_cost || dist[edge.to] == -1) {
                     dist[edge.to] = new_cost;
                     prev[edge.to] = from;
