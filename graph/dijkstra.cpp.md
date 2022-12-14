@@ -35,9 +35,9 @@ data:
     \u30F3\u30B0\u30D2\u30FC\u30D7\n        priority_queue<pair<int, int> > q;\n\n\
     \        for (int start : starts) {\n            q.push(make_pair(0, start));\n\
     \            dist[start] = 0;\n        }\n        while (!q.empty()) {\n     \
-    \       int cost = q.top().first;\n            int from = pq.top().second;\n \
-    \           q.pop();\n            for (Edge<T> edge : g.edges[from]) {\n     \
-    \           if (dist[edge.to] == -1) {\n                    dist[edge.to] = cost\
+    \       int cost = q.top().first;\n            int from = q.top().second;\n  \
+    \          q.pop();\n            for (Edge<T> edge : g.edges[from]) {\n      \
+    \          if (dist[edge.to] == -1) {\n                    dist[edge.to] = cost\
     \ + edge.cost;\n                    prev[edge.to] = from;\n                  \
     \  q.push(make_pair(dist[edge.to], edge.to));\n                }\n           \
     \ }\n        }\n    }\n\n    Dijkstra(Graph<T> g, int start) : Dijkstra<T>(g,\
@@ -57,9 +57,9 @@ data:
     \u30F3\u30B0\u30D2\u30FC\u30D7\n        priority_queue<pair<int, int> > q;\n\n\
     \        for (int start : starts) {\n            q.push(make_pair(0, start));\n\
     \            dist[start] = 0;\n        }\n        while (!q.empty()) {\n     \
-    \       int cost = q.top().first;\n            int from = pq.top().second;\n \
-    \           q.pop();\n            for (Edge<T> edge : g.edges[from]) {\n     \
-    \           if (dist[edge.to] == -1) {\n                    dist[edge.to] = cost\
+    \       int cost = q.top().first;\n            int from = q.top().second;\n  \
+    \          q.pop();\n            for (Edge<T> edge : g.edges[from]) {\n      \
+    \          if (dist[edge.to] == -1) {\n                    dist[edge.to] = cost\
     \ + edge.cost;\n                    prev[edge.to] = from;\n                  \
     \  q.push(make_pair(dist[edge.to], edge.to));\n                }\n           \
     \ }\n        }\n    }\n\n    Dijkstra(Graph<T> g, int start) : Dijkstra<T>(g,\
@@ -75,7 +75,7 @@ data:
   isVerificationFile: false
   path: graph/dijkstra.cpp
   requiredBy: []
-  timestamp: '2022-12-15 00:00:12+09:00'
+  timestamp: '2022-12-15 00:01:22+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - Tests/LibraryChecker/Graph/shortest_path.test.cpp
