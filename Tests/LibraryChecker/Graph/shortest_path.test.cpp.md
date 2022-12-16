@@ -42,7 +42,7 @@ data:
     \ dist[start] = 0;\n\n        while (!q.empty()) {\n            T cost = q.top().first;\n\
     \            int from = q.top().second;\n            q.pop();\n\n            //\
     \ \u65E2\u306B\u63A2\u7D22\u6E08\u307F\u306A\u3089\u98DB\u3070\u3059\n       \
-    \     if (dist[from] < cost) continue;\n\n            for (Edge<T> edge : g.edges[from])\
+    \     if (dist[from] != cost) continue;\n\n            for (Edge<T> edge : g.edges[from])\
     \ {\n                T new_cost = cost + edge.cost;\n                if (dist[edge.to]\
     \ > new_cost || dist[edge.to] == -1) {\n                    dist[edge.to] = new_cost;\n\
     \                    prev[edge.to] = from;\n                    q.push({new_cost,\
@@ -80,7 +80,7 @@ data:
   isVerificationFile: true
   path: Tests/LibraryChecker/Graph/shortest_path.test.cpp
   requiredBy: []
-  timestamp: '2022-12-16 21:00:26+09:00'
+  timestamp: '2022-12-16 21:05:17+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: Tests/LibraryChecker/Graph/shortest_path.test.cpp
