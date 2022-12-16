@@ -25,13 +25,13 @@ int main() {
 
     Dijkstra<ll> dijkstra(g, s);
     ll dist = dijkstra.dist[t];
-    vi path = dijkstra.path(t);
 
     if (dist == -1) {
-        cout << dist << endl;
+        cout << -1 << endl;
         return;
     }
 
+    vi path = dijkstra.path(t);
     cout << dist << ' ' << path.size() - 1 << endl;
     for (ll i = 0; i < path.size() - 1; i++) {
         cout << path[i] << ' ' << path[i + 1] << endl;
