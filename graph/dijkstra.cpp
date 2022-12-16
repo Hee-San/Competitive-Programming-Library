@@ -30,7 +30,7 @@ struct Dijkstra {
             q.pop();
 
             // 既に探索済みなら飛ばす
-            if (dist[from] < cost) continue;
+            if (dist[from] != cost) continue;
 
             for (Edge<T> edge : g.edges[from]) {
                 T new_cost = cost + edge.cost;
