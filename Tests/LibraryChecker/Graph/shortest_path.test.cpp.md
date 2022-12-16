@@ -58,7 +58,7 @@ data:
     \ g(N);\n    for (ll i = 0; i < M; i++) {\n        ll a, b, c;\n        cin >>\
     \ a >> b >> c;\n        g.add_directed_edge(a, b, c);\n    }\n\n    Dijkstra<ll>\
     \ dijkstra(g, s);\n    ll dist = dijkstra.dist[t];\n\n    if (dist == -1) {\n\
-    \        cout << -1 << endl;\n        return;\n    }\n\n    vi path = dijkstra.path(t);\n\
+    \        cout << -1 << endl;\n        return 0;\n    }\n\n    vi path = dijkstra.path(t);\n\
     \    cout << dist << ' ' << path.size() - 1 << endl;\n    for (ll i = 0; i < path.size()\
     \ - 1; i++) {\n        cout << path[i] << ' ' << path[i + 1] << endl;\n    }\n\
     }\n"
@@ -70,7 +70,7 @@ data:
     \ >> N >> M >> s >> t;\n\n    Graph<ll> g(N);\n    for (ll i = 0; i < M; i++)\
     \ {\n        ll a, b, c;\n        cin >> a >> b >> c;\n        g.add_directed_edge(a,\
     \ b, c);\n    }\n\n    Dijkstra<ll> dijkstra(g, s);\n    ll dist = dijkstra.dist[t];\n\
-    \n    if (dist == -1) {\n        cout << -1 << endl;\n        return;\n    }\n\
+    \n    if (dist == -1) {\n        cout << -1 << endl;\n        return 0;\n    }\n\
     \n    vi path = dijkstra.path(t);\n    cout << dist << ' ' << path.size() - 1\
     \ << endl;\n    for (ll i = 0; i < path.size() - 1; i++) {\n        cout << path[i]\
     \ << ' ' << path[i + 1] << endl;\n    }\n}\n"
@@ -80,7 +80,7 @@ data:
   isVerificationFile: true
   path: Tests/LibraryChecker/Graph/shortest_path.test.cpp
   requiredBy: []
-  timestamp: '2022-12-16 21:05:17+09:00'
+  timestamp: '2022-12-16 21:06:42+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: Tests/LibraryChecker/Graph/shortest_path.test.cpp
