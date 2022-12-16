@@ -28,7 +28,7 @@ int main() {
 
     if (dist == -1) {
         cout << -1 << endl;
-        return;
+        return 0;
     }
 
     vi path = dijkstra.path(t);
