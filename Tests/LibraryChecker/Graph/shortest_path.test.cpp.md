@@ -54,27 +54,27 @@ data:
     \               if (e.cost < 0)\n                    throw runtime_error(\"Not\
     \ non-negative weights\");\n    }\n};\n#line 10 \"Tests/LibraryChecker/Graph/shortest_path.test.cpp\"\
     \n\nusing namespace std;\ntypedef long long ll;\ntypedef vector<int> vi;\n\nint\
-    \ main() {\n    cin.tie(nullptr);\n    ios::sync_with_stdio(false);\n\n    ll\
-    \ N, M, s, t;\n    cin >> N >> M >> s >> t;\n\n    Graph<ll> g(N);\n    for (ll\
-    \ i = 0; i < M; i++) {\n        ll a, b, c;\n        cin >> a >> b >> c;\n   \
-    \     g.add_directed_edge(a, b, c);\n    }\n\n    Dijkstra<ll> dijkstra(g, s);\n\
-    \    ll dist = dijkstra.dist[t];\n\n    if (dist == -1) {\n        cout << -1\
-    \ << endl;\n        return 0;\n    }\n\n    vi path = dijkstra.path(t);\n    cout\
-    \ << dist << ' ' << path.size() - 1 << endl;\n    for (ll i = 0; i < path.size()\
-    \ - 1; i++) {\n        cout << path[i] << ' ' << path[i + 1] << endl;\n    }\n\
-    }\n"
+    \ main() {\n    cin.tie(nullptr);\n    ios::sync_with_stdio(false);\n\n    int\
+    \ N, M, s, t;\n    cin >> N >> M >> s >> t;\n\n    Graph<ll> g(N);\n    for (int\
+    \ i = 0; i < M; i++) {\n        int a, b;\n        ll c;\n        cin >> a >>\
+    \ b >> c;\n        g.add_directed_edge(a, b, c);\n    }\n\n    Dijkstra<ll> dijkstra(g,\
+    \ s);\n    ll dist = dijkstra.dist[t];\n\n    if (dist == -1) {\n        cout\
+    \ << -1 << endl;\n        return 0;\n    }\n\n    vi path = dijkstra.path(t);\n\
+    \    cout << dist << ' ' << path.size() - 1 << endl;\n    for (int i = 0; i <\
+    \ path.size() - 1; i++) {\n        cout << path[i] << ' ' << path[i + 1] << endl;\n\
+    \    }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/shortest_path\"\n/**\n\
     \ * @brief \u91CD\u307F\u4ED8\u304D\u3001\u6700\u77ED\u7D4C\u8DEF\u554F\u984C\n\
     \ */\n\n#include <bits/stdc++.h>\n\n#include \"../../../graph/dijkstra.cpp\"\n\
     #include \"../../../structure/graph.cpp\"\n\nusing namespace std;\ntypedef long\
     \ long ll;\ntypedef vector<int> vi;\n\nint main() {\n    cin.tie(nullptr);\n \
-    \   ios::sync_with_stdio(false);\n\n    ll N, M, s, t;\n    cin >> N >> M >> s\
-    \ >> t;\n\n    Graph<ll> g(N);\n    for (ll i = 0; i < M; i++) {\n        ll a,\
-    \ b, c;\n        cin >> a >> b >> c;\n        g.add_directed_edge(a, b, c);\n\
-    \    }\n\n    Dijkstra<ll> dijkstra(g, s);\n    ll dist = dijkstra.dist[t];\n\n\
-    \    if (dist == -1) {\n        cout << -1 << endl;\n        return 0;\n    }\n\
+    \   ios::sync_with_stdio(false);\n\n    int N, M, s, t;\n    cin >> N >> M >>\
+    \ s >> t;\n\n    Graph<ll> g(N);\n    for (int i = 0; i < M; i++) {\n        int\
+    \ a, b;\n        ll c;\n        cin >> a >> b >> c;\n        g.add_directed_edge(a,\
+    \ b, c);\n    }\n\n    Dijkstra<ll> dijkstra(g, s);\n    ll dist = dijkstra.dist[t];\n\
+    \n    if (dist == -1) {\n        cout << -1 << endl;\n        return 0;\n    }\n\
     \n    vi path = dijkstra.path(t);\n    cout << dist << ' ' << path.size() - 1\
-    \ << endl;\n    for (ll i = 0; i < path.size() - 1; i++) {\n        cout << path[i]\
+    \ << endl;\n    for (int i = 0; i < path.size() - 1; i++) {\n        cout << path[i]\
     \ << ' ' << path[i + 1] << endl;\n    }\n}\n"
   dependsOn:
   - graph/dijkstra.cpp
@@ -82,7 +82,7 @@ data:
   isVerificationFile: true
   path: Tests/LibraryChecker/Graph/shortest_path.test.cpp
   requiredBy: []
-  timestamp: '2022-12-17 10:51:52+09:00'
+  timestamp: '2022-12-17 17:46:54+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: Tests/LibraryChecker/Graph/shortest_path.test.cpp
