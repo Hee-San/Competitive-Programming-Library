@@ -13,6 +13,9 @@ typedef long long ll;
 typedef vector<int> vi;
 
 int main() {
+    cin.tie(nullptr);
+    ios::sync_with_stdio(false);
+
     ll N, M, s, t;
     cin >> N >> M >> s >> t;
 
