@@ -16,12 +16,13 @@ int main() {
     cin.tie(nullptr);
     ios::sync_with_stdio(false);
 
-    ll N, M, s, t;
+    int N, M, s, t;
     cin >> N >> M >> s >> t;
 
     Graph<ll> g(N);
-    for (ll i = 0; i < M; i++) {
-        ll a, b, c;
+    for (int i = 0; i < M; i++) {
+        int a, b;
+        ll c;
         cin >> a >> b >> c;
         g.add_directed_edge(a, b, c);
     }
@@ -36,7 +37,7 @@ int main() {
 
     vi path = dijkstra.path(t);
     cout << dist << ' ' << path.size() - 1 << endl;
-    for (ll i = 0; i < path.size() - 1; i++) {
+    for (int i = 0; i < path.size() - 1; i++) {
         cout << path[i] << ' ' << path[i + 1] << endl;
     }
 }
