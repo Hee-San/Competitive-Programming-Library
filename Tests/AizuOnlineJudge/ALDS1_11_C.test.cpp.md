@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: graph/bfs.cpp
     title: "BFS (\u5E45\u512A\u5148\u63A2\u7D22)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: structure/graph.cpp
     title: "\u30B0\u30E9\u30D5"
   _extendedRequiredBy: []

@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: structure/graph.cpp
     title: "\u30B0\u30E9\u30D5"
   _extendedRequiredBy: []

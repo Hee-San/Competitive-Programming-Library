@@ -9,7 +9,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph/bfs.cpp
       title: "BFS (\u5E45\u512A\u5148\u63A2\u7D22)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: graph/dijkstra.cpp
       title: "\u30C0\u30A4\u30AF\u30B9\u30C8\u30E9\u6CD5"
   - name: math/number_theory
@@ -29,7 +29,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: structure/cumulative_sum.cpp
       title: "Cumulative Sum(\u7D2F\u7A4D\u548C)"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: structure/graph.cpp
       title: "\u30B0\u30E9\u30D5"
   - name: structure/segment_tree
@@ -69,7 +69,7 @@ data:
       title: "\u533A\u9593\u306E\u6700\u5C0F\u5024"
   - name: Tests/LibraryChecker/Graph
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: Tests/LibraryChecker/Graph/shortest_path.test.cpp
       title: "\u91CD\u307F\u4ED8\u304D\u3001\u6700\u77ED\u7D4C\u8DEF\u554F\u984C"
   - name: Tests/LibraryChecker/Sample
