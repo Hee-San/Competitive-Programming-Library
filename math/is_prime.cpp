@@ -1,6 +1,6 @@
 /**
  * @brief 素数判定
- * @docs docs/math/my_gcd.md
+ * @docs docs/math/is_prime.md
  */
 
 typedef long long ll;
