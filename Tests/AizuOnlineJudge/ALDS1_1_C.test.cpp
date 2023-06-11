@@ -12,15 +12,15 @@ typedef long long ll;
 typedef vector<ll> vi;
 
 int main() {
-    ll n;
-    cin >> n;
+  ll n;
+  cin >> n;
 
-    ll ans = 0;
-    for(ll i = 0; i < n; i++) {
-        ll x;
-        cin >> x;
-        if(is_prime(x)) ans++;
-    }
+  ll ans = 0;
+  for (ll i = 0; i < n; i++) {
+    ll x;
+    cin >> x;
+    if (is_prime(x)) ans++;
+  }
 
-    cout << ans << endl;
+  cout << ans << endl;
 }
