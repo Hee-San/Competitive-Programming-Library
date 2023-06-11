@@ -21,19 +21,19 @@ data:
     \u500D\u6570)\n * @docs docs/math/my_lcm.md\n */\n\n#line 1 \"math/my_gcd.cpp\"\
     \n/**\n * @brief GCD(\u6700\u5927\u516C\u7D04\u6570/\u30E6\u30FC\u30AF\u30EA\u30C3\
     \u30C9\u306E\u4E92\u9664\u6CD5)\n * @docs docs/math/my_gcd.md\n */\ntemplate <typename\
-    \ T>\nT my_gcd(T a, T b) {\n    if (a < b) return my_gcd(b, a);\n    T r;\n  \
-    \  while ((r = a % b)) {\n        a = b;\n        b = r;\n    }\n    return b;\n\
-    }\n#line 7 \"math/my_lcm.cpp\"\n\ntemplate <typename T>\nT my_lcm(T a, T b) {\n\
-    \    return a / my_gcd(a, b) * b;\n}\n"
+    \ T>\nT my_gcd(T a, T b) {\n  if (a < b) return my_gcd(b, a);\n  T r;\n  while\
+    \ ((r = a % b)) {\n    a = b;\n    b = r;\n  }\n  return b;\n}\n#line 7 \"math/my_lcm.cpp\"\
+    \n\ntemplate <typename T>\nT my_lcm(T a, T b) {\n  return a / my_gcd(a, b) * b;\n\
+    }\n"
   code: "/**\n * @brief LCM(\u6700\u5C0F\u516C\u500D\u6570)\n * @docs docs/math/my_lcm.md\n\
     \ */\n\n#include \"my_gcd.cpp\"\n\ntemplate <typename T>\nT my_lcm(T a, T b) {\n\
-    \    return a / my_gcd(a, b) * b;\n}\n"
+    \  return a / my_gcd(a, b) * b;\n}\n"
   dependsOn:
   - math/my_gcd.cpp
   isVerificationFile: false
   path: math/my_lcm.cpp
   requiredBy: []
-  timestamp: '2023-06-11 13:33:08+09:00'
+  timestamp: '2023-06-11 14:47:47+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - Tests/AizuOnlineJudge/NTL_1_C.test.cpp
