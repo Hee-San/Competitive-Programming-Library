@@ -18,7 +18,7 @@ data:
   bundledCode: "#line 1 \"Tests/AizuOnlineJudge/ALDS1_1_C.test.cpp\"\n#define PROBLEM\
     \ \"https://onlinejudge.u-aizu.ac.jp/problems/ALDS1_1_C\"\n/**\n * @brief \u7D20\
     \u6570\u5224\u5B9A\n */\n\n#include <bits/stdc++.h>\n\n#line 1 \"math/is_prime.cpp\"\
-    \n/**\n * @brief \u7D20\u6570\u5224\u5B9A\n * @docs docs/math/my_gcd.md\n */\n\
+    \n/**\n * @brief \u7D20\u6570\u5224\u5B9A\n * @docs docs/math/is_prime.md\n */\n\
     \ntypedef long long ll;\n\nbool is_prime(ll n) {\n  if (n <= 1) return false;\n\
     \  for (ll i = 2; i * i <= n; ++i) {\n    if (n % i == 0) return false;\n  }\n\
     \  return true;\n}\n#line 9 \"Tests/AizuOnlineJudge/ALDS1_1_C.test.cpp\"\n\nusing\
@@ -37,7 +37,7 @@ data:
   isVerificationFile: true
   path: Tests/AizuOnlineJudge/ALDS1_1_C.test.cpp
   requiredBy: []
-  timestamp: '2023-06-11 14:39:40+09:00'
+  timestamp: '2023-06-11 14:41:53+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Tests/AizuOnlineJudge/ALDS1_1_C.test.cpp
