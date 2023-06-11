@@ -12,17 +12,17 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph/dijkstra.cpp
       title: "\u30C0\u30A4\u30AF\u30B9\u30C8\u30E9\u6CD5"
-  - name: math/number_theory
+  - name: math
     pages:
     - icon: ':warning:'
-      path: math/number_theory/change_base.cpp
+      path: math/change_base.cpp
       title: "change base(\u9032\u6570\u5909\u63DB)"
     - icon: ':heavy_check_mark:'
-      path: math/number_theory/my_gcd.cpp
+      path: math/my_gcd.cpp
       title: "GCD(\u6700\u5927\u516C\u7D04\u6570/\u30E6\u30FC\u30AF\u30EA\u30C3\u30C9\
         \u306E\u4E92\u9664\u6CD5)"
     - icon: ':heavy_check_mark:'
-      path: math/number_theory/my_lcm.cpp
+      path: math/my_lcm.cpp
       title: "LCM(\u6700\u5C0F\u516C\u500D\u6570)"
   - name: structure
     pages:
