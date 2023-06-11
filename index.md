@@ -18,6 +18,9 @@ data:
       path: math/change_base.cpp
       title: "change base(\u9032\u6570\u5909\u63DB)"
     - icon: ':heavy_check_mark:'
+      path: math/is_prime.cpp
+      title: "\u7D20\u6570\u5224\u5B9A"
+    - icon: ':heavy_check_mark:'
       path: math/my_gcd.cpp
       title: "GCD(\u6700\u5927\u516C\u7D04\u6570/\u30E6\u30FC\u30AF\u30EA\u30C3\u30C9\
         \u306E\u4E92\u9664\u6CD5)"
@@ -45,6 +48,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: Tests/AizuOnlineJudge/ALDS1_11_C.test.cpp
       title: "\u5E45\u512A\u5148\u63A2\u7D22"
+    - icon: ':heavy_check_mark:'
+      path: Tests/AizuOnlineJudge/ALDS1_1_C.test.cpp
+      title: "\u7D20\u6570\u5224\u5B9A"
     - icon: ':heavy_check_mark:'
       path: Tests/AizuOnlineJudge/DSL_2_A.test.cpp
       title: "\u533A\u9593\u306E\u6700\u5C0F\u5024\u30FB\u4E00\u70B9\u66F4\u65B0 Range\
