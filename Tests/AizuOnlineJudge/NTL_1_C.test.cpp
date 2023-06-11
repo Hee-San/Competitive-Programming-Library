@@ -5,7 +5,7 @@
 
 #include <bits/stdc++.h>
 
-#include "../../math/number_theory/my_lcm.cpp"
+#include "../../math/my_lcm.cpp"
 
 using namespace std;
 typedef long long ll;

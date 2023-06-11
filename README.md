@@ -11,4 +11,10 @@
 ```
 oj-verify run
 ```
+
+## Generate docs
+
+```
+oj-verify docs
+```
  -->

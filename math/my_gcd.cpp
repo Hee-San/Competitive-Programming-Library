@@ -1,6 +1,6 @@
 /**
  * @brief GCD(最大公約数/ユークリッドの互除法)
- * @docs docs/math/number_theory/my_gcd.md
+ * @docs docs/math/my_gcd.md
  */
 template <typename T>
 T my_gcd(T a, T b) {

@@ -1,9 +1,9 @@
 /**
  * @brief LCM(最小公倍数)
- * @docs docs/math/number_theory/my_lcm.md
+ * @docs docs/math/my_lcm.md
  */
 
-#include "../../math/number_theory/my_gcd.cpp"
+#include "my_gcd.cpp"
 
 template <typename T>
 T my_lcm(T a, T b) {

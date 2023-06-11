@@ -1,7 +1,12 @@
 /**
  * @brief change base(進数変換)
- * @docs docs/math/number_theory/change_base.md
+ * @docs docs/math/change_base.md
  */
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
 template <typename T>
 string base_10_to_N(T n, int base) {
     if (n == 0) return "0";
