@@ -22,5 +22,14 @@
     "tuple": "cpp",
     "compare": "cpp"
   },
-  "editor.formatOnSave": true
+  "editor.formatOnSave": true,
+  "formatFiles.excludedFolders": [
+    "node_modules",
+    ".vscode",
+    ".git",
+    "dist",
+    ".chrome",
+    ".in",
+    ".out"
+  ]
 }
