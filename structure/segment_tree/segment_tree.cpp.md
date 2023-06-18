@@ -66,10 +66,10 @@ data:
   timestamp: '2023-06-11 14:47:47+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - Tests/AizuOnlineJudge/DSL_2_B.test.cpp
+  - Tests/AizuOnlineJudge/DSL_2_A.test.cpp
   - Tests/LibraryChecker/Data_Structure/staticrmq.test.cpp
   - Tests/LibraryChecker/Data_Structure/point_set_range_composite.test.cpp
-  - Tests/AizuOnlineJudge/DSL_2_A.test.cpp
-  - Tests/AizuOnlineJudge/DSL_2_B.test.cpp
 documentation_of: structure/segment_tree/segment_tree.cpp
 layout: document
 redirect_from:
@@ -81,11 +81,13 @@ title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728, \u4E00\u70B9\u3092\u6
 ## 概要
   
 各ノードが区間に対応した、完全二分木。
+
 - 子は親の半分の区間を持つ  
 - モノイドについて、区間に対する演算が$O(log(n))$で処理できる。
   - 単位元の存在・結合律
 
 ### References
+
 - セグメント木とは: [プログラミングコンテストでのデータ構造](https://www.slideshare.net/iwiwi/ss-3578491)
 - 基本的な実装: [セグメント木をソラで書きたいあなたに](https://tsutaj.hatenablog.com/entry/2017/03/29/204841)
 - 非再帰・1-indexed: [非再帰セグ木サイコー！ 一番すきなセグ木です](https://hcpc-hokudai.github.io/archive/structure_segtree_001.pdf)
@@ -97,16 +99,18 @@ title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728, \u4E00\u70B9\u3092\u6
 **区間に対して更新を高速に行いたい場合は、遅延セグメント木を使う。**
 
 `SegmentTree(n, f, id)` : サイズが`n`のセグメント木を作成する。
-  - `f` : 区間に対する演算
-  - `id` : 単位元
+
+- `f` : 区間に対する演算
+- `id` : 単位元
 
 ex.  
-  - 区間和 : `SegmentTree<ll> seg(n, [](ll a, ll b) { return a + b; }, 0);`
-  - 区間max : `SegmentTree<ll> seg(n, [](ll a, ll b) { return max(a, b); }, 0);`
-  - 区間min : `SegmentTree<ll> seg(n, [](ll a, ll b) { return min(a, b); }, LLONG_MAX);`
-  - 区間xor : `SegmentTree<ll> seg(n, [](ll a, ll b) { return a ^ b; }, 0);`
-  - 区間GCD : `SegmentTree<ll> seg(n, [](ll a, ll b) { gcd(a, b); }, 0);`
-  - 区間LCM : `SegmentTree<ll> seg(n, [](ll a, ll b) { lcm(a, b); }, 1);`
+
+- 区間和 : `SegmentTree<ll> seg(n, [](ll a, ll b) { return a + b; }, 0);`
+- 区間max : `SegmentTree<ll> seg(n, [](ll a, ll b) { return max(a, b); }, 0);`
+- 区間min : `SegmentTree<ll> seg(n, [](ll a, ll b) { return min(a, b); }, LLONG_MAX);`
+- 区間xor : `SegmentTree<ll> seg(n, [](ll a, ll b) { return a ^ b; }, 0);`
+- 区間GCD : `SegmentTree<ll> seg(n, [](ll a, ll b) { gcd(a, b); }, 0);`
+- 区間LCM : `SegmentTree<ll> seg(n, [](ll a, ll b) { lcm(a, b); }, 1);`
 
 `seg.build(A)` : 配列Aをセグメント木に設定する。
 
@@ -116,10 +120,9 @@ ex.
 
 `seg.get(l, r)` : 区間[l, r)についての演算結果を取得する。
 
-
 ## 計算量
 
--  `build(A)` : $O(n)$
--  `update(x, val)` : $O(log(n))$
--  `get(x)` : $O(1)$
--  `get(l, r)` : $O(log(n))$
+- `build(A)` : $O(n)$
+- `update(x, val)` : $O(log(n))$
+- `get(x)` : $O(1)$
+- `get(l, r)` : $O(log(n))$

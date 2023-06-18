@@ -48,14 +48,14 @@ data:
   isVerificationFile: false
   path: structure/graph.cpp
   requiredBy:
-  - graph/dijkstra.cpp
   - graph/bfs.cpp
   - graph/01-bfs.cpp
+  - graph/dijkstra.cpp
   timestamp: '2023-06-11 14:47:47+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - Tests/LibraryChecker/Graph/shortest_path.test.cpp
   - Tests/AizuOnlineJudge/ALDS1_11_C.test.cpp
+  - Tests/LibraryChecker/Graph/shortest_path.test.cpp
 documentation_of: structure/graph.cpp
 layout: document
 redirect_from:
