@@ -31,5 +31,8 @@
     ".chrome",
     ".in",
     ".out"
-  ]
+  ],
+  "diffEditor.ignoreTrimWhitespace": false,
+  "files.insertFinalNewline": true,
+  "files.trimTrailingWhitespace": true
 }
