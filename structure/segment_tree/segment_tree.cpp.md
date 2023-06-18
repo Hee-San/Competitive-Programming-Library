@@ -79,10 +79,10 @@ title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728, \u4E00\u70B9\u3092\u6
   \u65B0\u30FB\u533A\u9593\u306E\u6F14\u7B97\u7D50\u679C\u3092\u53D6\u5F97)"
 ---
 ## 概要
-  
+
 各ノードが区間に対応した、完全二分木。
 
-- 子は親の半分の区間を持つ  
+- 子は親の半分の区間を持つ
 - モノイドについて、区間に対する演算が$O(log(n))$で処理できる。
   - 単位元の存在・結合律
 
@@ -103,7 +103,7 @@ title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728, \u4E00\u70B9\u3092\u6
 - `f` : 区間に対する演算
 - `id` : 単位元
 
-ex.  
+ex.
 
 - 区間和 : `SegmentTree<ll> seg(n, [](ll a, ll b) { return a + b; }, 0);`
 - 区間max : `SegmentTree<ll> seg(n, [](ll a, ll b) { return max(a, b); }, 0);`

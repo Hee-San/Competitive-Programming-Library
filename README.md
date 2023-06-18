@@ -5,7 +5,7 @@
 
 [ライブラリ一覧](https://hee-san.github.io/Competitive-Programming-Library/)
 
-<!-- 
+<!--
 ## Verification
 
 ```

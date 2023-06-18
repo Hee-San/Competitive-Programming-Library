@@ -41,7 +41,7 @@ data:
   isVerificationFile: true
   path: Tests/LibraryChecker/Data_Structure/static_range_sum.test.cpp
   requiredBy: []
-  timestamp: '2023-06-11 14:47:47+09:00'
+  timestamp: '2023-06-18 14:46:48+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Tests/LibraryChecker/Data_Structure/static_range_sum.test.cpp
