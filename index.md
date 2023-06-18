@@ -27,6 +27,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/my_lcm.cpp
       title: "LCM(\u6700\u5C0F\u516C\u500D\u6570)"
+    - icon: ':warning:'
+      path: math/square-matrix..cpp
+      title: "Square-Matrix(\u6B63\u65B9\u884C\u5217)"
   - name: structure
     pages:
     - icon: ':heavy_check_mark:'
