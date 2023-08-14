@@ -17,7 +17,7 @@ struct Edge {
 
 template <typename T>
 struct Graph {
-  vector<vector<Edge<T> > > edges;
+  vector<vector<Edge<T>>> edges;
 
   Graph() = default;
   Graph(int n) : edges(n) {}
