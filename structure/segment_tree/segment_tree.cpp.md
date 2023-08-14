@@ -30,9 +30,9 @@ data:
     \ Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728, \u4E00\u70B9\u3092\u66F4\u65B0\
     \u30FB\u533A\u9593\u306E\u6F14\u7B97\u7D50\u679C\u3092\u53D6\u5F97)\n * @docs\
     \ docs/structure/segment_tree/segment_tree.md\n */\n\nusing namespace std;\n\n\
-    template <typename T>\nstruct SegmentTree {\n  typedef T (*F)(T, T);\n  int n;\n\
+    template <typename T>\nstruct SegmentTree {\n  typedef T(*F)(T, T);\n  int n;\n\
     \  vector<T> seg;\n  F function;\n  T identity;\n\n  SegmentTree(int n, F function,\
-    \ T identity)\n      : n(n), function(function), identity(identity) {\n    seg.assign(2\
+    \ T identity)\n    : n(n), function(function), identity(identity) {\n    seg.assign(2\
     \ * n, identity);\n  }\n\n  void build(vector<T> v) {\n    assert(n == (int)v.size());\n\
     \    for (int i = 0; i < n; i++) seg[n + i] = v[i];\n    for (int i = n - 1; i\
     \ > 0; i--)\n      seg[i] = function(seg[2 * i], seg[2 * i + 1]);\n  }\n\n  void\
@@ -46,9 +46,9 @@ data:
   code: "/**\n * @brief Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728, \u4E00\u70B9\
     \u3092\u66F4\u65B0\u30FB\u533A\u9593\u306E\u6F14\u7B97\u7D50\u679C\u3092\u53D6\
     \u5F97)\n * @docs docs/structure/segment_tree/segment_tree.md\n */\n\nusing namespace\
-    \ std;\n\ntemplate <typename T>\nstruct SegmentTree {\n  typedef T (*F)(T, T);\n\
+    \ std;\n\ntemplate <typename T>\nstruct SegmentTree {\n  typedef T(*F)(T, T);\n\
     \  int n;\n  vector<T> seg;\n  F function;\n  T identity;\n\n  SegmentTree(int\
-    \ n, F function, T identity)\n      : n(n), function(function), identity(identity)\
+    \ n, F function, T identity)\n    : n(n), function(function), identity(identity)\
     \ {\n    seg.assign(2 * n, identity);\n  }\n\n  void build(vector<T> v) {\n  \
     \  assert(n == (int)v.size());\n    for (int i = 0; i < n; i++) seg[n + i] = v[i];\n\
     \    for (int i = n - 1; i > 0; i--)\n      seg[i] = function(seg[2 * i], seg[2\
@@ -63,7 +63,7 @@ data:
   isVerificationFile: false
   path: structure/segment_tree/segment_tree.cpp
   requiredBy: []
-  timestamp: '2023-06-11 14:47:47+09:00'
+  timestamp: '2023-08-14 18:19:34+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - Tests/AizuOnlineJudge/DSL_2_B.test.cpp

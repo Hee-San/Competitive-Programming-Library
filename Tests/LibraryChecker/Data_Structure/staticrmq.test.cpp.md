@@ -23,8 +23,8 @@ data:
     \u30B0\u30E1\u30F3\u30C8\u6728, \u4E00\u70B9\u3092\u66F4\u65B0\u30FB\u533A\u9593\
     \u306E\u6F14\u7B97\u7D50\u679C\u3092\u53D6\u5F97)\n * @docs docs/structure/segment_tree/segment_tree.md\n\
     \ */\n\nusing namespace std;\n\ntemplate <typename T>\nstruct SegmentTree {\n\
-    \  typedef T (*F)(T, T);\n  int n;\n  vector<T> seg;\n  F function;\n  T identity;\n\
-    \n  SegmentTree(int n, F function, T identity)\n      : n(n), function(function),\
+    \  typedef T(*F)(T, T);\n  int n;\n  vector<T> seg;\n  F function;\n  T identity;\n\
+    \n  SegmentTree(int n, F function, T identity)\n    : n(n), function(function),\
     \ identity(identity) {\n    seg.assign(2 * n, identity);\n  }\n\n  void build(vector<T>\
     \ v) {\n    assert(n == (int)v.size());\n    for (int i = 0; i < n; i++) seg[n\
     \ + i] = v[i];\n    for (int i = n - 1; i > 0; i--)\n      seg[i] = function(seg[2\
@@ -37,7 +37,7 @@ data:
     \ right);\n    }\n    return function(left, right);\n  }\n};\n#line 9 \"Tests/LibraryChecker/Data_Structure/staticrmq.test.cpp\"\
     \n\nusing namespace std;\ntypedef long long ll;\ntypedef vector<ll> vi;\n\nint\
     \ main() {\n  ll N, Q;\n  cin >> N >> Q;\n\n  vi A(N);\n  for (ll i = 0; i < N;\
-    \ i++) {\n    cin >> A[i];\n  }\n\n  SegmentTree<ll> seg(\n      N, [](ll a, ll\
+    \ i++) {\n    cin >> A[i];\n  }\n\n  SegmentTree<ll> seg(\n    N, [](ll a, ll\
     \ b) { return min(a, b); }, LLONG_MAX);\n  seg.build(A);\n\n  for (ll i = 0; i\
     \ < Q; i++) {\n    ll l, r;\n    cin >> l >> r;\n    cout << seg.get(l, r) <<\
     \ endl;\n  }\n}\n"
@@ -46,15 +46,15 @@ data:
     \ \"../../../structure/segment_tree/segment_tree.cpp\"\n\nusing namespace std;\n\
     typedef long long ll;\ntypedef vector<ll> vi;\n\nint main() {\n  ll N, Q;\n  cin\
     \ >> N >> Q;\n\n  vi A(N);\n  for (ll i = 0; i < N; i++) {\n    cin >> A[i];\n\
-    \  }\n\n  SegmentTree<ll> seg(\n      N, [](ll a, ll b) { return min(a, b); },\
-    \ LLONG_MAX);\n  seg.build(A);\n\n  for (ll i = 0; i < Q; i++) {\n    ll l, r;\n\
-    \    cin >> l >> r;\n    cout << seg.get(l, r) << endl;\n  }\n}\n"
+    \  }\n\n  SegmentTree<ll> seg(\n    N, [](ll a, ll b) { return min(a, b); }, LLONG_MAX);\n\
+    \  seg.build(A);\n\n  for (ll i = 0; i < Q; i++) {\n    ll l, r;\n    cin >> l\
+    \ >> r;\n    cout << seg.get(l, r) << endl;\n  }\n}\n"
   dependsOn:
   - structure/segment_tree/segment_tree.cpp
   isVerificationFile: true
   path: Tests/LibraryChecker/Data_Structure/staticrmq.test.cpp
   requiredBy: []
-  timestamp: '2023-06-11 14:47:47+09:00'
+  timestamp: '2023-08-14 18:19:34+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Tests/LibraryChecker/Data_Structure/staticrmq.test.cpp

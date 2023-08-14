@@ -29,29 +29,29 @@ data:
     \n * @docs docs/structure/graph.md\n */\n\nusing namespace std;\n\ntemplate <typename\
     \ T>\nstruct Edge {\n  int from, to;\n  T cost;\n\n  Edge(int from, int to, T\
     \ cost = 1) : from(from), to(to), cost(cost) {}\n};\n\ntemplate <typename T>\n\
-    struct Graph {\n  vector<vector<Edge<T> > > edges;\n\n  Graph() = default;\n \
-    \ Graph(int n) : edges(n) {}\n\n  size_t size() { return edges.size(); }\n\n \
-    \ void add_undirected_edge(int from, int to, T cost = 1) {\n    edges[from].emplace_back(from,\
-    \ to, cost);\n    edges[to].emplace_back(to, from, cost);\n  }\n\n  void add_directed_edge(int\
+    struct Graph {\n  vector<vector<Edge<T>>> edges;\n\n  Graph() = default;\n  Graph(int\
+    \ n) : edges(n) {}\n\n  size_t size() { return edges.size(); }\n\n  void add_undirected_edge(int\
+    \ from, int to, T cost = 1) {\n    edges[from].emplace_back(from, to, cost);\n\
+    \    edges[to].emplace_back(to, from, cost);\n  }\n\n  void add_directed_edge(int\
     \ from, int to, T cost = 1) {\n    edges[from].emplace_back(from, to, cost);\n\
     \  }\n};\n"
   code: "#pragma once\n\n/**\n * @brief \u30B0\u30E9\u30D5\n * @docs docs/structure/graph.md\n\
     \ */\n\nusing namespace std;\n\ntemplate <typename T>\nstruct Edge {\n  int from,\
     \ to;\n  T cost;\n\n  Edge(int from, int to, T cost = 1) : from(from), to(to),\
-    \ cost(cost) {}\n};\n\ntemplate <typename T>\nstruct Graph {\n  vector<vector<Edge<T>\
-    \ > > edges;\n\n  Graph() = default;\n  Graph(int n) : edges(n) {}\n\n  size_t\
-    \ size() { return edges.size(); }\n\n  void add_undirected_edge(int from, int\
-    \ to, T cost = 1) {\n    edges[from].emplace_back(from, to, cost);\n    edges[to].emplace_back(to,\
+    \ cost(cost) {}\n};\n\ntemplate <typename T>\nstruct Graph {\n  vector<vector<Edge<T>>>\
+    \ edges;\n\n  Graph() = default;\n  Graph(int n) : edges(n) {}\n\n  size_t size()\
+    \ { return edges.size(); }\n\n  void add_undirected_edge(int from, int to, T cost\
+    \ = 1) {\n    edges[from].emplace_back(from, to, cost);\n    edges[to].emplace_back(to,\
     \ from, cost);\n  }\n\n  void add_directed_edge(int from, int to, T cost = 1)\
     \ {\n    edges[from].emplace_back(from, to, cost);\n  }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: structure/graph.cpp
   requiredBy:
-  - graph/bfs.cpp
-  - graph/01-bfs.cpp
   - graph/dijkstra.cpp
-  timestamp: '2023-06-11 14:47:47+09:00'
+  - graph/01-bfs.cpp
+  - graph/bfs.cpp
+  timestamp: '2023-08-14 18:19:27+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - Tests/AizuOnlineJudge/ALDS1_11_C.test.cpp
