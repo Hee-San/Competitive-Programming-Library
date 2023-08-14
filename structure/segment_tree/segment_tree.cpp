@@ -7,14 +7,14 @@ using namespace std;
 
 template <typename T>
 struct SegmentTree {
-  typedef T (*F)(T, T);
+  typedef T(*F)(T, T);
   int n;
   vector<T> seg;
   F function;
   T identity;
 
   SegmentTree(int n, F function, T identity)
-      : n(n), function(function), identity(identity) {
+    : n(n), function(function), identity(identity) {
     seg.assign(2 * n, identity);
   }
 

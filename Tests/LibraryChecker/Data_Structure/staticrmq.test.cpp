@@ -21,7 +21,7 @@ int main() {
   }
 
   SegmentTree<ll> seg(
-      N, [](ll a, ll b) { return min(a, b); }, LLONG_MAX);
+    N, [](ll a, ll b) { return min(a, b); }, LLONG_MAX);
   seg.build(A);
 
   for (ll i = 0; i < Q; i++) {

@@ -6,13 +6,13 @@ template <class T, int N>
 struct SquareMatrix {
   array<array<T, N>, N> A;
 
-  SquareMatrix() : A{{}} {}
+  SquareMatrix() : A{ {} } {}
 
   size_t size() const { return N; }
 
-  inline const array<T, N> &operator[](int k) const { return (A.at(k)); }
+  inline const array<T, N>& operator[](int k) const { return (A.at(k)); }
 
-  inline array<T, N> &operator[](int k) { return (A.at(k)); }
+  inline array<T, N>& operator[](int k) { return (A.at(k)); }
 
   static SquareMatrix add_identity() { return SquareMatrix(); }
 
@@ -22,11 +22,11 @@ struct SquareMatrix {
     return mat;
   }
 
-  SquareMatrix operator+(const SquareMatrix &B) const {
+  SquareMatrix operator+(const SquareMatrix& B) const {
     return SquareMatrix(*this) += B;
   }
 
-  SquareMatrix &operator+=(const SquareMatrix &B) {
+  SquareMatrix& operator+=(const SquareMatrix& B) {
     for (size_t i = 0; i < N; i++) {
       for (size_t j = 0; j < N; j++) {
         (*this)[i][j] += B[i][j];
@@ -35,11 +35,11 @@ struct SquareMatrix {
     return *this;
   }
 
-  SquareMatrix operator-(const SquareMatrix &B) const {
+  SquareMatrix operator-(const SquareMatrix& B) const {
     return SquareMatrix(*this) -= B;
   }
 
-  SquareMatrix &operator-=(const SquareMatrix &B) {
+  SquareMatrix& operator-=(const SquareMatrix& B) {
     for (size_t i = 0; i < N; i++) {
       for (size_t j = 0; j < N; j++) {
         (*this)[i][j] -= B[i][j];
@@ -48,11 +48,11 @@ struct SquareMatrix {
     return *this;
   }
 
-  SquareMatrix operator*(const SquareMatrix &B) const {
+  SquareMatrix operator*(const SquareMatrix& B) const {
     return SquareMatrix(*this) *= B;
   }
 
-  SquareMatrix &operator*=(const SquareMatrix &B) {
+  SquareMatrix& operator*=(const SquareMatrix& B) {
     array<array<T, N>, N> C;
     for (size_t i = 0; i < N; i++) {
       for (size_t j = 0; j < N; j++) {
@@ -67,7 +67,7 @@ struct SquareMatrix {
 
   SquareMatrix operator^(uint64_t k) const { return SquareMatrix(*this) ^= k; }
 
-  SquareMatrix &operator^=(uint64_t k) {
+  SquareMatrix& operator^=(uint64_t k) {
     SquareMatrix B = SquareMatrix::mul_identity();
     while (k > 0) {
       if (k & 1) B *= *this;

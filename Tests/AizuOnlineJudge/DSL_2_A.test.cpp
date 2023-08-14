@@ -15,7 +15,7 @@ int main() {
   ll n, q;
   cin >> n >> q;
   SegmentTree<ll> seg(
-      n, [](ll a, ll b) { return min(a, b); }, LLONG_MAX);
+    n, [](ll a, ll b) { return min(a, b); }, LLONG_MAX);
   seg.build(vi(n, (1LL << 31) - 1));
 
   for (ll i = 0; i < q; i++) {

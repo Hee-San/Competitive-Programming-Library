@@ -20,12 +20,12 @@ int main() {
   cin >> N >> Q;
 
   SegmentTree<pii> seg(
-      N,
-      [](pii a, pii b) {
-        return pii{(a.first * b.first) % MOD,
-                   (a.second * b.first + b.second) % MOD};
-      },
-      pii(1, 0));
+    N,
+    [](pii a, pii b) {
+      return pii{ (a.first * b.first) % MOD,
+                 (a.second * b.first + b.second) % MOD };
+    },
+    pii(1, 0));
 
   vii ab(N);
   for (int i = 0; i < N; i++) {
