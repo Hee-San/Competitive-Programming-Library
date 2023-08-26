@@ -1,6 +1,11 @@
 ---
 data:
   libraryCategories:
+  - name: common
+    pages:
+    - icon: ':question:'
+      path: common/common.cpp
+      title: "\u5171\u901A\u8A2D\u5B9A"
   - name: graph
     pages:
     - icon: ':warning:'
@@ -32,7 +37,7 @@ data:
       title: "Square-Matrix(\u6B63\u65B9\u884C\u5217)"
   - name: structure
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: structure/cumulative_sum.cpp
       title: "Cumulative Sum(\u7D2F\u7A4D\u548C)"
     - icon: ':heavy_check_mark:'
@@ -70,7 +75,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: Tests/LibraryChecker/Data_Structure/point_set_range_composite.test.cpp
       title: "\u975E\u53EF\u63DB\u30BB\u30B0\u30E1\u30F3\u30C8\u6728"
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: Tests/LibraryChecker/Data_Structure/static_range_sum.test.cpp
       title: "\u533A\u9593\u548C"
     - icon: ':heavy_check_mark:'
