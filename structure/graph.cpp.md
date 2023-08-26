@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: common/common.cpp
     title: "\u5171\u901A\u8A2D\u5B9A"
   _extendedRequiredBy:

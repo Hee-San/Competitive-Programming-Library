@@ -11,7 +11,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: graph/dijkstra.cpp
     title: "\u30C0\u30A4\u30AF\u30B9\u30C8\u30E9\u6CD5"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: structure/cumulative_sum.cpp
     title: "Cumulative Sum(\u7D2F\u7A4D\u548C)"
   - icon: ':heavy_check_mark:'
@@ -36,7 +36,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: Tests/LibraryChecker/Data_Structure/point_set_range_composite.test.cpp
     title: "\u975E\u53EF\u63DB\u30BB\u30B0\u30E1\u30F3\u30C8\u6728"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Tests/LibraryChecker/Data_Structure/static_range_sum.test.cpp
     title: "\u533A\u9593\u548C"
   - icon: ':heavy_check_mark:'
@@ -45,9 +45,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: Tests/LibraryChecker/Graph/shortest_path.test.cpp
     title: "\u91CD\u307F\u4ED8\u304D\u3001\u6700\u77ED\u7D4C\u8DEF\u554F\u984C"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/common/common.md
     document_title: "\u5171\u901A\u8A2D\u5B9A"
@@ -77,7 +77,7 @@ data:
   - graph/01-bfs.cpp
   - graph/dijkstra.cpp
   timestamp: '2023-08-26 20:40:45+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - Tests/LibraryChecker/Data_Structure/staticrmq.test.cpp
   - Tests/LibraryChecker/Data_Structure/point_set_range_composite.test.cpp

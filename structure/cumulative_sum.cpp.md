@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: common/common.cpp
     title: "\u5171\u901A\u8A2D\u5B9A"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: Tests/LibraryChecker/Data_Structure/static_range_sum.test.cpp
     title: "\u533A\u9593\u548C"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/structure/cumulative_sum.md
     document_title: "Cumulative Sum(\u7D2F\u7A4D\u548C)"
@@ -41,7 +41,7 @@ data:
   path: structure/cumulative_sum.cpp
   requiredBy: []
   timestamp: '2023-08-26 20:40:45+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - Tests/LibraryChecker/Data_Structure/static_range_sum.test.cpp
 documentation_of: structure/cumulative_sum.cpp
