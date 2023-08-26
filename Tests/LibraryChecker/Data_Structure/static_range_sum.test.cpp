@@ -15,7 +15,7 @@ int main() {
   ll N, Q;
   cin >> N >> Q;
 
-  vi A(N);
+  vl A(N);
   for (ll i = 0; i < N; i++) {
     cin >> A[i];
   }

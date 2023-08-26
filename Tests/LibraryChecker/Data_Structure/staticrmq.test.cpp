@@ -8,23 +8,19 @@
 #include "../../../structure/segment_tree/segment_tree.cpp"
 
 using namespace std;
-typedef long long ll;
-typedef vector<ll> vi;
 
 int main() {
-  ll N, Q;
+  int N, Q;
   cin >> N >> Q;
 
   vi A(N);
-  for (ll i = 0; i < N; i++) {
-    cin >> A[i];
-  }
+  rep(i, N) cin >> A[i];
 
-  SegmentTree<ll> seg(
-    N, [](ll a, ll b) { return min(a, b); }, LLONG_MAX);
+  SegmentTree<int> seg(
+    N, [](int a, int b) { return min(a, b); }, INT_MAX);
   seg.build(A);
 
-  for (ll i = 0; i < Q; i++) {
+  rep(i, Q) {
     ll l, r;
     cin >> l >> r;
     cout << seg.get(l, r) << endl;

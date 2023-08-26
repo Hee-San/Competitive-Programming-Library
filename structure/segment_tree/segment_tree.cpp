@@ -3,6 +3,7 @@
  * @docs docs/structure/segment_tree/segment_tree.md
  */
 
+#include "../../common/common.cpp"
 using namespace std;
 
 template <typename T>
@@ -20,9 +21,8 @@ struct SegmentTree {
 
   void build(vector<T> v) {
     assert(n == (int)v.size());
-    for (int i = 0; i < n; i++) seg[n + i] = v[i];
-    for (int i = n - 1; i > 0; i--)
-      seg[i] = function(seg[2 * i], seg[2 * i + 1]);
+    rep(i, n) seg[n + i] = v[i];
+    rep2(i, n) seg[i] = function(seg[2 * i], seg[2 * i + 1]);
   }
 
   void update(int x, T val) {

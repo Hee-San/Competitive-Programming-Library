@@ -8,15 +8,13 @@
 #include "../../structure/segment_tree/segment_tree.cpp"
 
 using namespace std;
-typedef long long ll;
-typedef vector<ll> vi;
 
 int main() {
   ll n, q;
   cin >> n >> q;
   SegmentTree<ll> seg(
     n, [](ll a, ll b) { return a + b; }, 0);
-  seg.build(vi(n, 0));
+  seg.build(vl(n, 0));
 
   for (ll i = 0; i < q; i++) {
     ll com, x, y;
