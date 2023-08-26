@@ -8,9 +8,9 @@
 template <typename T>
 struct ZeroOneBFS {
   vector<T> dist;
-  vector<int> prev;
+  vi prev;
 
-  ZeroOneBFS(Graph<T> g, vector<int> starts) {
+  ZeroOneBFS(Graph<T> g, vi starts) {
     // O(V+E)
 
     for (auto edge : g.edges)
@@ -43,10 +43,10 @@ struct ZeroOneBFS {
     }
   }
 
-  ZeroOneBFS(Graph<T> g, int start) : ZeroOneBFS<T>(g, vector<int>({ start })) {}
+  ZeroOneBFS(Graph<T> g, int start) : ZeroOneBFS<T>(g, vi({ start })) {}
 
-  vector<int> path(int to) {
-    vector<int> path;
+  vi path(int to) {
+    vi path;
     while (to != -1) {
       path.push_back(to);
       to = prev[to];

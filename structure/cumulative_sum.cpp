@@ -3,6 +3,7 @@
  * @docs docs/structure/cumulative_sum.md
  */
 
+#include "../common/common.cpp"
 using namespace std;
 
 template <typename T>
@@ -12,7 +13,7 @@ struct CumulativeSum {
     int n = A.size();
     cs.resize(n + 1);
     cs[0] = T();
-    for (int i = 0; i < n; i++) cs[i + 1] = cs[i] + A[i];
+    rep(i, n) cs[i + 1] = cs[i] + A[i];
   }
 
   // [l, r)

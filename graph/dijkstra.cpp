@@ -8,7 +8,7 @@
 template <typename T>
 struct Dijkstra {
   vector<T> dist;
-  vector<int> prev;
+  vi prev;
 
   Dijkstra(Graph<T> g, int start) {
     // O(E+VlogV)
@@ -43,8 +43,8 @@ struct Dijkstra {
     }
   }
 
-  vector<int> path(int to) {
-    vector<int> path;
+  vi path(int to) {
+    vi path;
     while (to != -1) {
       path.push_back(to);
       to = prev[to];

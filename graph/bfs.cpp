@@ -8,9 +8,9 @@
 template <typename T>
 struct BFS {
   vector<T> dist;
-  vector<int> prev;
+  vi prev;
 
-  BFS(Graph<T> g, vector<int> starts) {
+  BFS(Graph<T> g, vi starts) {
     // O(V+E)
 
     for (auto edge : g.edges)
@@ -38,10 +38,10 @@ struct BFS {
     }
   }
 
-  BFS(Graph<T> g, int start) : BFS<T>(g, vector<int>({ start })) {}
+  BFS(Graph<T> g, int start) : BFS<T>(g, vi({ start })) {}
 
-  vector<int> path(int to) {
-    vector<int> path;
+  vi path(int to) {
+    vi path;
     while (to != -1) {
       path.push_back(to);
       to = prev[to];

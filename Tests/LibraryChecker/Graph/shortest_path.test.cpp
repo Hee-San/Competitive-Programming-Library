@@ -9,8 +9,6 @@
 #include "../../../structure/graph.cpp"
 
 using namespace std;
-typedef long long ll;
-typedef vector<int> vi;
 
 int main() {
   cin.tie(nullptr);

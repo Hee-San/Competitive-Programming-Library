@@ -8,10 +8,8 @@
 #include "../../../structure/segment_tree/segment_tree.cpp"
 
 using namespace std;
-typedef long long ll;
-typedef vector<ll> vi;
-typedef pair<ll, ll> pii;
-typedef vector<pii> vii;
+typedef pair<ll, ll> pl;
+typedef vector<pl> vpl;
 
 ll MOD = 998244353;
 
@@ -19,19 +17,19 @@ int main() {
   ll N, Q;
   cin >> N >> Q;
 
-  SegmentTree<pii> seg(
+  SegmentTree<pl> seg(
     N,
-    [](pii a, pii b) {
-      return pii{ (a.first * b.first) % MOD,
+    [](pl a, pl b) {
+      return pl{ (a.first * b.first) % MOD,
                  (a.second * b.first + b.second) % MOD };
     },
-    pii(1, 0));
+    pl(1, 0));
 
-  vii ab(N);
+  vpl ab(N);
   for (int i = 0; i < N; i++) {
     ll a, b;
     cin >> a >> b;
-    ab[i] = pii(a, b);
+    ab[i] = pl(a, b);
   }
   seg.build(ab);
 
@@ -41,11 +39,11 @@ int main() {
     if (q == 0) {
       ll p, c, d;
       cin >> p >> c >> d;
-      seg.update(p, pii(c, d));
+      seg.update(p, pl(c, d));
     } else {
       ll l, r, x;
       cin >> l >> r >> x;
-      pii p = seg.get(l, r);
+      pl p = seg.get(l, r);
       cout << (p.first * x + p.second) % MOD << endl;
     }
   }

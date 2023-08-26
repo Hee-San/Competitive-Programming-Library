@@ -9,8 +9,6 @@
 #include "../../structure/graph.cpp"
 
 using namespace std;
-typedef long long ll;
-typedef vector<ll> vi;
 
 int main() {
   ll n;

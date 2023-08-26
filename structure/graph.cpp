@@ -5,6 +5,7 @@
  * @docs docs/structure/graph.md
  */
 
+#include "../common/common.cpp"
 using namespace std;
 
 template <typename T>
