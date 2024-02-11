@@ -128,7 +128,12 @@ for test_case in test_cases:
                 print(f"Diff: {html_file}")
         except subprocess.CalledProcessError as e:
             print(f"{Fore.RED}Result: WA (exit code: {e.returncode}){Style.RESET_ALL}")
-            errLines = e.stderr.decode().split("\n")
+            errLines = []
+            if isinstance(e.stderr, str):
+                errLines = e.stderr.split("\n")
+            else:
+                errLines = e.stderr.decode().split("\n")
+
             for line in errLines:
                 print(f"  {line}")
             wa_count += 1

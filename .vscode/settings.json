@@ -20,7 +20,9 @@
     "*.tcc": "cpp",
     "array": "cpp",
     "tuple": "cpp",
-    "compare": "cpp"
+    "compare": "cpp",
+    "iostream": "cpp",
+    "__locale": "cpp"
   },
   "editor.formatOnSave": true,
   "formatFiles.excludedFolders": [
