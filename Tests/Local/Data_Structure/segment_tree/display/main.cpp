@@ -14,8 +14,13 @@ int main() {
     SegmentTree<int> seg(N, [](int a, int b) { return a + b; }, 0);
     seg.build(A);
 
-    seg.display();
+    vi B = seg.seg;
+    rep(i, B.size()) {
+        cout << i << ": " << B[i] << endl;
+    }
     cout << endl;
 
-    seg.display(true);
+    display(seg, 0);
+    cout << endl;
+    display(seg, 1);
 }

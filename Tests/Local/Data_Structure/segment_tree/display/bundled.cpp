@@ -72,112 +72,153 @@ struct SegmentTree {
     }
     return function(left, right);
   }
-
-  int getLevel(int index) {
-    return floor(log2(index));
-  }
-
-  void display(bool showIndex = false) {
-    // 最大の桁数
-    int digit = 1;
-    for (T x : seg) {
-      digit = max(digit, (int)to_string(x).size());
-    }
-
-    // 表示用の値を作成
-    int depth = getLevel(2 * n);
-    vector<vs> rangeStrs(0), valStrs(0), indexStrs(0);
-    rep(i, depth) {
-      auto [start, end] = getIndexRangeOfLevel(i);
-      vs subRangeStrs(0), subValStrs(0), subIndexStrs(0);
-      rep3(j, start, end) {
-        subRangeStrs.push_back(displayNodeRange(j));
-        subValStrs.push_back(to_string(seg[j]));
-        subIndexStrs.push_back("[" + to_string(j) + "]");
-      }
-      rangeStrs.push_back(subRangeStrs);
-      valStrs.push_back(subValStrs);
-      indexStrs.push_back(subIndexStrs);
-    }
-
-    // セルの幅を計算
-    int cellWidth = 0;
-    rep(i, depth) {
-      int m = rangeStrs[i].size();
-      rep(j, m) {
-        cellWidth = max(cellWidth, (int)rangeStrs[i][j].size() * m / n);
-        cellWidth = max(cellWidth, (int)valStrs[i][j].size() * m / n);
-        if (showIndex) cellWidth = max(cellWidth, (int)indexStrs[i][j].size() * m / n);
-      }
-    }
-
-    // 表示
-    string sepate = displaySepate(cellWidth);
-    int witdh = sepate.size();
-    rep(i, depth) {
-      cout << sepate << endl;
-      if (showIndex) cout << displayNodes(witdh, indexStrs[i]) << endl;
-      cout << displayNodes(witdh, rangeStrs[i]) << endl;
-      cout << displayNodes(witdh, valStrs[i]) << endl;
-    }
-    cout << sepate << endl;
-  }
-
-private:
-  pair<int, int> getIndexRangeOfLevel(int level) {
-    int start = pow(2, level);
-    int end = start * 2;
-    return make_pair(start, end);
-  }
-
-  pair<int, int> getValRangeOfNode(int index) {
-    int level = getLevel(index);
-    int levelStart = pow(2, level);
-    int indexInLevel = index - levelStart;
-    int rangeSize = n / pow(2, level);
-    int start = indexInLevel * rangeSize;
-    int end = start + rangeSize;
-    return make_pair(start, end);
-  }
-
-  string displaySepate(int cellWidth) {
-    string res = "|";
-    rep(i, n) {
-      rep(j, cellWidth) res += "-";
-      if (i != n - 1) res += "-";
-    }
-    res += "|";
-    return res;
-  }
-
-  string displayNodes(int witdh, vector<string> nodes) {
-    string res = "|";
-    int cellWidth = (witdh - 1) / nodes.size() - 1;
-    rep(i, nodes.size()) {
-      res += displayCenter(cellWidth, nodes[i]);
-      res += "|";
-    }
-    return res;
-  }
-
-  string displayNodeRange(int index) {
-    if (index == 0) return ""; // 0番目のノードは存在しない
-    auto [start, end] = getValRangeOfNode(index);
-    if (start + 1 == end) return to_string(start);
-    return "[" + to_string(start) + "," + to_string(end) + ")";
-  }
-
-  string displayCenter(int l, string s) {
-    int space = l - s.size();
-    int padRight = space / 2;
-    int padLeft = space - padRight;
-    string res = "";
-    rep(i, padLeft) res += " ";
-    res += s;
-    rep(i, padRight) res += " ";
-    return res;
-  }
 };
+
+
+template <typename T>
+void display(SegmentTree<T> seg, int pattern = 0) {
+  struct segNode {
+    int index;
+    T val;
+    bool isLeaf = false;
+    bool isUsed = true;
+    pair<int, int> val_range = make_pair(-1, -1);
+    vs strs;
+    int width = 0;
+
+    segNode(int index, T val) : index(index), val(val) {}
+    void updateStrs() {
+      strs = { "[" + to_string(index) + "]", "", to_string(val) };
+      if (isLeaf) { strs[1] = to_string(val_range.first); return; }
+      if (!isUsed) { strs[1] = "/"; return; }
+      strs[1] = "[" + to_string(val_range.first) + "," + to_string(val_range.second) + ")";
+    }
+  };
+
+  struct util {
+    static string displayCenter(int width, string str) {
+      int space = width - str.size();
+      int right = space / 2;
+      int left = space - right;
+      return string(left, ' ') + str + string(right, ' ');
+    }
+    static string separate(int width) {
+      string s = "|";
+      rep(i, width - 2) s += "-";
+      return s + "|";
+    }
+    static string indent(int width) {
+      return string(width, ' ');
+    }
+  };
+
+  int n = seg.n;
+
+  vector<segNode> nodes(n * 2, segNode(0, 0));
+  rep(i, n) {
+    nodes[n + i] = segNode(n + i, seg.seg[n + i]);
+    nodes[n + i].isLeaf = true;
+    nodes[n + i].val_range = make_pair(i, i + 1);
+
+    nodes[n + i].updateStrs();
+  }
+  int w = 0;
+  rep(i, n) {
+    w = max(w, (int)nodes[n + i].strs[0].size());
+    w = max(w, (int)nodes[n + i].strs[1].size());
+    w = max(w, (int)nodes[n + i].strs[2].size());
+  }
+  rep(i, n) {
+    nodes[n + i].width = w;
+  }
+
+  rep2(i, n) {
+    nodes[i] = segNode(i, seg.seg[i]);
+    segNode left = nodes[i * 2];
+    segNode right = nodes[i * 2 + 1];
+    int left_end = left.val_range.second;
+    int right_start = right.val_range.first;
+    if (left_end == right_start) {
+      nodes[i].val_range = make_pair(left.val_range.first, right.val_range.second);
+    } else {
+      nodes[i].isUsed = false;
+    }
+    nodes[i].updateStrs();
+    nodes[i].width = left.width + right.width + 1;
+  }
+
+  vvi indexes;
+  vi indents;
+  if (pattern == 0) {
+    int depth = ceil(log2(n * 2));
+    indexes.resize(depth);
+    indents.resize(depth);
+    rep3(i, 1, n * 2) {
+      int level = floor(log2(i));
+      indexes[level].push_back(i);
+    }
+  } else if (pattern == 1) {
+    vvi tmp_indexes(1);
+    vi tmp_indents(1, 0);
+    rep(i, n) {
+      tmp_indexes[0].push_back(n + i);
+    }
+    while (true) {
+      bool f = true;
+      int last_size = tmp_indexes[tmp_indexes.size() - 1].size();
+      tmp_indexes.push_back({});
+      tmp_indents.push_back(tmp_indents[tmp_indents.size() - 1]);
+
+      rep(i, last_size - 1) {
+        segNode left = nodes[tmp_indexes[tmp_indexes.size() - 2][i]];
+        segNode right = nodes[tmp_indexes[tmp_indexes.size() - 2][i + 1]];
+
+        if (left.index / 2 == right.index / 2) {
+          tmp_indexes[tmp_indexes.size() - 1].push_back(left.index / 2);
+          f = false;
+        } else {
+          if (f) {
+            tmp_indents[tmp_indents.size() - 1] += left.width + 1;
+          }
+        }
+      }
+      if (tmp_indexes[tmp_indexes.size() - 1].size() == 0) break;
+    }
+    rep2(i, tmp_indexes.size() - 1) {
+      indexes.push_back(tmp_indexes[i]);
+      indents.push_back(tmp_indents[i]);
+    }
+  }
+
+  int last_width = 0;
+  rep(i, indexes.size()) {
+    int width = 1;
+    for (int index : indexes[i]) {
+      width += nodes[index].width + 1;
+    }
+    cout << util::indent(indents[i]) << util::separate(max(last_width, width)) << endl;
+    cout << util::indent(indents[i]) << "|";
+    rep(j, indexes[i].size()) {
+      segNode node = nodes[indexes[i][j]];
+      cout << util::displayCenter(node.width, node.strs[0]) << "|";
+    }
+    cout << endl;
+    cout << util::indent(indents[i]) << "|";
+    rep(j, indexes[i].size()) {
+      segNode node = nodes[indexes[i][j]];
+      cout << util::displayCenter(node.width, node.strs[1]) << "|";
+    }
+    cout << endl;
+    cout << util::indent(indents[i]) << "|";
+    rep(j, indexes[i].size()) {
+      segNode node = nodes[indexes[i][j]];
+      cout << util::displayCenter(node.width, node.strs[2]) << "|";
+    }
+    cout << endl;
+    last_width = width;
+  }
+  cout << util::separate(last_width) << endl;
+}
 #line 4 "Tests/Local/verifyer/../Data_Structure/segment_tree/display/main.cpp"
 
 using namespace std;
@@ -192,8 +233,13 @@ int main() {
     SegmentTree<int> seg(N, [](int a, int b) { return a + b; }, 0);
     seg.build(A);
 
-    seg.display();
+    vi B = seg.seg;
+    rep(i, B.size()) {
+        cout << i << ": " << B[i] << endl;
+    }
     cout << endl;
 
-    seg.display(true);
+    display(seg, 0);
+    cout << endl;
+    display(seg, 1);
 }
