@@ -14,7 +14,7 @@ data:
     \         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\
     \  File \"/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/python.py\"\
     , line 96, in bundle\n    raise NotImplementedError\nNotImplementedError\n"
-  code: "import os\nimport glob\nimport os\n\n# \u30C6\u30B9\u30C8\u30B1\u30FC\u30B9\
+  code: "import glob\nimport os\nimport sys\n\n# \u30C6\u30B9\u30C8\u30B1\u30FC\u30B9\
     \u306F\u3001\u4EE5\u4E0B\u306E\u6761\u4EF6\u3092\u6E80\u305F\u3059\u30D5\u30A1\
     \u30A4\u30EB\u3067\u3042\u308B\n# 1. \u30D5\u30A1\u30A4\u30EB\u540D\u304C\u300C\
     test_*.cpp\u300D\u3067\u3042\u308B\n# 2. \u540C\u3058\u968E\u5C64\u306B\u300C\
@@ -55,30 +55,29 @@ data:
     \ in test_cases:\n    print(f\"- {test_case.name()}: {test_case.num_cases()} cases\"\
     )\nprint()\n\n\n\n# \u30C6\u30B9\u30C8\u30B1\u30FC\u30B9\u306E\u5B9F\u884C(c++)\n\
     import subprocess\nimport colorama\nfrom colorama import Fore, Style\nimport difflib\n\
-    import os\nfrom difflib import HtmlDiff\n# Initialize colorama\ncolorama.init()\n\
-    \nac_count = 0\nwa_count = 0\nre_count = 0\nwa_cases = []\nre_cases = []\n\n#\
-    \ Remove existing HTML files\nhtml_files = glob.glob(f\"{test_dir}/tmp/**/*.html\"\
-    , recursive=True)\nfor file in html_files:\n    os.remove(file)\n\nfor test_case\
-    \ in test_cases:\n    print(f\"{Fore.BLUE}\u30C6\u30B9\u30C8\u30B1\u30FC\u30B9\
-    : {test_case.name()}{Style.RESET_ALL}\")\n    for i in range(test_case.num_cases()):\n\
-    \        input_file = f\"{test_case.file.replace(test_file_name, 'input')}/{test_case.input_files[i]}\"\
-    \n        output_file = f\"{test_case.file.replace(test_file_name, 'output')}/{test_case.output_files[i]}\"\
-    \n        print(f\"{Fore.YELLOW}Case: {test_case.input_files[i]}{Style.RESET_ALL}\"\
-    )\n\n        # Run oj-bundle command to expand includes\n        try:\n      \
-    \      bundled_code = subprocess.run([\"oj-bundle\", test_case.file], check=True,\
-    \ capture_output=True, text=True).stdout\n            bundled_file = os.path.join(os.path.dirname(test_case.file),\
-    \ \"bundled.cpp\")\n            with open(bundled_file, \"w\") as f:\n       \
-    \         f.write(bundled_code)\n        except subprocess.CalledProcessError\
-    \ as e:\n            print(f\"{Fore.RED}Failed to run oj-bundle command: {e}{Style.RESET_ALL}\"\
-    )\n            continue\n\n        # Execute the bundled C++ code\n        try:\n\
-    \            result = subprocess.run([\"g++\", bundled_file, \"-std=c++17\", \"\
-    -o\", \"/tmp/a.out\"], check=True, capture_output=True)\n            result =\
-    \ subprocess.run([\"/tmp/a.out\"], input=open(input_file, \"r\").read(), check=True,\
-    \ capture_output=True, text=True)\n            expected_output = open(output_file,\
-    \ \"r\").read()\n            if result.stdout == expected_output:\n          \
-    \      print(f\"{Fore.GREEN}Result: AC{Style.RESET_ALL}\")\n                ac_count\
-    \ += 1\n            else:\n                print(f\"{Fore.RED}Result: WA{Style.RESET_ALL}\"\
-    )\n                wa_count += 1\n                wa_cases.append(test_case.name())\n\
+    from difflib import HtmlDiff\n# Initialize colorama\ncolorama.init()\n\nac_count\
+    \ = 0\nwa_count = 0\nre_count = 0\nwa_cases = []\nre_cases = []\n\n# Remove existing\
+    \ HTML files\nhtml_files = glob.glob(f\"{test_dir}/tmp/**/*.html\", recursive=True)\n\
+    for file in html_files:\n    os.remove(file)\n\nfor test_case in test_cases:\n\
+    \    print(f\"{Fore.BLUE}\u30C6\u30B9\u30C8\u30B1\u30FC\u30B9: {test_case.name()}{Style.RESET_ALL}\"\
+    )\n    for i in range(test_case.num_cases()):\n        input_file = f\"{test_case.file.replace(test_file_name,\
+    \ 'input')}/{test_case.input_files[i]}\"\n        output_file = f\"{test_case.file.replace(test_file_name,\
+    \ 'output')}/{test_case.output_files[i]}\"\n        print(f\"{Fore.YELLOW}Case:\
+    \ {test_case.input_files[i]}{Style.RESET_ALL}\")\n\n        # Run oj-bundle command\
+    \ to expand includes\n        try:\n            bundled_code = subprocess.run([\"\
+    oj-bundle\", test_case.file], check=True, capture_output=True, text=True).stdout\n\
+    \            bundled_file = os.path.join(os.path.dirname(test_case.file), \"bundled.cpp\"\
+    )\n            with open(bundled_file, \"w\") as f:\n                f.write(bundled_code)\n\
+    \        except subprocess.CalledProcessError as e:\n            print(f\"{Fore.RED}Failed\
+    \ to run oj-bundle command: {e}{Style.RESET_ALL}\")\n            continue\n\n\
+    \        # Execute the bundled C++ code\n        try:\n            result = subprocess.run([\"\
+    g++\", bundled_file, \"-std=c++17\", \"-o\", \"/tmp/a.out\"], check=True, capture_output=True)\n\
+    \            result = subprocess.run([\"/tmp/a.out\"], input=open(input_file,\
+    \ \"r\").read(), check=True, capture_output=True, text=True)\n            expected_output\
+    \ = open(output_file, \"r\").read()\n            if result.stdout == expected_output:\n\
+    \                print(f\"{Fore.GREEN}Result: AC{Style.RESET_ALL}\")\n       \
+    \         ac_count += 1\n            else:\n                print(f\"{Fore.RED}Result:\
+    \ WA{Style.RESET_ALL}\")\n                wa_count += 1\n                wa_cases.append(test_case.name())\n\
     \                diff = difflib.unified_diff(expected_output.splitlines(), result.stdout.splitlines(),\
     \ lineterm=\"\")\n                diff_str = \"\\n\".join(diff)\n            \
     \    print(diff_str)\n\n                # Save diff in HTML format\n         \
@@ -98,7 +97,8 @@ data:
     {Fore.RED}{re_count}{Style.RESET_ALL}\"\n\nif ac_count > 0:\n    print(f\"AC:\
     \ {ac_count_str} cases\")\nif wa_count > 0:\n    print(f\"WA: {wa_count_str} cases\
     \ ({', '.join(wa_cases)})\")\nif re_count > 0:\n    print(f\"RE: {re_count_str}\
-    \ cases ({', '.join(re_cases)})\")\n"
+    \ cases ({', '.join(re_cases)})\")\n\nif wa_count == 0 and re_count == 0:\n  \
+    \  sys.exit(0)\nelse:\n    sys.exit(1)\n"
   dependsOn: []
   isVerificationFile: false
   path: Tests/Local/verifyer/local_test.py
