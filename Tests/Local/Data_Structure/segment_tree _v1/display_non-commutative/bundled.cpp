@@ -1,4 +1,4 @@
-#line 1 "Tests/Local/verifyer/../Data_Structure/segment_tree/display_non-commutative/main.cpp"
+#line 1 "Tests/Local/verifyer/../Data_Structure/segment_tree _v1/display_non-commutative/main.cpp"
 #include <bits/stdc++.h>
 
 #line 1 "structure/segment_tree/segment_tree_v1.cpp"
@@ -220,7 +220,7 @@ void display(SegmentTree<T> seg, function<string(T)> t2str, int pattern = 0) {
   }
   cout << util::separate(last_width) << endl;
 }
-#line 4 "Tests/Local/verifyer/../Data_Structure/segment_tree/display_non-commutative/main.cpp"
+#line 4 "Tests/Local/verifyer/../Data_Structure/segment_tree _v1/display_non-commutative/main.cpp"
 
 using namespace std;
 
