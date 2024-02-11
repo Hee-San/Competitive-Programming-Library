@@ -1,10 +1,10 @@
 #line 1 "Tests/Local/verifyer/../Data_Structure/segment_tree/display/main.cpp"
 #include <bits/stdc++.h>
 
-#line 1 "structure/segment_tree/segment_tree.cpp"
+#line 1 "structure/segment_tree/segment_tree_v1.cpp"
 /**
  * @brief Segment Tree(セグメント木, 一点を更新・区間の演算結果を取得)
- * @docs docs/structure/segment_tree/segment_tree.md
+ * @docs docs/structure/segment_tree/segment_tree_v1.md
  */
 
 #line 1 "common/common.cpp"
@@ -27,7 +27,7 @@ typedef vector<string> vs;
 #define rep(i, n) for (int i = 0; i < (int)(n); i++)
 #define rep2(i, n) for (int i = (n)-1; i >= 0; i--)
 #define rep3(i, m, n) for (int i = (m); i < (int)(n); i++)
-#line 7 "structure/segment_tree/segment_tree.cpp"
+#line 7 "structure/segment_tree/segment_tree_v1.cpp"
 using namespace std;
 
 template <typename T>

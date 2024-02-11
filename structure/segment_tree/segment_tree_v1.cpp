@@ -1,6 +1,6 @@
 /**
  * @brief Segment Tree(セグメント木, 一点を更新・区間の演算結果を取得)
- * @docs docs/structure/segment_tree/segment_tree.md
+ * @docs docs/structure/segment_tree/segment_tree_v1.md
  */
 
 #include "../../common/common.cpp"
