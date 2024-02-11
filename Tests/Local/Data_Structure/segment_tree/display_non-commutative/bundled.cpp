@@ -1,4 +1,4 @@
-#line 1 "Tests/Local/verifyer/../Data_Structure/segment_tree/display/main.cpp"
+#line 1 "Tests/Local/verifyer/../Data_Structure/segment_tree/display_non-commutative/main.cpp"
 #include <bits/stdc++.h>
 
 #line 1 "structure/segment_tree/segment_tree_v1.cpp"
@@ -76,22 +76,23 @@ struct SegmentTree {
 
 
 template <typename T>
-void display(SegmentTree<T> seg, int pattern = 0) {
+void display(SegmentTree<T> seg, function<string(T)> t2str, int pattern = 0) {
+  // TODO: refactoring
   struct segNode {
     int index;
     T val;
     bool isLeaf = false;
     bool isUsed = true;
-    pair<int, int> val_range = make_pair(-1, -1);
+    pair<int, int> leaf_range = make_pair(-1, -1);
     vs strs;
     int width = 0;
 
     segNode(int index, T val) : index(index), val(val) {}
-    void updateStrs() {
-      strs = { "[" + to_string(index) + "]", "", to_string(val) };
-      if (isLeaf) { strs[1] = to_string(val_range.first); return; }
+    void updateStrs(function<string(T)> t2str) {
+      strs = { "[" + to_string(index) + "]", "", t2str(val) };
+      if (isLeaf) { strs[1] = to_string(leaf_range.first); return; }
       if (!isUsed) { strs[1] = "/"; return; }
-      strs[1] = "[" + to_string(val_range.first) + "," + to_string(val_range.second) + ")";
+      strs[1] = "[" + to_string(leaf_range.first) + "," + to_string(leaf_range.second) + ")";
     }
   };
 
@@ -114,13 +115,13 @@ void display(SegmentTree<T> seg, int pattern = 0) {
 
   int n = seg.n;
 
-  vector<segNode> nodes(n * 2, segNode(0, 0));
+  vector<segNode> nodes(n * 2, segNode(0, seg.identity));
   rep(i, n) {
     nodes[n + i] = segNode(n + i, seg.seg[n + i]);
     nodes[n + i].isLeaf = true;
-    nodes[n + i].val_range = make_pair(i, i + 1);
+    nodes[n + i].leaf_range = make_pair(i, i + 1);
 
-    nodes[n + i].updateStrs();
+    nodes[n + i].updateStrs(t2str);
   }
   int w = 0;
   rep(i, n) {
@@ -136,14 +137,14 @@ void display(SegmentTree<T> seg, int pattern = 0) {
     nodes[i] = segNode(i, seg.seg[i]);
     segNode left = nodes[i * 2];
     segNode right = nodes[i * 2 + 1];
-    int left_end = left.val_range.second;
-    int right_start = right.val_range.first;
+    int left_end = left.leaf_range.second;
+    int right_start = right.leaf_range.first;
     if (left_end == right_start) {
-      nodes[i].val_range = make_pair(left.val_range.first, right.val_range.second);
+      nodes[i].leaf_range = make_pair(left.leaf_range.first, right.leaf_range.second);
     } else {
       nodes[i].isUsed = false;
     }
-    nodes[i].updateStrs();
+    nodes[i].updateStrs(t2str);
     nodes[i].width = left.width + right.width + 1;
   }
 
@@ -219,7 +220,7 @@ void display(SegmentTree<T> seg, int pattern = 0) {
   }
   cout << util::separate(last_width) << endl;
 }
-#line 4 "Tests/Local/verifyer/../Data_Structure/segment_tree/display/main.cpp"
+#line 4 "Tests/Local/verifyer/../Data_Structure/segment_tree/display_non-commutative/main.cpp"
 
 using namespace std;
 
@@ -227,19 +228,20 @@ int main() {
     int N;
     cin >> N;
 
-    vi A(N);
+    vs A(N);
     rep(i, N) cin >> A[i];
 
-    SegmentTree<int> seg(N, [](int a, int b) { return a + b; }, 0);
+    SegmentTree<string> seg(N, [](string a, string b) { return a + b; }, "");
     seg.build(A);
 
-    vi B = seg.seg;
+    vs B = seg.seg;
     rep(i, B.size()) {
         cout << i << ": " << B[i] << endl;
     }
     cout << endl;
 
-    display(seg, 0);
+    function<string(string)> f = [](string a) { return a; };
+    display(seg, f, 0);
     cout << endl;
-    display(seg, 1);
+    display(seg, f, 1);
 }

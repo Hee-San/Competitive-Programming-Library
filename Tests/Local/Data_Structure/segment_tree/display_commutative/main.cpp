@@ -20,7 +20,8 @@ int main() {
     }
     cout << endl;
 
-    display(seg, 0);
+    function<string(int)> f = [](int a) { return to_string(a); };
+    display(seg, f, 0);
     cout << endl;
-    display(seg, 1);
+    display(seg, f, 1);
 }

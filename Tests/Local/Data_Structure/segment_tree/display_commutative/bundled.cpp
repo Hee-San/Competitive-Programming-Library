@@ -1,9 +1,33 @@
+#line 1 "Tests/Local/verifyer/../Data_Structure/segment_tree/display_commutative/main.cpp"
+#include <bits/stdc++.h>
+
+#line 1 "structure/segment_tree/segment_tree_v1.cpp"
 /**
  * @brief Segment Tree(セグメント木, 一点を更新・区間の演算結果を取得)
  * @docs docs/structure/segment_tree/segment_tree_v1.md
  */
 
-#include "../../common/common.cpp"
+#line 1 "common/common.cpp"
+/**
+ * @brief 共通設定
+ * @docs docs/common/common.md
+ */
+
+#line 7 "common/common.cpp"
+using namespace std;
+
+typedef long long ll;
+typedef vector<int> vi;
+typedef vector<vi> vvi;
+typedef vector<ll> vl;
+typedef vector<vl> vvl;
+typedef vector<bool> vb;
+typedef vector<string> vs;
+
+#define rep(i, n) for (int i = 0; i < (int)(n); i++)
+#define rep2(i, n) for (int i = (n)-1; i >= 0; i--)
+#define rep3(i, m, n) for (int i = (m); i < (int)(n); i++)
+#line 7 "structure/segment_tree/segment_tree_v1.cpp"
 using namespace std;
 
 template <typename T>
@@ -195,4 +219,29 @@ void display(SegmentTree<T> seg, function<string(T)> t2str, int pattern = 0) {
     last_width = width;
   }
   cout << util::separate(last_width) << endl;
+}
+#line 4 "Tests/Local/verifyer/../Data_Structure/segment_tree/display_commutative/main.cpp"
+
+using namespace std;
+
+int main() {
+    int N;
+    cin >> N;
+
+    vi A(N);
+    rep(i, N) cin >> A[i];
+
+    SegmentTree<int> seg(N, [](int a, int b) { return a + b; }, 0);
+    seg.build(A);
+
+    vi B = seg.seg;
+    rep(i, B.size()) {
+        cout << i << ": " << B[i] << endl;
+    }
+    cout << endl;
+
+    function<string(int)> f = [](int a) { return to_string(a); };
+    display(seg, f, 0);
+    cout << endl;
+    display(seg, f, 1);
 }
