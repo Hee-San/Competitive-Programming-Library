@@ -73,6 +73,10 @@ struct SegmentTree {
     return function(left, right);
   }
 
+  int getLevel(int index) {
+    return floor(log2(index));
+  }
+
   void display() {
     // 最大の桁数
     int digit = 1;
@@ -80,25 +84,27 @@ struct SegmentTree {
       digit = max(digit, (int)to_string(x).size());
     }
 
-    // 深さごと
-    int depth = log2(n) + 1;
-    vector<vs> displayValues(depth * 2);
+    // 表示用の値を作成
+    int depth = getLevel(2 * n);
+    vector<vs> rangeStrs(0), valStrs(0);
     rep(i, depth) {
-      int rangeSize = n / pow(2, i);
-      rep(j, pow(2, i)) {
-        int index = pow(2, i) + j;
-        displayValues[i * 2].push_back(displayNodeRange(index));
+      auto [start, end] = getIndexRangeOfLevel(i);
+      vs subRangeStrs(0), subValStrs(0);
+      rep3(j, start, end) {
+        subRangeStrs.push_back(displayNodeRange(j));
+        subValStrs.push_back(to_string(seg[j]));
       }
-      rep(j, pow(2, i)) {
-        int index = pow(2, i) + j;
-        displayValues[i * 2 + 1].push_back(to_string(seg[index]));
-      }
+      rangeStrs.push_back(subRangeStrs);
+      valStrs.push_back(subValStrs);
     }
 
+    // セルの幅を計算
     int cellWidth = 0;
     rep(i, depth) {
-      rep(j, displayValues[i].size()) {
-        cellWidth = max(cellWidth, (int)displayValues[i][j].size());
+      int m = rangeStrs[i].size();
+      rep(j, m) {
+        cellWidth = max(cellWidth, (int)rangeStrs[i][j].size() * m / n);
+        cellWidth = max(cellWidth, (int)valStrs[i][j].size() * m / n);
       }
     }
 
@@ -107,13 +113,29 @@ struct SegmentTree {
     int witdh = sepate.size();
     rep(i, depth) {
       cout << sepate << endl;
-      cout << displayNodes(witdh, displayValues[i * 2]) << endl;
-      cout << displayNodes(witdh, displayValues[i * 2 + 1]) << endl;
+      cout << displayNodes(witdh, rangeStrs[i]) << endl;
+      cout << displayNodes(witdh, valStrs[i]) << endl;
     }
     cout << sepate << endl;
   }
 
 private:
+  pair<int, int> getIndexRangeOfLevel(int level) {
+    int start = pow(2, level);
+    int end = start * 2;
+    return make_pair(start, end);
+  }
+
+  pair<int, int> getValRangeOfNode(int index) {
+    int level = getLevel(index);
+    int levelStart = pow(2, level);
+    int indexInLevel = index - levelStart;
+    int rangeSize = n / pow(2, level);
+    int start = indexInLevel * rangeSize;
+    int end = start + rangeSize;
+    return make_pair(start, end);
+  }
+
   string displaySepate(int cellWidth) {
     string res = "|";
     rep(i, n) {
@@ -135,27 +157,16 @@ private:
   }
 
   string displayNodeRange(int index) {
-    int leafStartIndex = seg.size() / 2; // 葉ノードの開始インデックスをより明確に表現
-    if (index >= leafStartIndex) {
-      // 葉のノードの場合
-      int leafIndex = index - leafStartIndex;
-      return to_string(leafIndex); // 範囲表示ではなくインデックスのみ
-    } else {
-      // 内部ノードの場合の範囲計算
-      int level = floor(log2(index));
-      int levelStart = pow(2, level);
-      int indexInLevel = index - levelStart;
-      int rangeSize = n / pow(2, level);
-      int start = indexInLevel * rangeSize;
-      int end = start + rangeSize;
-      return "[" + to_string(start) + "," + to_string(end) + ")";
-    }
+    if (index == 0) return ""; // 0番目のノードは存在しない
+    auto [start, end] = getValRangeOfNode(index);
+    if (start + 1 == end) return to_string(start);
+    return "[" + to_string(start) + "," + to_string(end) + ")";
   }
 
   string displayCenter(int l, string s) {
     int space = l - s.size();
-    int padLeft = space / 2;
-    int padRight = space - padLeft;
+    int padRight = space / 2;
+    int padLeft = space - padRight;
     string res = "";
     rep(i, padLeft) res += " ";
     res += s;

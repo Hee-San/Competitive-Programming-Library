@@ -1,6 +1,6 @@
-import os
 import glob
 import os
+import sys
 
 # テストケースは、以下の条件を満たすファイルである
 # 1. ファイル名が「test_*.cpp」である
@@ -71,7 +71,6 @@ import subprocess
 import colorama
 from colorama import Fore, Style
 import difflib
-import os
 from difflib import HtmlDiff
 # Initialize colorama
 colorama.init()
@@ -157,3 +156,8 @@ if wa_count > 0:
     print(f"WA: {wa_count_str} cases ({', '.join(wa_cases)})")
 if re_count > 0:
     print(f"RE: {re_count_str} cases ({', '.join(re_cases)})")
+
+if wa_count == 0 and re_count == 0:
+    sys.exit(0)
+else:
+    sys.exit(1)

@@ -22,7 +22,8 @@
     "tuple": "cpp",
     "compare": "cpp",
     "iostream": "cpp",
-    "__locale": "cpp"
+    "__locale": "cpp",
+    "cmath": "cpp"
   },
   "editor.formatOnSave": true,
   "formatFiles.excludedFolders": [

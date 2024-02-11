@@ -14,14 +14,17 @@ jobs:
 
     - name: Install dependencies
       run: pip install -U online-judge-verify-helper
-      
+
     - name: oj login
       run: oj login https://atcoder.jp/ -u ${{ secrets.ATCODER_USERNAME }} -p ${{ secrets.ATCODER_PASSWORD }} --use-browser never
 
-    - name: Run tests
+    - name: Run online tests
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         YUKICODER_TOKEN: ${{ secrets.YUKICODER_TOKEN }}
         GH_PAT: ${{ secrets.GH_PAT }}
         DROPBOX_TOKEN: ${{ secrets.DROPBOX_TOKEN }}
-      run: oj-verify all
+      run: make test-oj
+
+    - name: Run local tests
+      run: make test-local
