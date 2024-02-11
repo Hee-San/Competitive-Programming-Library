@@ -3,6 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy:
   - icon: ':warning:'
+    path: Tests/Local/Common/SampleTest/main.cpp
+    title: Tests/Local/Common/SampleTest/main.cpp
+  - icon: ':warning:'
+    path: Tests/Local/Data_Structure/segment_tree/display/main.cpp
+    title: Tests/Local/Data_Structure/segment_tree/display/main.cpp
+  - icon: ':warning:'
     path: graph/01-bfs.cpp
     title: 01-BFS
   - icon: ':heavy_check_mark:'
@@ -74,18 +80,20 @@ data:
   - structure/segment_tree/segment_tree.cpp
   - structure/cumulative_sum.cpp
   - graph/bfs.cpp
-  - graph/01-bfs.cpp
   - graph/dijkstra.cpp
+  - graph/01-bfs.cpp
+  - Tests/Local/Common/SampleTest/main.cpp
+  - Tests/Local/Data_Structure/segment_tree/display/main.cpp
   timestamp: '2023-08-26 20:40:45+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - Tests/LibraryChecker/Data_Structure/staticrmq.test.cpp
-  - Tests/LibraryChecker/Data_Structure/point_set_range_composite.test.cpp
-  - Tests/LibraryChecker/Data_Structure/static_range_sum.test.cpp
-  - Tests/LibraryChecker/Graph/shortest_path.test.cpp
-  - Tests/AizuOnlineJudge/DSL_2_A.test.cpp
   - Tests/AizuOnlineJudge/DSL_2_B.test.cpp
   - Tests/AizuOnlineJudge/ALDS1_11_C.test.cpp
+  - Tests/AizuOnlineJudge/DSL_2_A.test.cpp
+  - Tests/LibraryChecker/Graph/shortest_path.test.cpp
+  - Tests/LibraryChecker/Data_Structure/staticrmq.test.cpp
+  - Tests/LibraryChecker/Data_Structure/static_range_sum.test.cpp
+  - Tests/LibraryChecker/Data_Structure/point_set_range_composite.test.cpp
 documentation_of: common/common.cpp
 layout: document
 redirect_from:

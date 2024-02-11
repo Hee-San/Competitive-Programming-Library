@@ -12,18 +12,11 @@ data:
   _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://onlinejudge.u-aizu.ac.jp/problems/DSL_2_A
-    document_title: "\u533A\u9593\u306E\u6700\u5C0F\u5024\u30FB\u4E00\u70B9\u66F4\u65B0\
-      \ Range Minimum Query (RMQ)"
-    links:
-    - https://onlinejudge.u-aizu.ac.jp/problems/DSL_2_A
-  bundledCode: "#line 1 \"Tests/AizuOnlineJudge/DSL_2_A.test.cpp\"\n#define PROBLEM\
-    \ \"https://onlinejudge.u-aizu.ac.jp/problems/DSL_2_A\"\n/**\n * @brief \u533A\
-    \u9593\u306E\u6700\u5C0F\u5024\u30FB\u4E00\u70B9\u66F4\u65B0 Range Minimum Query\
-    \ (RMQ)\n */\n\n#include <bits/stdc++.h>\n\n#line 1 \"structure/segment_tree/segment_tree.cpp\"\
+    links: []
+  bundledCode: "#line 1 \"Tests/Local/Data_Structure/segment_tree/display/main.cpp\"\
+    \n#include <bits/stdc++.h>\n\n#line 1 \"structure/segment_tree/segment_tree.cpp\"\
     \n/**\n * @brief Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728, \u4E00\u70B9\
     \u3092\u66F4\u65B0\u30FB\u533A\u9593\u306E\u6F14\u7B97\u7D50\u679C\u3092\u53D6\
     \u5F97)\n * @docs docs/structure/segment_tree/segment_tree.md\n */\n\n#line 1\
@@ -82,34 +75,27 @@ data:
     \ s) {\n    int space = l - s.size();\n    int padRight = space / 2;\n    int\
     \ padLeft = space - padRight;\n    string res = \"\";\n    rep(i, padLeft) res\
     \ += \" \";\n    res += s;\n    rep(i, padRight) res += \" \";\n    return res;\n\
-    \  }\n};\n#line 9 \"Tests/AizuOnlineJudge/DSL_2_A.test.cpp\"\n\nusing namespace\
-    \ std;\n\nint main() {\n  ll n, q;\n  cin >> n >> q;\n  SegmentTree<ll> seg(\n\
-    \    n, [](ll a, ll b) { return min(a, b); }, LLONG_MAX);\n  seg.build(vl(n, (1LL\
-    \ << 31) - 1));\n\n  for (ll i = 0; i < q; i++) {\n    ll com, x, y;\n    cin\
-    \ >> com >> x >> y;\n    if (com == 0) {\n      seg.update(x, y);\n    } else\
-    \ {\n      cout << seg.get(x, y + 1) << endl;\n    }\n  }\n}\n"
-  code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/problems/DSL_2_A\"\n/**\n\
-    \ * @brief \u533A\u9593\u306E\u6700\u5C0F\u5024\u30FB\u4E00\u70B9\u66F4\u65B0\
-    \ Range Minimum Query (RMQ)\n */\n\n#include <bits/stdc++.h>\n\n#include \"../../structure/segment_tree/segment_tree.cpp\"\
-    \n\nusing namespace std;\n\nint main() {\n  ll n, q;\n  cin >> n >> q;\n  SegmentTree<ll>\
-    \ seg(\n    n, [](ll a, ll b) { return min(a, b); }, LLONG_MAX);\n  seg.build(vl(n,\
-    \ (1LL << 31) - 1));\n\n  for (ll i = 0; i < q; i++) {\n    ll com, x, y;\n  \
-    \  cin >> com >> x >> y;\n    if (com == 0) {\n      seg.update(x, y);\n    }\
-    \ else {\n      cout << seg.get(x, y + 1) << endl;\n    }\n  }\n}\n"
+    \  }\n};\n#line 4 \"Tests/Local/Data_Structure/segment_tree/display/main.cpp\"\
+    \n\nusing namespace std;\n\nint main() {\n    int N;\n    cin >> N;\n\n    vi\
+    \ A(N);\n    rep(i, N) cin >> A[i];\n\n    SegmentTree<int> seg(N, [](int a, int\
+    \ b) { return a + b; }, 0);\n    seg.build(A);\n\n    seg.display();\n}\n"
+  code: "#include <bits/stdc++.h>\n\n#include \"../../../../../structure/segment_tree/segment_tree.cpp\"\
+    \n\nusing namespace std;\n\nint main() {\n    int N;\n    cin >> N;\n\n    vi\
+    \ A(N);\n    rep(i, N) cin >> A[i];\n\n    SegmentTree<int> seg(N, [](int a, int\
+    \ b) { return a + b; }, 0);\n    seg.build(A);\n\n    seg.display();\n}\n"
   dependsOn:
   - structure/segment_tree/segment_tree.cpp
   - common/common.cpp
-  isVerificationFile: true
-  path: Tests/AizuOnlineJudge/DSL_2_A.test.cpp
+  isVerificationFile: false
+  path: Tests/Local/Data_Structure/segment_tree/display/main.cpp
   requiredBy: []
   timestamp: '2024-02-11 17:37:02+09:00'
-  verificationStatus: TEST_ACCEPTED
+  verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: Tests/AizuOnlineJudge/DSL_2_A.test.cpp
+documentation_of: Tests/Local/Data_Structure/segment_tree/display/main.cpp
 layout: document
 redirect_from:
-- /verify/Tests/AizuOnlineJudge/DSL_2_A.test.cpp
-- /verify/Tests/AizuOnlineJudge/DSL_2_A.test.cpp.html
-title: "\u533A\u9593\u306E\u6700\u5C0F\u5024\u30FB\u4E00\u70B9\u66F4\u65B0 Range Minimum\
-  \ Query (RMQ)"
+- /library/Tests/Local/Data_Structure/segment_tree/display/main.cpp
+- /library/Tests/Local/Data_Structure/segment_tree/display/main.cpp.html
+title: Tests/Local/Data_Structure/segment_tree/display/main.cpp
 ---
