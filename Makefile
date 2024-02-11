@@ -6,7 +6,7 @@ test-local:
 	python Tests/Local/verifyer/local_test.py
 
 test-oj:
-	oj-verify all
+	oj-verify run
 
 docs:
 	oj-verify docs
