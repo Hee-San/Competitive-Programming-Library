@@ -15,4 +15,7 @@ int main() {
     seg.build(A);
 
     seg.display();
+    cout << endl;
+
+    seg.display(true);
 }

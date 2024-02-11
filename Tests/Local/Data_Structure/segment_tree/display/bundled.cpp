@@ -77,7 +77,7 @@ struct SegmentTree {
     return floor(log2(index));
   }
 
-  void display() {
+  void display(bool showIndex = false) {
     // 最大の桁数
     int digit = 1;
     for (T x : seg) {
@@ -86,16 +86,18 @@ struct SegmentTree {
 
     // 表示用の値を作成
     int depth = getLevel(2 * n);
-    vector<vs> rangeStrs(0), valStrs(0);
+    vector<vs> rangeStrs(0), valStrs(0), indexStrs(0);
     rep(i, depth) {
       auto [start, end] = getIndexRangeOfLevel(i);
-      vs subRangeStrs(0), subValStrs(0);
+      vs subRangeStrs(0), subValStrs(0), subIndexStrs(0);
       rep3(j, start, end) {
         subRangeStrs.push_back(displayNodeRange(j));
         subValStrs.push_back(to_string(seg[j]));
+        subIndexStrs.push_back("[" + to_string(j) + "]");
       }
       rangeStrs.push_back(subRangeStrs);
       valStrs.push_back(subValStrs);
+      indexStrs.push_back(subIndexStrs);
     }
 
     // セルの幅を計算
@@ -105,6 +107,7 @@ struct SegmentTree {
       rep(j, m) {
         cellWidth = max(cellWidth, (int)rangeStrs[i][j].size() * m / n);
         cellWidth = max(cellWidth, (int)valStrs[i][j].size() * m / n);
+        if (showIndex) cellWidth = max(cellWidth, (int)indexStrs[i][j].size() * m / n);
       }
     }
 
@@ -113,6 +116,7 @@ struct SegmentTree {
     int witdh = sepate.size();
     rep(i, depth) {
       cout << sepate << endl;
+      if (showIndex) cout << displayNodes(witdh, indexStrs[i]) << endl;
       cout << displayNodes(witdh, rangeStrs[i]) << endl;
       cout << displayNodes(witdh, valStrs[i]) << endl;
     }
@@ -189,4 +193,7 @@ int main() {
     seg.build(A);
 
     seg.display();
+    cout << endl;
+
+    seg.display(true);
 }
