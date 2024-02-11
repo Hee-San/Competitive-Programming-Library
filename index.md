@@ -1,29 +1,6 @@
 ---
 data:
   libraryCategories:
-  - name: Tests/Local/Common/SampleTest
-    pages:
-    - icon: ':warning:'
-      path: Tests/Local/Common/SampleTest/bundled.cpp
-      title: "\u5171\u901A\u8A2D\u5B9A"
-    - icon: ':warning:'
-      path: Tests/Local/Common/SampleTest/main.cpp
-      title: Tests/Local/Common/SampleTest/main.cpp
-  - name: Tests/Local/Data_Structure/segment_tree/display
-    pages:
-    - icon: ':warning:'
-      path: Tests/Local/Data_Structure/segment_tree/display/bundled.cpp
-      title: "Segment Tree(\u30BB\u30B0\u30E1\u30F3\u30C8\u6728, \u4E00\u70B9\u3092\
-        \u66F4\u65B0\u30FB\u533A\u9593\u306E\u6F14\u7B97\u7D50\u679C\u3092\u53D6\u5F97\
-        )"
-    - icon: ':warning:'
-      path: Tests/Local/Data_Structure/segment_tree/display/main.cpp
-      title: Tests/Local/Data_Structure/segment_tree/display/main.cpp
-  - name: Tests/Local/verifyer
-    pages:
-    - icon: ':warning:'
-      path: Tests/Local/verifyer/local_test.py
-      title: Tests/Local/verifyer/local_test.py
   - name: common
     pages:
     - icon: ':heavy_check_mark:'

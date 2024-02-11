@@ -9,12 +9,12 @@
 ## Verification
 
 ```
-make run
+oj-verify run
 ```
 
 ## Generate docs
 
 ```
-make docs
+oj-verify docs
 ```
  -->

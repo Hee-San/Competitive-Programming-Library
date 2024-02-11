@@ -44,44 +44,7 @@ data:
     \ seg[x];\n  }\n\n  T get(int l, int r) {\n    T left = identity;\n    T right\
     \ = identity;\n    for (l += n, r += n; l < r; l /= 2, r /= 2) {\n      if (l\
     \ % 2) left = function(left, seg[l++]);\n      if (r % 2) right = function(seg[--r],\
-    \ right);\n    }\n    return function(left, right);\n  }\n\n  int getLevel(int\
-    \ index) {\n    return floor(log2(index));\n  }\n\n  void display() {\n    //\
-    \ \u6700\u5927\u306E\u6841\u6570\n    int digit = 1;\n    for (T x : seg) {\n\
-    \      digit = max(digit, (int)to_string(x).size());\n    }\n\n    // \u8868\u793A\
-    \u7528\u306E\u5024\u3092\u4F5C\u6210\n    int depth = getLevel(2 * n);\n    vector<vs>\
-    \ rangeStrs(0), valStrs(0);\n    rep(i, depth) {\n      auto [start, end] = getIndexRangeOfLevel(i);\n\
-    \      vs subRangeStrs(0), subValStrs(0);\n      rep3(j, start, end) {\n     \
-    \   subRangeStrs.push_back(displayNodeRange(j));\n        subValStrs.push_back(to_string(seg[j]));\n\
-    \      }\n      rangeStrs.push_back(subRangeStrs);\n      valStrs.push_back(subValStrs);\n\
-    \    }\n\n    // \u30BB\u30EB\u306E\u5E45\u3092\u8A08\u7B97\n    int cellWidth\
-    \ = 0;\n    rep(i, depth) {\n      int m = rangeStrs[i].size();\n      rep(j,\
-    \ m) {\n        cellWidth = max(cellWidth, (int)rangeStrs[i][j].size() * m / n);\n\
-    \        cellWidth = max(cellWidth, (int)valStrs[i][j].size() * m / n);\n    \
-    \  }\n    }\n\n    // \u8868\u793A\n    string sepate = displaySepate(cellWidth);\n\
-    \    int witdh = sepate.size();\n    rep(i, depth) {\n      cout << sepate <<\
-    \ endl;\n      cout << displayNodes(witdh, rangeStrs[i]) << endl;\n      cout\
-    \ << displayNodes(witdh, valStrs[i]) << endl;\n    }\n    cout << sepate << endl;\n\
-    \  }\n\nprivate:\n  pair<int, int> getIndexRangeOfLevel(int level) {\n    int\
-    \ start = pow(2, level);\n    int end = start * 2;\n    return make_pair(start,\
-    \ end);\n  }\n\n  pair<int, int> getValRangeOfNode(int index) {\n    int level\
-    \ = getLevel(index);\n    int levelStart = pow(2, level);\n    int indexInLevel\
-    \ = index - levelStart;\n    int rangeSize = n / pow(2, level);\n    int start\
-    \ = indexInLevel * rangeSize;\n    int end = start + rangeSize;\n    return make_pair(start,\
-    \ end);\n  }\n\n  string displaySepate(int cellWidth) {\n    string res = \"|\"\
-    ;\n    rep(i, n) {\n      rep(j, cellWidth) res += \"-\";\n      if (i != n -\
-    \ 1) res += \"-\";\n    }\n    res += \"|\";\n    return res;\n  }\n\n  string\
-    \ displayNodes(int witdh, vector<string> nodes) {\n    string res = \"|\";\n \
-    \   int cellWidth = (witdh - 1) / nodes.size() - 1;\n    rep(i, nodes.size())\
-    \ {\n      res += displayCenter(cellWidth, nodes[i]);\n      res += \"|\";\n \
-    \   }\n    return res;\n  }\n\n  string displayNodeRange(int index) {\n    if\
-    \ (index == 0) return \"\"; // 0\u756A\u76EE\u306E\u30CE\u30FC\u30C9\u306F\u5B58\
-    \u5728\u3057\u306A\u3044\n    auto [start, end] = getValRangeOfNode(index);\n\
-    \    if (start + 1 == end) return to_string(start);\n    return \"[\" + to_string(start)\
-    \ + \",\" + to_string(end) + \")\";\n  }\n\n  string displayCenter(int l, string\
-    \ s) {\n    int space = l - s.size();\n    int padRight = space / 2;\n    int\
-    \ padLeft = space - padRight;\n    string res = \"\";\n    rep(i, padLeft) res\
-    \ += \" \";\n    res += s;\n    rep(i, padRight) res += \" \";\n    return res;\n\
-    \  }\n};\n#line 9 \"Tests/LibraryChecker/Data_Structure/point_set_range_composite.test.cpp\"\
+    \ right);\n    }\n    return function(left, right);\n  }\n};\n#line 9 \"Tests/LibraryChecker/Data_Structure/point_set_range_composite.test.cpp\"\
     \n\nusing namespace std;\ntypedef pair<ll, ll> pl;\ntypedef vector<pl> vpl;\n\n\
     ll MOD = 998244353;\n\nint main() {\n  ll N, Q;\n  cin >> N >> Q;\n\n  SegmentTree<pl>\
     \ seg(\n    N,\n    [](pl a, pl b) {\n      return pl{ (a.first * b.first) % MOD,\n\
@@ -111,7 +74,7 @@ data:
   isVerificationFile: true
   path: Tests/LibraryChecker/Data_Structure/point_set_range_composite.test.cpp
   requiredBy: []
-  timestamp: '2024-02-11 17:37:02+09:00'
+  timestamp: '2023-08-26 20:40:45+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: Tests/LibraryChecker/Data_Structure/point_set_range_composite.test.cpp

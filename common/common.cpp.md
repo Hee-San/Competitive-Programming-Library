@@ -3,12 +3,6 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy:
   - icon: ':warning:'
-    path: Tests/Local/Common/SampleTest/main.cpp
-    title: Tests/Local/Common/SampleTest/main.cpp
-  - icon: ':warning:'
-    path: Tests/Local/Data_Structure/segment_tree/display/main.cpp
-    title: Tests/Local/Data_Structure/segment_tree/display/main.cpp
-  - icon: ':warning:'
     path: graph/01-bfs.cpp
     title: 01-BFS
   - icon: ':heavy_check_mark:'
@@ -82,8 +76,6 @@ data:
   - graph/bfs.cpp
   - graph/dijkstra.cpp
   - graph/01-bfs.cpp
-  - Tests/Local/Common/SampleTest/main.cpp
-  - Tests/Local/Data_Structure/segment_tree/display/main.cpp
   timestamp: '2023-08-26 20:40:45+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
