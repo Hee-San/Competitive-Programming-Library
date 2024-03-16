@@ -5,7 +5,8 @@
 
 #include <bits/stdc++.h>
 
-#include "../../../structure/segment_tree/segment_tree_v1.cpp"
+#include "../../../structure/segment_tree/segment_tree.hpp"
+#include "../../../monoids/min.hpp"
 
 using namespace std;
 
@@ -16,13 +17,11 @@ int main() {
   vi A(N);
   rep(i, N) cin >> A[i];
 
-  SegmentTree<int> seg(
-    N, [](int a, int b) { return min(a, b); }, INT_MAX);
-  seg.build(A);
+  segment_tree<min_monoid<int>> seg(A);
 
   rep(i, Q) {
     ll l, r;
     cin >> l >> r;
-    cout << seg.get(l, r) << endl;
+    cout << seg.range_get(l, r) << endl;
   }
 }
