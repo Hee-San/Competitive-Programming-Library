@@ -114,4 +114,34 @@ struct segment_tree {
         assert(0 <= i && i < n); // i は [0, n) の範囲
         return dat[i + leaf_size];
     }
+
+    /**
+     * @brief セグメント木を可視化する
+     * @note デバッグ用
+     * @note $O(n)$
+     * @note 以下のように出力される
+     * @note _0:_|____________________343|
+     * @note _1:_|________189|________154|
+     * @note _2:_|__140|___49|___91|___63|
+     * @note _3:_|60|80|24|25|19|72|25|38|
+    */
+    void visualize_for_debug() {
+        int h = 0; // 木の高さ
+        while ((1 << h) < 2 * leaf_size) ++h;
+
+        int max_val_width = 0;
+        for (value_type v : dat) {
+            max_val_width = max(max_val_width, (int)to_string(v).size() + 1);
+        }
+
+        for (int i = 0; i < h; ++i) {
+            cout << setw(2) << i << ": |";
+            int cell_width = (1 << (h - i - 1));
+            for (int j = 0; j < (1 << i); ++j) {
+                cout << setw(max_val_width * cell_width - 1) << dat[(1 << i) + j] << "|";
+            }
+            cout << endl;
+        }
+        cout << endl;
+    }
 };
