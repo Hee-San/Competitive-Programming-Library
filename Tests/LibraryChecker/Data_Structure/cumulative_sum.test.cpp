@@ -1,13 +1,11 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/static_range_sum"
 /**
- * @brief 区間和
+ * @brief 区間和、累積和を使ったテスト
  */
 
 #include <bits/stdc++.h>
 
-
-#include "../../../structure/segment_tree/segment_tree.hpp"
-#include "../../../monoids/plus.hpp"
+#include "../../../structure/cumulative_sum.cpp"
 
 using namespace std;
 
@@ -16,13 +14,15 @@ int main() {
   cin >> N >> Q;
 
   vl A(N);
-  for (ll i = 0; i < N; i++) cin >> A[i];
+  for (ll i = 0; i < N; i++) {
+    cin >> A[i];
+  }
 
-  segment_tree<plus_monoid<ll>> seg(A);
+  CumulativeSum<ll> sumA(A);
 
   for (ll i = 0; i < Q; i++) {
     ll l, r;
     cin >> l >> r;
-    cout << seg.range_get(l, r) << endl;
+    cout << sumA.get(l, r) << endl;
   }
 }

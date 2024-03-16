@@ -1,6 +1,6 @@
-#define PROBLEM "https://judge.yosupo.jp/problem/static_range_sum"
+#define PROBLEM "https://judge.yosupo.jp/problem/point_add_range_sum"
 /**
- * @brief 区間和
+ * @brief 一点加算区間和
  */
 
 #include <bits/stdc++.h>
@@ -21,8 +21,16 @@ int main() {
   segment_tree<plus_monoid<ll>> seg(A);
 
   for (ll i = 0; i < Q; i++) {
-    ll l, r;
-    cin >> l >> r;
-    cout << seg.range_get(l, r) << endl;
+    int q;
+    cin >> q;
+    if (q == 0) {
+      ll p, x;
+      cin >> p >> x;
+      seg.point_set(p, seg.point_get(p) + x);
+    } else {
+      ll l, r;
+      cin >> l >> r;
+      cout << seg.range_get(l, r) << endl;
+    }
   }
 }
