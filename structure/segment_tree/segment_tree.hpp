@@ -2,9 +2,10 @@
 using namespace std;
 
 /**
- * @brief Segment Tree / セグメント木 (monoids, 完全二分木, 一点更新, 区間取得)
+ * @brief Segment Tree / セグメント木 (monoids, 完全二分木, 一点代入, 区間取得)
+ * @brief 一点代入時に、即座に関係する積を更新する
  * @docs docs/structure/segment_tree/segment_tree.md
- * @tparam Monoid (可換でなくてOK)
+ * @tparam Monoid 値と、それに対する操作を定義するモノイド
  */
 template <class Monoid>
 struct segment_tree {
@@ -14,11 +15,11 @@ struct segment_tree {
     int leaf_size; // 葉の数
     /**
      * @brief 完全二分木の配列
-     * dat[0] は使わない
+     * tree[0] は使わない
      * 2 * leaf_size がノード数
      * [leaf_size, 2 * leaf_size) が葉
     */
-    vector<value_type> dat;
+    vector<value_type> tree;
 
     /**
      * @brief n 要素の配列を持つセグメント木を構築する
@@ -29,7 +30,7 @@ struct segment_tree {
     explicit segment_tree(const int n_, const Monoid& mon_ = Monoid()) : mon(mon_), n(n_) {
         leaf_size = 1;
         while (leaf_size < n) leaf_size <<= 1; // n 以上の最小の 2 冪
-        dat.assign(2 * leaf_size, mon.unit());
+        tree.assign(2 * leaf_size, mon.unit());
     }
 
     /**
@@ -41,45 +42,46 @@ struct segment_tree {
     explicit segment_tree(const vector<value_type>& vec, const Monoid& mon_ = Monoid()) : mon(mon_), n(vec.size()) {
         leaf_size = 1;
         while (leaf_size < n) leaf_size <<= 1; // n 以上の最小の 2 冪
-        dat.assign(2 * leaf_size, mon.unit());
-        for (int i = 0; i < n; ++i) dat[i + leaf_size] = vec[i];
+        tree.assign(2 * leaf_size, mon.unit());
+        for (int i = 0; i < n; ++i) tree[i + leaf_size] = vec[i];
         build();
     }
 
     /**
-     * @brief 木の更新をせずに、i 番目の要素を x に更新する
-     * @param i 更新する要素のインデックス
-     * @param x 更新後の値
+     * @brief 積を計算をせずに、i 番目の要素を x に代入する
+     * @param i 代入する要素のインデックス
+     * @param x 代入後の値
      * @note $O(1)$
     */
     void unsafe_set(int i, const value_type& x) {
         assert(0 <= i && i < n); // i は [0, n) の範囲
-        dat[i + leaf_size] = x;
+        tree[i + leaf_size] = x;
     }
 
     /**
-     * @brief 葉以外のノードを更新する
+     * @brief 葉以外のノードで積を計算する
      * @note $O(n)$
     */
     void build() {
         for (int i = leaf_size - 1; i > 0; --i) {
-            dat[i] = mon.mult(dat[2 * i], dat[2 * i + 1]);
+            tree[i] = mon.mult(tree[2 * i], tree[2 * i + 1]);
         }
     }
 
     /**
-     * @brief i 番目の要素を x に更新し、根に向かって更新する
-     * @param x 更新後の値
+     * @brief i 番目の要素に x を代入し、積を再計算する
+     * @param x 代入後の値
      * @note $O(\log n)$
      */
     void point_set(int i, const value_type& x) {
         assert(0 <= i && i < n); // i は [0, n) の範囲
-        int index = i + leaf_size; // dat 上での位置
-        // 葉から根に向かって更新
-        dat[index] = x;
+        int index = i + leaf_size; // tree 上での位置
+        // 葉に代入
+        tree[index] = x;
+        // 葉から根に向かって積を計算
         while (index > 1) {
             index /= 2;
-            dat[index] = mon.mult(dat[2 * index], dat[2 * index + 1]);
+            tree[index] = mon.mult(tree[2 * index], tree[2 * index + 1]);
         }
     }
 
@@ -93,11 +95,11 @@ struct segment_tree {
     value_type range_get(int l, int r) {
         assert(0 <= l && l <= r && r <= n); // [l, r) は [0, n) の部分区間
         value_type res_l = mon.unit(), res_r = mon.unit();
-        int index_l = l + leaf_size; // dat 上での左端
-        int index_r = r + leaf_size; // dat 上での右端
+        int index_l = l + leaf_size; // tree 上での左端
+        int index_r = r + leaf_size; // tree 上での右端
         while (index_l < index_r) {
-            if (index_l & 1) res_l = mon.mult(res_l, dat[index_l++]); // 左端が右の子の場合、積を更新してから右に移動
-            if (index_r & 1) res_r = mon.mult(dat[--index_r], res_r); // 右端が右の子の場合、積を更新してから左に移動
+            if (index_l & 1) res_l = mon.mult(res_l, tree[index_l++]); // 左端が右の子の場合、積を更新してから右に移動
+            if (index_r & 1) res_r = mon.mult(tree[--index_r], res_r); // 右端が右の子の場合、積を更新してから左に移動
             index_l /= 2;
             index_r /= 2;
         }
@@ -112,7 +114,7 @@ struct segment_tree {
      */
     value_type point_get(int i) {
         assert(0 <= i && i < n); // i は [0, n) の範囲
-        return dat[i + leaf_size];
+        return tree[i + leaf_size];
     }
 
     /**
@@ -130,7 +132,7 @@ struct segment_tree {
         while ((1 << h) < 2 * leaf_size) ++h;
 
         int max_val_width = 0;
-        for (value_type v : dat) {
+        for (value_type v : tree) {
             max_val_width = max(max_val_width, (int)to_string(v).size() + 1);
         }
 
@@ -138,7 +140,7 @@ struct segment_tree {
             cout << setw(2) << i << ": |";
             int cell_width = (1 << (h - i - 1));
             for (int j = 0; j < (1 << i); ++j) {
-                cout << setw(max_val_width * cell_width - 1) << dat[(1 << i) + j] << "|";
+                cout << setw(max_val_width * cell_width - 1) << tree[(1 << i) + j] << "|";
             }
             cout << endl;
         }
