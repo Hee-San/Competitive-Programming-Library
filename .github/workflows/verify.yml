@@ -28,3 +28,6 @@ jobs:
         GH_PAT: ${{ secrets.GH_PAT }}
         DROPBOX_TOKEN: ${{ secrets.DROPBOX_TOKEN }}
       run: make test-oj
+
+    - name: Update docs
+      run: make docs
